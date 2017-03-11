@@ -1,0 +1,155 @@
+body
+    {
+        background-color:#FEF6F3;
+        margin:0;
+        padding:0;
+    }
+    .container
+    {
+        position: relative;
+        top:33px;
+        margin:20px auto;
+        width: 80%;
+    }
+    .content
+    {
+        background-color: #FFFFFF;
+        box-shadow: 2px 2px 3px #888888;
+        padding: 29px;
+        position: relative;
+        margin: 0;    
+        margin-top: 30px;
+
+    }
+    p {
+        text-indent: 2em;
+        font-style: 
+        font-size:14px;
+        line-height: 24px;
+    }
+    ul.nav
+    {
+        list-style-type:none;
+        position: relative;
+        margin:0 auto;
+        padding: 0px;
+        width: 90%
+    }
+    ul.nav li
+    {
+        float:left;
+    }
+    ul.nav a:link,a:visited
+    {
+        display: block;
+        width:100px;
+        background-color:#0B98FB;
+        text-decoration: none;
+        text-align: center;
+        padding: 6px;
+    }
+    ul.nav a:hover,a:active
+    {
+        background-color: #3E68F9;
+    }
+    div.nav
+    {
+        position: fixed;
+        top:0px;
+        left: 0px;
+        z-index:20;
+        background-color: #0B98FB;
+        width: 100%;
+        height: 33px;
+        padding: 0px;
+    }
+    a
+    {
+        text-decoration: none;
+        color: #B6AEFF;
+    }
+    dl
+    {
+        width: 500px;
+    }
+    dt
+    {
+        float:left;
+        width: 200px;
+    }
+    sup{font-size:7px;}
+    table
+    {
+        border-collapse:collapse;
+    }
+    td,th
+    {
+        border: 1px solid silver;
+        padding: 5px;
+        text-align: center;
+        font-size: 0.6em;
+    }
+    th
+    {
+        font-size: 1em;
+        background-color: #4C4C4C;
+        color: #ffffff;
+    }
+    tr.alt td
+    {
+        color:#000000;
+        background-color:#D1CECE;
+    }
+    form
+    {
+        display: table;
+        margin:0 auto;
+    }
+    form div
+    {
+        display: table-row;
+    }
+    form label,form input{
+        display: table-cell;
+        margin-bottom: 10px;
+    }
+    form label{
+        width: 200px;
+        text-align: right;
+    }
+    form input{
+        width: 200px;
+    }
+    #radio{
+        width:25px;
+    }
+    form p{
+        display: table-caption;
+        width: 300px;
+        color: #999;
+        font-style: italic;
+        margin:0px;
+    }
+    .submit{
+         width:100%;
+         text-align:center;
+         border:2px solid #a1a1a1;
+         padding:10px 40px; 
+         border-radius:10px;
+         color: #FFFFFF;
+         background-color: #41B5FA;"
+    }
+    .submit:hover{
+        background-color: #0919AC;
+    }
+    footer
+    {
+        background-color: #0B98FB;
+        color: white;
+        width:100%;
+        height: 25px;
+        position: relative;
+        left: 0;
+        top:20px;
+        text-align: center;
+    }
