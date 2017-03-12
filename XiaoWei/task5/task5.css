@@ -2,14 +2,14 @@ body
     {
         background-color:#FEF6F3;
         margin:0;
-        padding:0;
+        padding:25px;
     }
     .container
     {
         position: relative;
-        top:33px;
-        margin:20px auto;
-        width: 80%;
+        margin:0 auto;
+        width: 65%;
+        float:left;
     }
     .content
     {
@@ -139,8 +139,16 @@ body
          color: #FFFFFF;
          background-color: #41B5FA;"
     }
-    .submit:hover{
+    .submit:hover {
         background-color: #0919AC;
+    }
+    .sidebar {
+        float:right;
+        width: 400px;
+        background-color: #FFFFFF;
+        box-shadow: 2px 2px 3px #888888;
+        padding: 29px;
+        margin-top: 30px;
     }
     footer
     {
@@ -148,8 +156,8 @@ body
         color: white;
         width:100%;
         height: 25px;
+        text-align: center;
         position: relative;
         left: 0;
-        top:20px;
-        text-align: center;
+        bottom: 0;
     }
