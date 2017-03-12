@@ -2,9 +2,12 @@ body
     {
         background-color:#FEF6F3;
         margin:0;
+        padding:0;
+    }
+    .container {
         padding:25px;
     }
-    .container
+    .main_wrapper
     {
         position: relative;
         margin:0 auto;
@@ -130,14 +133,14 @@ body
         font-style: italic;
         margin:0px;
     }
-    .submit{
+    .submit {
          width:100%;
          text-align:center;
-         border:2px solid #a1a1a1;
          padding:10px 40px; 
          border-radius:10px;
          color: #FFFFFF;
-         background-color: #41B5FA;"
+         background-color: #41B5FA;
+         margin: 0 auto;
     }
     .submit:hover {
         background-color: #0919AC;
@@ -149,15 +152,4 @@ body
         box-shadow: 2px 2px 3px #888888;
         padding: 29px;
         margin-top: 30px;
-    }
-    footer
-    {
-        background-color: #0B98FB;
-        color: white;
-        width:100%;
-        height: 25px;
-        text-align: center;
-        position: relative;
-        left: 0;
-        bottom: 0;
     }
