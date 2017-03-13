@@ -20,6 +20,7 @@ body {
 		-o-box-pack:center;
 		-ms-box-pack:center;
 }
+
 header,section,footer,aside,nav,article,label {
 	display: block;
 }
@@ -68,12 +69,12 @@ nav {
 nav ul {
         list-style-type:none;
         position: relative;
-    }
+}
 
 nav li {
         float:left;
         width:12.5%;
-    }
+}
 
 nav a:link,a:visited {
         display: block;
@@ -81,11 +82,11 @@ nav a:link,a:visited {
         text-decoration: none;
         text-align: center;
         padding: 6px;
-    }
+}
 
 nav a:hover,a:active {
         background-color: #3E68F9;
-    }
+}
 
 #logo img  {
 	float: left;
@@ -119,13 +120,15 @@ a{
         text-decoration: none;
         color: #B6AEFF;
 }
+
 dl{
         width: 500px;
 }
+
 dt{
         float:left;
         width: 200px;
-    }
+}
 
 sup{font-size:7px;}
 
@@ -145,6 +148,7 @@ th{
         background-color: #4C4C4C;
         color: #ffffff;
 }
+
 tr.alt td{
         color:#000000;
         background-color:#D1CECE;
@@ -171,6 +175,7 @@ form {
 	text-align: left;
 	border: 0;
 }
+
 td.title {
 	text-align: right;
 	width: 100px;
@@ -185,6 +190,7 @@ td.title {
 .space {
 	padding-left: 100px;
 }
+
 .submit {
          width:100%;
          text-align:center;
