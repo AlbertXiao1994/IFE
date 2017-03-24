@@ -1,0 +1,14 @@
+* {
+	margin:0;
+	padding: 0;
+}
+
+body {
+	background: #000;
+	overflow: auto;
+}
+.container {
+	width: 1280px;
+	height: 4554px;
+	margin: 0 auto;
+}
