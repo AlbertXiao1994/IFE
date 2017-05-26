@@ -4,54 +4,49 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: #fff;
-}
-
-.grid-container {     
-        background: #fff;
+.container {     
         padding: 10px;
+        border: : 1px solid #999; 
     }
 
     /*-- our cleafix hack -- */ 
     .row:before, 
     .row:after {
-        content:"";
+        content: "";
         display: table ;
-        clear:both;
+        clear: both;
     }
 
-    [class*='col-'] {
+    .col {
         float: left; 
-        height: 70px;  
-        /*-- our gutter -- */
+        height: 50px;  
         background-color: #eee;
-        outline: 1px solid #999; 
+        border: : 1px solid #999; 
         margin: 10px;
     }
 
-    .outline {
-        outline: 1px solid #999; 
+    @media only screen and (min-width:769px){
+        .col-md-1{ 
+            width: 33.33%;    
+        }
+        .col-md-2{ 
+            width: 50%;       
+        }
+        .col-md-3{ 
+            width: 83.33%;    
+        }
+        .col-md-4{ 
+            width: calc(33.333% - 20px);    
+        }
+        .col-md-5{ 
+            width: 100%;    
+        }
+        .col-md-6{ 
+            width: 100%;      
+        }
     }
 
-    @media all and (min-width:768px){
-        .col-1{ width: 33.33%;    }
-        .col-2{ width: 50%;        }
-        .col-3{ width: 83.33%;    }
-        .col-4{ width: 33.33%;    }
-        .col-5{ width: 100%;    }
-        .col-6{ width: 100%;      }
-
-        .row .col-2:last-of-type{
-            width: 100%; 
-        }
-
-        .row .col-5 ~ .col-1{
-            width: 100%; 
-        }
-    }
-
-     @media all and (max-width:768px){
+     @media only screen and (max-width:768px){
         .col-1{ width: 50%;        }
         .col-2{ width: 100%;    }
         .col-3{ width: 100%;    }
