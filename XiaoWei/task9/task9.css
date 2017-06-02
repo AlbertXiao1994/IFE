@@ -1,0 +1,103 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	width: 100%;
+	background-color: #000;
+}
+
+.nav {
+	background-color: #2189bf;
+	width: 100%;
+	height: 56px;
+}
+
+.nav_left_logo {
+	width: 36px;
+	height: 36px;
+	position: absolute;
+	left: 50px;
+	top: 10px;
+}
+
+.nav_searchbox {
+	position: absolute;
+	right: 250px;
+	top:14px;
+	width: 285px;
+	height: 28px;
+}
+
+.nav_searchbox input {
+	width: 285px;
+	height: 28px;
+	position: absolute;
+	padding-left: 25px;
+	left: 0px;
+	top: 0;
+	z-index: 2;
+	outline: none;
+	border: 0;
+	background: url(img/2.png) #fff no-repeat;
+	background-position: center left;
+}
+
+.nav_searchbox:before {
+	content: "";
+	position: absolute;
+	left: -14px;
+	top: 0;
+	z-index: 1;
+	border: 14px solid #fff;
+	border-radius: 50%;
+}
+
+.nav_searchbox:after {
+	content: "";
+	position: absolute;
+	right: -14px;
+	top: 0;
+	z-index: 1;
+	border: 14px solid #fff;
+	border-radius: 50%;
+}
+
+.nav_login {
+	position: absolute;
+	right: 180px;
+	top: 16px;
+}
+
+.nav_login button {
+	color: #fff;
+	background: url(img/3.png) no-repeat;
+	background-position: center left;
+	font-size: 12px;
+	font-family: "黑体";
+	border: 0;
+	cursor: pointer;
+	padding: 1px 0 1px 18px;
+}
+
+.main {
+	width: 1280px;
+	height: 1213px;
+	margin: 0 auto;
+}
+
+.main_left {
+	float: left;
+	width: 260px;
+	height: 1213px;
+	background-color: #2a2e3d;
+}
+
+.main_right {
+	float: right;
+	width: 1020px;
+	height: 1213px;
+	background-color: #fff;
+}
