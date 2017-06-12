@@ -27,12 +27,20 @@
 	position: absolute;
 	right: 250px;
 	top:14px;
-	width: 285px;
+	width: 200px;
 	height: 28px;
+	transition: width 1s;
+	-moz-transition:width 1s; /* Firefox 4 */
+	-webkit-transition:width 1s; /* Safari and Chrome */
+	-o-transition:width 1s; /* Opera */
+}
+
+.nav_searchbox:hover {
+	width: 285px;
 }
 
 .nav_searchbox input {
-	width: 285px;
+	width: 100%;
 	height: 28px;
 	position: absolute;
 	padding-left: 25px;
@@ -93,6 +101,7 @@
 	width: 260px;
 	height: 1213px;
 	background-color: #2a2e3d;
+	position: absolute;
 }
 
 .main_right {
@@ -100,4 +109,91 @@
 	width: 1020px;
 	height: 1213px;
 	background-color: #fff;
+}
+
+.usermessage {
+	width: 100%;
+	height: 152px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.headportrait {
+	width: 46px;
+	height: 46px;
+	position: absolute;
+	left: 51px;
+	top: 23px;
+	border-radius: 50%;
+	background: url(img/hp.jpg) no-repeat;
+	background-position: center;
+	transition: transform 2s ease-out;
+	-webkit-transition: transform 2s ease-out;
+}
+
+.headportrait:hover {
+	cursor: pointer;
+	transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+  	-ms-transform: rotate(360deg);
+}
+
+.headportrait:after {
+	content: "";
+	position: absolute;
+	left: -5px;
+	top: -5px;
+	width: 54px;
+	height: 54px;
+	border: 1px solid #b9babe;
+	border-radius: 50%;
+}
+
+.usermessage >span {
+	display: inline-block;
+	font-family: "黑体";
+	font-size: 16px;
+	color: #fff;
+	padding-left: 120px;
+	padding-top: 38px;
+}
+
+.collect-fans {
+	position: absolute;
+	top: 100px;
+	left: 62px;
+	width: 110px;
+	height: 16px;
+}
+
+.collect {
+	width: 50%;
+	border-right: 1px solid #6e8095;
+	float: left;
+
+}
+
+.fans {
+	float: right;
+	width: 50%;
+}
+
+.collect-fans span {
+	display: block;
+	font-family: "黑体";
+	font-size: 16px;
+	text-align: center;
+	color: #6e8095;
+}
+
+.collect-fans a {
+	text-decoration: none;
+}
+
+.userlists {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 149px;
 }
