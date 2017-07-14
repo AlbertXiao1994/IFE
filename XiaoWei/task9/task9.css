@@ -280,6 +280,7 @@ li.parents:hover {
 	background-color: #fff;
 	padding: 15px 30px;
 	position: relative;
+	border: 1px solid #ddd;
 }
 
 .right_search label {
@@ -313,7 +314,7 @@ li.parents:hover {
 }
 
 .query_item select {
-	width: 70px;
+	width: 75px;
 }
 
 .sell_buy {
@@ -354,7 +355,7 @@ li.parents:hover {
 .other_line1 {
 	position: absolute;
 	top: 0;
-	width: 300px;
+	width: 400px;
 }
 
 .other_line2 {
@@ -419,4 +420,498 @@ li.parents:hover {
 	font-size: 15px;
 	align-items: center;
 	cursor: pointer;
+}
+
+.search_history {
+	width: 890px;
+	height: 65px;
+	margin: 10px auto;
+	position: relative;
+}
+
+.time_money {
+	width: 83%;
+	height: 100%;
+	float: left;
+}
+
+.time_money:before {
+	content: " ";
+	float: left;
+	width: 31px;
+	height: 100%;
+	background: url(img/上一条.png) no-repeat center;
+	background-color: #fff;
+	margin-right: 4px;
+	border: 1px solid #ddd;
+	cursor: pointer;
+}
+
+.time_money:after {
+	content: " ";
+	float: left;
+	width: 31px;
+	height: 100%;
+	background: url(img/下一条.png) no-repeat center;
+	background-color: #fff;
+	margin-right: 4px;
+	border: 1px solid #ddd;
+	cursor: pointer;
+}
+
+.time_money li {
+	display: inline-block;
+	float: left;
+	margin-right: 4px;
+	width: 14.4%;
+	height: 65px;
+	background: #fff;
+	border: 1px solid #ddd;
+}
+
+.time_money li:hover {
+	cursor: pointer;
+	border-top: 3px solid #4388c8;
+}
+
+.time_money li p:first-child {
+	font-size: 12px;
+	font-family: "微软雅黑";
+	color: #323333;
+	margin:10px 0;
+	text-align: center;
+}
+
+.time_money li p {
+	font-size: 12px;
+	font-family: "微软雅黑";
+	color: #aaa;
+	text-align: center;
+}
+
+.time_money li span {
+	font-size: 21px;
+	font-family: "微软雅黑";
+	color: #ec6500;
+	text-align: center;
+}
+
+.btn_HisSrh {
+	float: right;
+	width: 17%;
+	height: 100%;
+	border: 1px solid #ddd;
+	background: #fff;
+	padding: 6px;
+}
+
+.btn_HisSrh button {
+	width: 100%;
+	height: 100%;
+	border: none;
+	background: #fff;
+	background: url(img/历史查询.png) no-repeat 10%;
+	cursor: pointer;
+}
+
+.btn_HisSrh span {
+	color: #323333;
+	margin-left: 20px;
+}
+
+.statistics {
+	width: 890px;
+	height: 71px;
+	margin: 10px auto;
+	position: relative;
+	margin-top: 30px;
+}
+
+.statistics:before {
+	content: "2016年4月份统计";
+	position: relative;
+	top: -20px;
+	color: #323333;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+
+.statistics ul {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+}
+
+.statistics li {
+	border: 1px solid #ddd;
+	margin-right: 29px;
+	list-style: none;
+	width: 200px;
+	height: 100%;
+	display: inline-bl9ck;
+	float: left;
+	background: #fff;
+	position: relative;
+}
+
+.statistics li:before {
+	content: " ";
+	width: 3px;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.statistics li:nth-child(4) {
+	margin-right: 0px;
+}
+
+.statistics ul li:nth-child(1):before {
+	background: #43b29e;
+}
+
+.statistics ul li:nth-child(2):before {
+	background: #388ac1;
+}
+
+.statistics ul li:nth-child(3):before {
+	background: #d04a36;
+}
+
+.statistics ul li:nth-child(4):before {
+	background: #e2cd46;
+}
+
+.statistics li:after {
+	content: " ";
+	width: 59px;
+	height: 47px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.statistics ul li:nth-child(1):after {
+	background: #43b29e;
+}
+
+.statistics ul li:nth-child(2):after {
+	background: #388ac1;
+}
+
+.statistics ul li:nth-child(3):after {
+	background: #d04a36;
+}
+
+.statistics ul li:nth-child(4):after {
+	background: #e2cd46;
+}
+
+.statistics p:first-child {
+	color: #323333;
+	font-size: 12px;
+	font-family: "黑体";
+	margin-top: 15px;
+}
+
+.statistics p {
+	color: #aaa;
+	font-size: 12px;
+	font-family: "黑体";
+	line-height: 20px;
+	margin-left: 20px;
+}
+
+.first_items {
+	width: 890px;
+	height: 356px;
+	position: relative;
+	margin: 10px auto;
+}
+
+.FI_left {
+	width: 65%;
+	height: 100%;
+	float: left;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 15px;
+	position: relative;
+}
+
+.FI_right {
+	width: 34%;
+	height: 100%;
+	float: right;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 15px;
+}
+
+.FI_left p {
+	font-family: "黑体";
+	font-size: 12px;
+	color: #aaaaaa;
+	background: #f3f5f6; 
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 20px;
+	border-bottom: 1px solid #ddd;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.FI_right p {
+	font-family: "黑体";
+	font-size: 12px;
+	color: #aaaaaa;
+	background: #f3f5f6; 
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 20px;
+	border-bottom: 1px solid #ddd;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.TabControl {
+	width: 100%;
+	height: 316px;
+	padding: 10px 20px;
+	position: relative;
+}
+
+.tabpage {
+	width: 100px;
+	height: 36px;
+	float: left;
+	margin-right: 3px;
+}
+
+.tab_radio {
+	border: none;
+}
+
+.tab_label {
+	width: 100%;
+	height: 100%;
+	background: #ededf0;
+	color: #535353;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	cursor: pointer;
+	display: block;
+	text-align: center;
+	padding-top: 8px;
+}
+
+input[type="radio" i] {
+	-webkit-appearance: radio;
+}
+
+.tabpage input {
+	display: none;
+}
+
+.tab_content {
+	position: absolute;
+  	left: -999em;
+}
+
+.tab_radio:checked ~ .tab_label {
+	z-index: 1;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-bottom: 1px solid #fff;
+}
+
+.tab_radio:checked ~ .tab_content {
+	padding: 20px;
+	width: 536px;
+	height: 296;
+	border: 1px solid #ddd;
+	left: 20px;
+	top: 45px;
+}
+
+.tab_content table {
+	width: 100%;
+	height: 100%;
+	border-collapse: collapse;
+	border-color: grey;
+	display: table;
+}
+
+.tab_content tbody {
+	vertical-align: middle;
+	display: table-row-group;
+}
+
+.tab_content td {
+	border: 1px solid #d2d2d2;
+	height: 34px;
+	display: table-cell;
+	text-align: center;
+	color: #535353;
+	font-size: 12px;
+	font-family: "宋体";
+}
+
+.tab_content td:hover {
+	background: #f3f5f6;
+}
+
+.FI_right form {
+	width: 230px;
+	height: 80%;
+	margin: 0 auto;
+	display: block;
+}
+
+.FI_right fieldset {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.FI_right label {
+	font-size: 12px;
+	font-family: "微软雅黑";
+	color: #c3c2c2;
+}
+
+.FI_right input,textarea {
+	border: none;
+	width: 100%;
+	padding: 10px;
+	font: 12px "微软雅黑";
+	color: #535353;
+}
+
+.FI_right textarea {
+	resize: none;
+	height: 70%;
+}
+
+.title {
+	border-bottom: 1px solid #ddd;
+	margin-top: 10px;
+}
+
+.price {
+	width: 40%;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	float: left;
+}
+
+.manager {
+	width: 60%;
+	border-bottom: 1px solid #ddd;
+	float: left;
+}
+
+.detail {
+	height: 40%;
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+	float: left;
+}
+
+.FI_right_opt {
+	float: left;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.check {
+	float: left;
+	width: 100px;
+}
+
+.check input {
+	width: 14px;
+	height: 14px;
+}
+
+.check label {
+	font: 12px "微软雅黑";
+	color: #c3c2c2;
+}
+
+.FI_right_opt button {
+	font: 12px "微软雅黑";
+	color: #fff;
+	border: none;
+	-wekit-appearance: none;
+	display: inline-block;
+	float: right;
+	background: #388ac1;
+	width: 51px;
+	height: 26px;
+	cursor: pointer;
+}
+
+.cal_bran {
+	width: 890px;
+	height: 356px;
+	position: relative;
+	margin: 10px auto;
+}
+
+.calendar {
+	width: 40%;
+	height: 100%;
+	float: left;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 15px;
+	position: relative;
+
+}
+
+.brand {
+	width: 59%;
+	height: 100%;
+	float: right;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 15px;
+	position: relative;
+}
+
+.calendar p {
+	font-family: "黑体";
+	font-size: 12px;
+	color: #aaaaaa;
+	background: #f3f5f6; 
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 20px;
+	border-bottom: 1px solid #ddd;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.brand p {
+	font-family: "黑体";
+	font-size: 12px;
+	color: #aaaaaa;
+	background: #f3f5f6; 
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 20px;
+	border-bottom: 1px solid #ddd;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
 }
