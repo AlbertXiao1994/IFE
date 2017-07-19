@@ -978,6 +978,7 @@ input[type="radio" i] {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 .cal_wrap tr {
 	display: table-row;
 }
@@ -1019,5 +1020,144 @@ p.festival,p.weekend {
 	border: 1px solid #f8d564;
 }
 
+.brand_form {
+	width:445px;
+	height: 276px;
+	margin: 20px 40px;
+}
 
+.brand_form table {
+	width: 100%;
+	height: 100%;
+	display: table;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 1px solid #cbcbcb;
+}
 
+.brand_form thead {
+	display: table-header-group;
+	vertical-align: middle;
+}
+
+.brand_form th {
+	font: 13px "黑体";
+	color: #231815;
+	border: 1px solid #cbcbcb;
+	height: 25px;
+	display: table-cell;
+}
+
+.brand_form th:nth-child(1) {
+	width: 80px;
+}
+
+.brand_form th:nth-child(2) {
+	width: 100px;
+}
+
+.brand_form th:nth-child(3) {
+	width: 264px;
+}
+
+.brand_form tr {
+	display: table-row-group;
+}
+
+.brand_form tr:hover {
+	cursor: pointer;
+	background: #f4f5f6;
+}
+
+.brand_form td {
+	border: 1px solid #cbcbcb;
+	height: 25px;
+	display: table-cell;
+	font: 12px "黑体";
+	color: #323333;
+	text-align: center;
+}
+
+.brand_form td:nth-child(1) {
+	width: 80px;
+}
+
+.brand_form td:nth-child(2) {
+	width: 100px;
+}
+
+.brand_form td:nth-child(3) {
+	width: 264px;
+	text-align: left;
+	padding-left: 35px;
+}
+
+.processbar {
+	width: 140px;
+	height: 4px;
+	background: #dcdcdc;
+	margin-left: 15px;
+	position: relative;
+	top: -10px;
+	left: 45px;
+}
+
+.probar_value1 {
+	background: #ec6d51;
+	width: -webkit-calc(484px / 600 * 140 );
+	height: 4px;
+}
+
+.probar_value2 {
+	background: #ef8150;
+	width: -webkit-calc(293px / 600 * 140 );
+	height: 4px;
+}
+
+.probar_value3 {
+	background: #f19e4f;
+	width: -webkit-calc(231px / 600 * 140 );
+	height: 4px;
+}
+
+.probar_value4 {
+	background: #7ecaf0;
+	width: -webkit-calc(228px / 600 * 140 );
+	height: 4px;
+}
+
+.probar_value5 {
+	background: #7ecaf0;
+	width: -webkit-calc(223px / 600 * 140 );
+	height: 4px;
+}
+
+.probar_value6 {
+	background: #7ecaf0;
+	width: -webkit-calc(214px / 600 * 140 );
+	height: 4px;
+}
+
+.probar_value7 {
+	background: #7ecaf0;
+	width: -webkit-calc(201px / 600 * 140 );
+	height: 4px;
+}
+
+.probar_value8 {
+	background: #7ecaf0;
+	width: -webkit-calc(192px / 600 * 140 );
+	height: 4px;
+}
+
+.probar_value9 {
+	background: #7ecaf0;
+	width: -webkit-calc(191px / 600 * 140 );
+	height: 4px;
+}
+
+.probar_value10 {
+	background: #7ecaf0;
+	width: -webkit-calc(185px / 600 * 140 );
+	height: 4px;
+}
