@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex-container {
+    display: flex;/*使用弹性模型*/
+    flex-flow: row wrap;/*主轴方向与换行方式*/
+    justify-content: space-between;/*定义伸缩项目沿主轴线的对齐方式，此外水平方向均匀分布*/
+
+}
+
+.flex-item {
+    padding: 20px;
+    width: 150px;
+    border: 1px solid #f00;
+}
+
+#first {
+    height: 120px;
+}
+
+#second {
+    height: 100px;
+}
+
+#third {
+    height: 40px;
+}
+
+#fourth {
+    height: 200px;
+    border: 1px solid #00f;
+}
+
+@media all and (max-width: 640px) {
+    .flex-container {
+        align-items: flex-start;/*侧轴对齐方式*/
+    }
+
+    #fourth {
+        order: -1;
+    }
+}
+
+@media all and (min-width: 640px) {
+    .flex-container {
+        align-items: center;/*侧轴对齐方式*/
+    }
+}
