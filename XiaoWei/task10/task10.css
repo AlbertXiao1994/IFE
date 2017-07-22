@@ -11,6 +11,22 @@
 
 }
 
+@media all and (max-width: 640px) {
+    .flex-container {
+        align-items: flex-start;/*侧轴对齐方式*/
+    }
+
+    #fourth {
+        order: -1;
+    }
+}
+
+@media all and (min-width: 640px) {
+    .flex-container {
+        align-items: center;/*侧轴对齐方式*/
+    }
+}
+
 .flex-item {
     padding: 20px;
     width: 150px;
@@ -32,20 +48,4 @@
 #fourth {
     height: 200px;
     border: 1px solid #00f;
-}
-
-@media all and (max-width: 640px) {
-    .flex-container {
-        align-items: flex-start;/*侧轴对齐方式*/
-    }
-
-    #fourth {
-        order: -1;
-    }
-}
-
-@media all and (min-width: 640px) {
-    .flex-container {
-        align-items: center;/*侧轴对齐方式*/
-    }
 }
