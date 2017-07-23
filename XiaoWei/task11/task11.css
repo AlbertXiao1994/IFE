@@ -56,9 +56,7 @@ nav {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
-
 	height: 1.15rem;
-
 	background-color: #fff;
 }
 
