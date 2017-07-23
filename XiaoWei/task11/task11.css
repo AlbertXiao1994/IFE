@@ -27,6 +27,7 @@ html {
 
 a {
 	text-decoration: none;
+	-webkit-tap-highlght-color: rgba(0, 0, 0, 0);
 }
 
 header {
@@ -69,6 +70,7 @@ nav {
 	color: #696969;
 	text-align: center;
 	cursor: pointer;
+	-webkit-tap-highlght-color: rgba(0, 0, 0, 0);
 }
 
 .navs:hover {
