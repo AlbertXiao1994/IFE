@@ -1,0 +1,66 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	width: 40%;
+	height: 700px;
+	margin: 50px auto 0 auto;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+table {
+	width: 60%;
+	height: 330px;
+	border-collapse: collapse;
+	border-color: #e2e2e2;
+	display: table;
+}
+
+tbody {
+	vertical-align: middle;
+	display: table-row-group;
+}
+
+th {
+	background: #000;
+}
+
+th td {
+	color: #fff;
+}
+
+td {
+	height: 33px;
+	display: table-cell;
+	color: #535353;
+	text-align: center;
+	font-size: 20px;
+	font-family: "黑体";
+}
+
+.odd {
+	background: #fff;
+}
+
+.double {
+	background: #d0cacc;
+}
+
+input {
+	text-decoration: none;
+	width: 100px;
+	height: 30px;
+	border: 1px solid #e2e2e2;
+}
+
+.carousel {
+	width: 80%;
+	height: 300px;
+}
