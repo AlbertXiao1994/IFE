@@ -22,7 +22,8 @@ body {
 
 @media only screen and (min-width: 360px) and (max-width: 639px) {
 	html {
-		font-size: 55px;
+		font-size: 64px;
+		min-height: 650px;
 	}
 }
 
@@ -34,7 +35,8 @@ body {
 
 @media only screen and (max-width: 360px) {
 	html {
-		font-size: 50px;
+		font-size: 64px;
+		min-height: 650px;
 	}
 }
 
