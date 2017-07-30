@@ -4,26 +4,72 @@
 	box-sizing: border-box;
 }
 
- .container {
+/* html {
 	max-width: 640px;
-	height: 700px;
-	margin: 25px auto 0 auto;
-	background: url(img/bg.png) no-repeat;
-	display: flex;
+	max-height: 1200px;
+	min-height: 760px;
+	margin: 0 auto;
+	font-size: 32px;
+	line-height: 1;
+	background: url(img/bg.png);
 }
 
-.carousel {
+body {
+	max-width: 640px;
+	max-height: 1200px;
+	min-height: 760px;
+} */
+
+@media only screen and (min-width: 360px) and (max-width: 639px) {
+	html {
+		font-size: 50px;
+	}
+}
+
+@media only screen and (min-width: 640px) {
+	html {
+		font-size: 64px;
+	}
+}
+
+@media only screen and (max-width: 360px) {
+	html {
+		font-size: 35px;
+	}
+}
+
+.container {
+	max-width: 640px;
+	min-height: 760px;
+	margin: 0 auto;
+	font-size: 45px;
+	line-height: 1;
+	background: url(img/bg.png); 
+	display: flex;
+	overflow: hidden;
+} 
+
+/* .carousel {
 	width: 300px;
 	height: 400px;
 	border: 2px solid #f8aac4;
 	position: relative;
 	overflow: hidden;
 	margin: auto;
-}
+} */
+
+.carousel {
+	width: 6rem;
+	height: 8rem;
+	border: 2px solid #f8aac4;
+	position: relative;
+	overflow: hidden;
+	margin: auto;
+} 
 
 .car_photos {
-	width: calc(300px * 4);
-	height: 100%;
+	width: 24rem;
+	height: 8rem;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -35,21 +81,22 @@
 
 @keyframes marginLeft{
         0%{margin-left: 0;}
-        16.7%{margin-left: -300;}
-        33.3%{margin-left: -600;}
-        50%{margin-left: -900px;}
-        66.7%{margin-left: -600px;}
-        83.3%{margin-left: -300;}
+        16.7%{margin-left: -6rem;}
+        33.3%{margin-left: -12rem;}
+        50%{margin-left: -18rem;}
+        66.7%{margin-left: -12rem;}
+        83.3%{margin-left: -6rem;}
         100%{margin-left: 0;}
     }
 
 .car_photos li {
-	width: 300px;
-	height: 400px;
 	float: left;
+	font-size: 0;
+	width: 6rem;
+	height: 8rem;
 }
 
 .car_photos img {
-	width: 300px;
-	height: 396px;
+	width: 100%;
+	height: auto;
 }
