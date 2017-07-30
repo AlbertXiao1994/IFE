@@ -101,6 +101,7 @@ input:focus {
     }
 
 .car_photos li {
+	list-style: none;
 	width: 300px;
 	height: 300px;
 	float: left;
