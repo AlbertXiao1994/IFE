@@ -22,7 +22,7 @@ body {
 
 @media only screen and (min-width: 360px) and (max-width: 639px) {
 	html {
-		font-size: 50px;
+		font-size: 55px;
 	}
 }
 
@@ -34,13 +34,13 @@ body {
 
 @media only screen and (max-width: 360px) {
 	html {
-		font-size: 35px;
+		font-size: 50px;
 	}
 }
 
 .container {
 	max-width: 640px;
-	min-height: 760px;
+	min-height: 650px;
 	margin: 0 auto;
 	font-size: 45px;
 	line-height: 1;
