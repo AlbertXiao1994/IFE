@@ -20,11 +20,26 @@ body {
 	min-height: 760px;
 } */
 
+.container {
+	max-width: 640px;
+	min-height: 600px;
+	margin: 0 auto;
+	font-size: 45px;
+	line-height: 1;
+	background: url(img/bg.png); 
+	display: flex;
+	overflow: hidden;
+} 
+
+@media only screen and (max-width: 360px) {
+	html {
+		font-size: 45px;
+	}
+}
+
 @media only screen and (min-width: 360px) and (max-width: 639px) {
 	html {
 		font-size: 50px;
-		min-height: 600px;
-		height:device-height;
 	}
 }
 
@@ -33,25 +48,6 @@ body {
 		font-size: 64px;
 	}
 }
-
-@media only screen and (max-width: 360px) {
-	html {
-		font-size: 45px;
-		min-height: 600px
-		height:device-height;
-	}
-}
-
-.container {
-	max-width: 640px;
-	min-height: 650px;
-	margin: 0 auto;
-	font-size: 45px;
-	line-height: 1;
-	background: url(img/bg.png); 
-	display: flex;
-	overflow: hidden;
-} 
 
 /* .carousel {
 	width: 300px;
