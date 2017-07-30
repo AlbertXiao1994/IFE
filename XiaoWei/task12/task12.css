@@ -1,0 +1,112 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	width: 40%;
+	height: 700px;
+	margin: 25px auto 0 auto;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+table {
+	width: 40%;
+	height: 250px;
+	border-collapse: separate;
+	border-spacing: 2px;
+	border-color: #e2e2e2;
+	display: table;
+}
+
+tbody {
+	vertical-align: middle;
+	display: table-row-group;
+}
+
+thead {
+	background: #000;
+	display: table-header-group;
+}
+
+thead td {
+	color: #fff;
+}
+
+td {
+	display: table-cell;
+	color: #535353;
+	text-align: center;
+	font-size: 16px;
+	font-family: "黑体";
+}
+
+.odd {
+	background: #fff;
+}
+
+.double {
+	background: #d0cacc;
+}
+
+.top td {
+	color: red;
+}
+
+input.textbox {
+	text-decoration: none;
+	width: 100px;
+	height: 30px;
+	border: 1px solid #e0e0e0;
+	transition: width 1s;
+	-moz-transition:width 1s; /* Firefox 4 */
+	-webkit-transition:width 1s; /* Safari and Chrome */
+	-o-transition:width 1s; /* Opera */
+}
+
+input:focus {
+	width: 250px;
+}
+
+.carousel {
+	width: 300px;
+	height: 300px;
+	border: 2px solid #f8aac4;
+	position: relative;
+	overflow: hidden;
+}
+
+.car_photos {
+	width: calc(300px * 3);
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 0;
+	transition: all 0.5s;
+	animation:marginLeft 10.5s infinite;
+}
+
+@keyframes marginLeft{
+        0%{margin-left: 0;}
+        25%{margin-left: -300;}
+        50%{margin-left: -600px;}
+        75%{margin-left: -300px;}
+        100%{margin-left: 0;}
+    }
+
+.car_photos li {
+	width: 300px;
+	height: 300px;
+	float: left;
+}
+
+.car_photos img {
+	width: 296px;
+	height: 296px;
+}
