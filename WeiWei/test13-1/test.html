@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<link rel="stylesheet" type="text/css" href="test.css">
+	<script type="text/javascript">
+		window.onload = function () {
+			var elements=document.getElementsByClassName("reveal");
+			for(var i=0;i<elements.length;i++) {
+				var elt=elements[i];
+				var title=elt.getElementsByClassName("handle")[0];
+				addRevealHandler(title,elt);
+				function addRevealHandler(title,elt)
+				{
+					title.onclick=function () {
+						if (elt.className=="reveal") 
+							elt.className="revealed";
+						else if(elt.className=="revealed")
+							elt.className="reveal";
+					}
+				}
+			}
+		};
+	</script>
+</head>
+<body>
+	<div class="reveal">
+		<h1 class="handle">Click Here to Reveal Hidden Text</h1>
+		<p>This paragragh is hidden.It appears when you click on the title</p>
+	</div>
+</body>
+</html>
