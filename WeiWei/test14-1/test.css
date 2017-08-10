@@ -1,0 +1,11 @@
+#Clock {
+	font: bold 24pt sans;
+	background: #ddf;
+	padding: 10px;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+div button {
+	text-align: center;
+}
