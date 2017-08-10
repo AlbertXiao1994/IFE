@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数字时钟</title>
+	<link rel="stylesheet" type="text/css" href="test.css">
+	<script type="text/javascript" src="test.js">
+	</script>
+</head>
+<body>
+	<h1>Digital Clock</h1>
+	<span id="Clock"></span>
+	<a href='javascript:
+		var e="",r="";
+		do {
+			e=prompt("Expression:"+e+"\n"+r+"\n",e);
+			try {
+				r="Result:"+eval(e);
+			}
+			catch(ex) {
+				r=ex;
+			}
+		} while(e);
+		void 0;
+	'>
+		JavaScript Evaluator
+	</a>
+	<button onclick="inputCod()">输入坐标</button>
+</body>
+</html>
