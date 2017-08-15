@@ -2,7 +2,6 @@ function shake() {
 	var	e=document.getElementById("img");
 	var	time=500;
 	var	distance=5;
-	alert("hello");
 
 	var orginalStyle=e.style.cssText;
 	e.style.position="relative";
@@ -50,6 +49,3 @@ function fadeout() {
 		}
 	}
 }
-
-document.getElementById("btn1").onclick=shake();
-document.getElementById("btn2").onclick=fadeout();
