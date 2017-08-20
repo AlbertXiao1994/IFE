@@ -1,0 +1,23 @@
+.container {
+	position: absolute;
+	left: 100px;
+	top: 100px;
+	width: 450px;
+	background-color: white;
+	border: 1px solid black;
+}
+
+.container img {
+	display: block;
+	margin: auto;
+	width: 400px;
+}
+
+.container p {
+	text-align: center;
+}
+
+button {
+	text-align: center;
+	margin-left: 50%;
+}
