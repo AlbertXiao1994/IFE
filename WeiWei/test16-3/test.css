@@ -1,0 +1,17 @@
+.flex-container {
+    display: flex;/*使用弹性模型*/
+    flex-flow: row wrap;/*主轴方向与换行方式*/
+    justify-content: space-between;/*定义伸缩项目沿主轴线的对齐方式，此外水平方向均匀分布*/
+    height: 500px;
+}
+
+.flex-container img {
+	display: block;
+	margin: auto;
+	width: 400px;
+}
+
+button {
+	text-align: center;
+	margin-left: 50%;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖动文档元素</title>
+	<link rel="stylesheet" type="text/css" href="test.css">
+	<script type="text/javascript" src="drag.js">
+	</script>
+	<script type="text/javascript" src="animation.js">
+	</script>
+</head>
+<body>
+	<div class="container">
+		<img id="img" src="1.jpg" onmousedown="drag(this.parentNode,event);">
+		<p>拖动我</p>
+	</div>
+	<button onclick="shake();">震动</button>
+	<button onclick="fadeout();">淡出</button>
+	<button onclick="reset();">重置</button>
+</body>
+</html>
