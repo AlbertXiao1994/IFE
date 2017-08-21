@@ -29,7 +29,7 @@ whenReady(function() {
 		dt.setData("Text",Date()+"\n");
 		//在支持的浏览器中，告诉它拖动图标来表现时间戳
 		//没有这行代码，浏览器也可以使用时钟文本图像作为拖动的值
-		/*if(dt.setDragImage)
-			dt.setDragImage(icon,0,0);*/
+		if(dt.setDragImage)
+			dt.setDragImage(icon,0,0);
 	}
 });
