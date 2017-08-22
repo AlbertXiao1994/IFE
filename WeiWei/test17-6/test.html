@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤用户输入</title>
+	<link rel="stylesheet" type="text/css" href="test.css">
+	<script type="text/javascript" src="WhenReady.js">
+	</script>
+	<script type="text/javascript" src="InputFilter.js">
+	</script>
+</head>
+<body>
+	<span>邮政编码：</span>
+	<input type="text" id="zip" data-allowed-chars="0123456789" data-messageid="zipwarn">
+	<span id="zipwarn">只支持数字</span>
+</body>
+</html>
