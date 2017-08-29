@@ -1,4 +1,6 @@
 var canvas=document.getElementById("my_canvas");
+canvas.width="1200";
+canvas.height="500";
 var c=canvas.getContext("2d");
 var deg=Math.PI/180;
 
@@ -35,9 +37,9 @@ function snowflake(c,n,x,y,len) {
 	}
 }
 
-// snowflake(c,0,5,115,125);		//0级科勒雪花
-// snowflake(c,1,145,115,125);		//1级科勒雪花
-snowflake(c,2,5,115,125);		//2级科勒雪花
-// snowflake(c,3,425,115,125);		//3级科勒雪花
-// snowflake(c,4,565,115,125);		//4级科勒雪花
+snowflake(c,0,5,115,125);		//0级科勒雪花
+snowflake(c,1,145,115,125);		//1级科勒雪花
+snowflake(c,2,285,115,125);		//2级科勒雪花
+snowflake(c,3,425,115,125);		//3级科勒雪花
+snowflake(c,4,565,115,125);		//4级科勒雪花
 c.stroke();						//勾勒当前复杂路径
