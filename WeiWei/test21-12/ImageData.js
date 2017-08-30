@@ -1,11 +1,9 @@
-var canvas=document.getElementById("my_canvas");
-canvas.width="600";
-canvas.height="600";
-var c=canvas.getContext("2d");
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+var img=document.getElementById("tulip");
+ctx.drawImage(img,10,10);
 
-var img=document.getElementById("img");
-c.drawImage(img,0,0);
-smear(c,5,75,75,200,200);
+smear(ctx,5,0,0,300,250);
 
 function smear(c,n,x,y,w,h) {
 	//获取表示矩形区域内像素的ImageData对象实现涂抹
@@ -24,10 +22,10 @@ function smear(c,n,x,y,w,h) {
 	for(var row=0;row<height;row++) {
 		var i=row*width*4+4;
 		for(var col=1;col<width;col++,i+=4) {
-			data[i]=(data[i]+data[i-1]*m)/n;		//红色
-			data[i+1]=(data[i+1]+data[i]*m)/n;		//绿色
-			data[i+2]=(data[i+2]+data[i+1]*m)/n;	//蓝色
-			data[i+3]=(data[i+3]+data[i+2]*m)/n;	///透明
+			data[i]=(data[i]+data[i-4]*m)/n;		//红色
+			data[i+1]=(data[i+1]+data[i-3]*m)/n;	//绿色
+			data[i+2]=(data[i+2]+data[i-2]*m)/n;	//蓝色
+			data[i+3]=(data[i+3]+data[i-1]*m)/n;	///透明
 		}
 	}
 
