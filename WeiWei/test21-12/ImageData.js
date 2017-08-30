@@ -3,8 +3,8 @@ canvas.width="600";
 canvas.height="600";
 var c=canvas.getContext("2d");
 
-c.fillStyle="red";
-c.fillRect(0,0,400,400);
+var img=document.getElementById("img");
+c.drawImage(img,0,0);
 smear(c,5,75,75,200,200);
 
 function smear(c,n,x,y,w,h) {
