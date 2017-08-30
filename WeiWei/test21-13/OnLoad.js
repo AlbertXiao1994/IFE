@@ -11,4 +11,4 @@ function onLoad(f) {
 //给onLoad设置一个标准，用来指示文档是否载入完成
 onLoad.loaded=false;
 //注册一个函数，当文档载入完成时设置这个标志
-onLoad(function() {onload.loaded=true;});
+onLoad(function() {onLoad.loaded=true;});

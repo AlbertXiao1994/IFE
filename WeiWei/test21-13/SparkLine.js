@@ -20,7 +20,7 @@ onLoad(function() {
 	var height=parseInt(elt.getAttribute("data-height"))||
 				parseInt(style.fontSize)||20;
 	var width=parseInt(elt.getAttribute("data-width"))||
-				data.lenght*(parseInt(elt.getAttribute("data-dx"))||height/6);
+				data.length*(parseInt(elt.getAttribute("data-dx"))||height/6);
 	var ymin=parseInt(elt.getAttribute("data-ymin"))||Math.min.apply(Math,data);
 	var ymax=parseInt(elt.getAttribute("data-ymax"))||Math.max.apply(Math,data);
 	if(ymin>=ymax)
