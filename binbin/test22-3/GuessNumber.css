@@ -1,0 +1,18 @@
+#prompt {
+	font-size: 16pt;
+}
+
+table {
+	width: 90%;
+	margin: 10px;
+	margin-left: 5%;
+}
+
+#low,#high {
+	background-color: lightgray;
+	height: 1em;
+}
+
+#mid {
+	background-color: green;
+}
