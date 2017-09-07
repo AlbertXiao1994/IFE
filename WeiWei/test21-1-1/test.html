@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>显示简单的svg图形</title>
+	</head>
+<body>
+	<!-- svg图形一开始声明声明命名空间 -->
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">    <!-- 图形坐标系 -->
+		<defs>  														<!-- 设置一些后面要用到的定义 -->
+			<linearGradient id="fade">									<!-- 将一种渐变色命名为fade -->
+				<stop offset="0%" stop-color="#008"/>					<!-- 深蓝 -->
+				<stop offset="100%" stop-color="#ccf"/>					<!-- 浅蓝 -->
+			</linearGradient>
+		</defs>
+		<!-- 画一个具有黑色边框并且渐变色为填充色的矩形 -->
+		<rect x="100" y="200" width="800" height="600" stroke="black" stroke-width="25" fill="url(#fade)"/>
+	</svg>
+</body>
+</html>

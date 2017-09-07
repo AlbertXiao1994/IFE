@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>svg时钟</title>
+	<link rel="stylesheet" type="text/css" href="UpdateTime.css">
+</head>
+<body onload="updateTime()">
+	<svg id="clock" viewBox="0 0 100 100" width="500" height="500">
+		<defs><!-- 定义下拉阴影滤镜 -->
+			<filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+				<feGaussian in="SourceAlpha" stdDeviation="1" result="blur"/>
+				<feoffset in="blur" dx="1" dy="1" result="shadow"/>
+				<feMerge>
+					<feMergeNode in="SourceGraphic"/>
+					<feMergeNode in="shadow"/>
+				</feMerge>
+			</filter>
+		</defs>
+		<circle id="face" cx="50" cy="50" r="45"/>	<!-- 钟面 -->
+		<g id="ticks">								<!-- 12小时的刻度 -->
+			<line x1="50" y1="5.000" x2="50.00" y2="10.00"/>
+			<line x1="72.50" y1="11.03" x2="70.00" y2="15.36"/>
+			<line x1="88.97" y1="27.50" x2="84.64" y2="30.00"/>
+			<line x1="95.00" y1="50.00" x2="90.00" y2="50.00"/>
+			<line x1="88.97" y1="72.50" x2="84.64" y2="70.00"/>
+			<line x1="72.50" y1="88.97" x2="70.00" y2="84.64"/>
+			<line x1="50.00" y1="95.00" x2="50.00" y2="90.00"/>
+			<line x1="27.50" y1="88.97" x2="30.00" y2="84.64"/>
+			<line x1="11.03" y1="72.50" x2="15.36" y2="70.00"/>
+			<line x1="5.000" y1="50.00" x2="10.00" y2="50.00"/>
+			<line x1="11.03" y1="27.50" x2="15.36" y2="30.00"/>
+			<line x1="27.50" y1="11.03" x2="30.00" y2="15.36"/>
+		</g>
+		<g id="numbers">		<!-- 几个重要的刻度 -->
+			<text x="50" y="18">12</text>
+			<text x="85" y="53">3</text>
+			<text x="50" y="88">6</text>
+			<text x="15" y="53">9</text>
+		</g>
+		<g id="hand" filter="url(#shadow)">	<!-- 给指针添加阴影 -->
+			<line id="hourhand" x1="50" y1="50" x2="50" y2="24"/>
+			<line id="minhand" x1="50" y1="50" x2="50" y2="19"/>
+		</g>
+	</svg>
+</body>
+<script type="text/javascript" src="UpdateTime.js"></script>
+</html>
