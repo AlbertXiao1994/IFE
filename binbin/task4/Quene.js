@@ -6,6 +6,15 @@ var btn_rightOut=document.getElementById("rightOut");
 var input=document.getElementById("data-input");
 var ul=document.getElementById("quene");
 
+ul.onclick=function() {
+	var t=event.target;
+	if(ul.childNodes.length<=0)
+		alert("不存在可删除的元素");
+	else {
+		ul.removeChild(t);
+	}
+}
+
 //左侧入
 btn_leftIn.onclick=function() {
 	var num=input.value;
@@ -46,6 +55,7 @@ btn_rightIn.onclick=function() {
 	}
 };
 
+//左侧出
 btn_leftOut.onclick=function() {
 	var lis=document.getElementsByTagName("li");
 	if(lis[0]) {
@@ -57,6 +67,7 @@ btn_leftOut.onclick=function() {
 	}
 }
 
+//右侧出
 btn_rightOut.onclick=function() {
 	var lis=document.getElementsByTagName("li");
 	var length=lis.length;
