@@ -10,7 +10,6 @@ ul {
 li {
 	display: inline-block;
 	width: 25px;
-	color: red;
 	background-color: red;
 	margin-right: 5px;
 }
