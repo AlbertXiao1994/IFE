@@ -1,0 +1,121 @@
+@font-face{
+  font-family : "handwriting";
+
+  src : url('res/journal.ttf') format('truetype');
+}
+
+@font-face{
+  font-family : "typewriter";
+
+  src : url('res/veteran_typewriter.ttf') format('truetype');
+}
+
+body {
+  font  : 21px sans-serif;
+
+  padding : 2em;
+  margin  : 0;
+
+  background : #222;
+}
+
+form {
+  position: relative;
+
+  width  : 740px;
+  height : 498px;
+  margin : 0 auto;
+
+  background: #FFF url(img/bg.jpg);
+}
+
+h1 {
+  position : absolute;
+  left : 415px;
+  top  : 185px;
+ 
+  font : 1em "typewriter", sans-serif;
+}
+
+#from {
+  position: absolute;
+  left : 398px;
+  top  : 235px;
+}
+
+#reply {
+  position: absolute;
+  left : 390px;
+  top  : 285px;
+}
+
+#message {
+  position: absolute;
+  left : 20px;
+  top  : 70px;
+}
+
+label {
+  font : .8em "typewriter", sans-serif;
+}
+
+input, textarea {
+  font    : .9em/1.5em "handwriting", sans-serif;
+
+  border  : none;
+  padding : 0 10px;
+  margin  : 0;
+  width   : 240px;
+
+  background: none;
+}
+
+input:focus, textarea:focus {
+  background   : rgba(0,0,0,.1);
+  border-radius: 5px;
+  outline      : none;
+}
+
+textarea {
+  display : block;
+
+  padding : 10px;
+  margin  : 10px 0 0 -10px;
+  width   : 340px;
+  height  : 360px;
+
+  resize  : none;
+  overflow: auto;
+}
+
+button {
+  position     : absolute;
+  left         : 440px;
+  top          : 360px;
+
+  padding      : 5px;
+
+  font         : bold .6em sans-serif;
+  border       : 2px solid #333;
+  border-radius: 5px;
+  background   : none;
+
+  cursor       : pointer;
+
+-webkit-transform: rotate(-1.5deg);
+   -moz-transform: rotate(-1.5deg);
+    -ms-transform: rotate(-1.5deg);
+     -o-transform: rotate(-1.5deg);
+        transform: rotate(-1.5deg);
+}
+
+button:after {
+  content: " >>>";
+}
+
+button:hover,
+button:focus {
+  outline   : none;
+  background: #000;
+  color   : #FFF;
+}
