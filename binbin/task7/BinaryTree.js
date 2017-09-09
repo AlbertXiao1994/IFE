@@ -37,40 +37,56 @@ function preOrder(node,arr) {
 	if(node) {
 		arr.push(node);
 		if(node.firstChild!=null) {
-			preOrder(node.firstChild,arr);
+			preOrder(node.firstElementChild,arr);
 		}
 		if(node.lastChild!=null) {
-			preOrder(node.lastChild,arr);
+			preOrder(node.lastElementChild,arr);
 		}
 	}
 }
 
 //中序
-function preOrder(node,arr) {
+function inOrder(node,arr) {
 	if(node) {
 		if(node.firstChild!=null) {
-			preOrder(node.firstChild,arr);
+			inOrder(node.firstElementChild,arr);
 		}
 		arr.push(node);
 		if(node.lastChild!=null) {
-			preOrder(node.lastChild,arr);
+			inOrder(node.lastElementChild,arr);
 		}
 	}
 }
 
 //后序
-function preOrder(node,arr) {
+function postOrder(node,arr) {
 	if(node) {
 		if(node.firstChild!=null) {
-			preOrder(node.firstChild,arr);
+			postOrder(node.firstElementChild,arr);
 		}
 		if(node.lastChild!=null) {
-			preOrder(node.lastChild,arr);
+			postOrder(node.lastElementChild,arr);
 		}
 		arr.push(node);
 	}
 }
 
+//设置动画
 function setAnimation(arr) {
-	setTimeout(changeStyle,500);
+	var i=0;
+	var timer=setInterval(changeStyle,500);
+
+	//改变样式，改变背景色
+	function changeStyle() {
+		if(i<arr.length) {	//正在遍历
+			if(i>0)						//恢复背景色
+				arr[i-1].style.backgroundColor="#fff";
+			arr[i].style.backgroundColor="#337ab7";
+			i++;
+		}
+		else {				//遍历完成
+			arr[i-1].style.backgroundColor="#fff";//恢复背景色
+			clearInterval(timer);//停止调用
+		}
+	}
 }
