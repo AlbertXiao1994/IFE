@@ -46,7 +46,7 @@ form {
 	top: 100px;
 }
 
-.school,.company label {
+.school label {
 	display: inline-block; 
 	width: 100px;
 
@@ -75,4 +75,20 @@ select {
 
 .company {
 	display: none;
+}
+
+.company label {
+	display: inline-block;
+	width: 100px;
+    text-align: center;
+
+    font-weight: bold;
+}
+
+.company input {
+	width: 350px;
+	height: 25px;
+
+	border-radius: 5px;
+	border: 1px solid #94CDFC;
 }
