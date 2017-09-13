@@ -3,7 +3,7 @@ window.onload=function() {
 	var btn=document.getElementById("btn");//执行按钮
 	var dia=document.getElementById("select");//小方块
 
-	var head=1;//1:头向上，2：头向右，3：头向下，4：头向左
+	var head=0;//0:头向上，1：头向右，2：头向下，3：头向左
 
 	//名称获得焦点事件处理程序
 	input.onfocus=function() {
@@ -42,25 +42,25 @@ window.onload=function() {
 		var y = dia.offsetTop;
 
 		switch(head) {
-			case 1: //向上
+			case 0: //向上
 					if(y>0&&y<360) {
 						y=y-40;
 						dia.style.top=y+"px";
 					}
 					break;
-			case 2: //向右
+			case 1: //向右
 					if(x>0&&x<360) {
 						x=x+40;
 						dia.style.left=x+"px";
 					}
 					break;
-			case 3: //向下
+			case 2: //向下
 					if(y>0&&y<360) {
 						y=y+40;
 						dia.style.top=y+"px";
 					}
 					break;
-			case 4: //向左
+			case 3: //向左
 					if(x>0&&x<360) {
 						x=x-40;
 						dia.style.left=x+"px";
@@ -70,133 +70,65 @@ window.onload=function() {
 	}
 
 	function turnLeft(dia) {
-		switch(head) {
-			case 1: //向上
-					dia.style.borderTopWidth="0px";
-					dia.style.borderLeftWidth="8px";
-					dia.style.borderLeftStyle="solid";
-					dia.style.borderLeftColor="#526BEB";				
-					break;
-			case 2: //向右
-					dia.style.borderRightWidth="0px";
-					dia.style.borderTopWidth="8px";
-					dia.style.borderTopStyle="solid";
-					dia.style.borderTopColor="#526BEB";
-					break;
-			case 3: //向下
-					dia.style.borderBottomWidth="0px";
-					dia.style.borderRightWidth="8px";
-					dia.style.borderRightStyle="solid";
-					dia.style.borderRightColor="#526BEB";
-					break;
-			case 4: //向左
-					dia.style.borderLeftWidth="0px";
-					dia.style.borderBottomWidth="8px";
-					dia.style.borderBottomStyle="solid";
-					dia.style.borderBottomColor="#526BEB";
-					break;
-		}
+		var angle=90*(head-1)+"deg";
+		dia.style.transform="rotate("+angle+")";
 
+		//标记方向
 		switch(head) {
-			case 1: //向上
-					head=4;
+			case 0: //向上
+					head=3;
 					break;
-			case 2: //向右
+			case 1: //向右
+					head=0;
+					break;
+			case 2: //向下
 					head=1;
 					break;
-			case 3: //向下
+			case 3: //向左
 					head=2;
-					break;
-			case 4: //向左
-					head=3;
 					break;
 		}
 	}
 
 	function turnRight(dia) {
-		switch(head) {
-			case 1: //向上
-					dia.style.borderTopWidth="0px";
-					dia.style.borderRightWidth="8px";
-					dia.style.borderRightStyle="solid";
-					dia.style.borderRightColor="#526BEB";				
-					break;
-			case 2: //向右
-					dia.style.borderRightWidth="0px";
-					dia.style.borderBottomWidth="8px";
-					dia.style.borderBottomStyle="solid";
-					dia.style.borderBottomColor="#526BEB";
-					break;
-			case 3: //向下
-					dia.style.borderBottomWidth="0px";
-					dia.style.borderLeftWidth="8px";
-					dia.style.borderLeftStyle="solid";
-					dia.style.borderLeftColor="#526BEB";
-					break;
-			case 4: //向左
-					dia.style.borderLeftWidth="0px";
-					dia.style.borderTopWidth="8px";
-					dia.style.borderTopStyle="solid";
-					dia.style.borderTopColor="#526BEB";
-					break;
-		}
+		var angle=90*(head+1)+"deg";
+		dia.style.transform="rotate("+angle+")";
 
+		//标记方向
 		switch(head) {
-			case 1: //向上
+			case 0: //向上
+					head=1;
+					break;
+			case 1: //向右
 					head=2;
 					break;
-			case 2: //向右
+			case 2: //向下
 					head=3;
 					break;
-			case 3: //向下
-					head=4;
-					break;
-			case 4: //向左
-					head=1;
+			case 3: //向左
+					head=0;
 					break;
 		}
 	}
 
 	function turnBack(dia) {
+		//标记方向
 		switch(head) {
-			case 1: //向上
-					dia.style.borderTopWidth="0px";
-					dia.style.borderBottomWidth="8px";
-					dia.style.borderBottomStyle="solid";
-					dia.style.borderBottomColor="#526BEB";			
+			case 0: //向上
+					dia.style.transform="rotate(180deg)";
+					head=2;
 					break;
-			case 2: //向右
-					dia.style.borderRightWidth="0px";
-					dia.style.borderLeftWidth="8px";
-					dia.style.borderLeftStyle="solid";
-					dia.style.borderLeftColor="#526BEB";
-					break;
-			case 3: //向下
-					dia.style.borderBottomWidth="0px";
-					dia.style.borderTopWidth="8px";
-					dia.style.borderTopStyle="solid";
-					dia.style.borderTopColor="#526BEB";
-					break;
-			case 4: //向左
-					dia.style.borderLeftWidth="0px";
-					dia.style.borderRightWidth="8px";
-					dia.style.borderRightStyle="solid";
-					dia.style.borderRightColor="#526BEB";
-					break;
-		}
-
-		switch(head) {
-			case 1: //向上
+			case 1: //向右
+					dia.style.transform="rotate(270deg)";
 					head=3;
 					break;
-			case 2: //向右
-					head=4;
+			case 2: //向下
+					dia.style.transform="rotate(0deg)";
+					head=0;
 					break;
-			case 3: //向下
+			case 3: //向左
+					dia.style.transform="rotate(90deg)";
 					head=1;
-					break;
-			case 4: //向左
-					head=2;
 					break;
 		}
 	}
