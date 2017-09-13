@@ -81,13 +81,15 @@ p {
 }
 
 .select {
+	position: absolute;
+	left: 160px;
+	top: 160px;
+
 	background-color: #F14B4B;
 	border-top: 8px solid #526BEB;
 
 	width: 40px;
 	height: 40px;
 
-	position: absolute;
-	left: calc(4 * 40px);
-	top: calc(4 * 40px);
+	z-index: 1;
 }
