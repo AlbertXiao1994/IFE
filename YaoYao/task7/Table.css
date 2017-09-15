@@ -1,0 +1,50 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+table {
+	width: 800px;
+
+	margin: 200px auto;
+
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: #525151;
+	color: #fff;
+}
+
+td {
+	width: 160px;
+	height: 40px;
+	text-align: center;
+
+	border: 1px solid #CCC6C6;
+}
+
+.upBtn,.downBtn {
+	width: 10px;
+	height: 10px;
+
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+}
+
+.upBtn {
+	position: relative;
+	left: 30px;
+	top: -23px;
+
+	border-bottom: 10px solid #fff;
+}
+
+.downBtn {
+	position: relative;
+	left: 20px;
+	top:  22px;
+
+	border-top: 10px solid #fff;
+}
