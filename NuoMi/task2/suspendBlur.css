@@ -1,0 +1,142 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-flow: row wrap;
+
+  	font: 17px sans-serif;
+
+  	padding : 2em;
+
+  	background : #222;
+}
+
+.contanier {
+	position: relative;
+
+	width: 500px;
+	height: 300px;
+	
+	margin: auto;
+
+	padding: 20px;
+	
+	background-color: #fff;
+}
+
+.img_wrap {
+	margin: 0 auto;
+}
+
+img {
+	width: 460px;
+}
+
+.contanier:hover img {
+	-webkit-filter: blur(3px);
+	filter: blur(3px);
+}
+
+.box {
+	width: 280px;
+	height: 200px;
+
+	position: absolute;
+	left: 110px;
+	top: 50px;
+}
+
+.box:hover {
+	cursor: pointer;
+}
+
+.box:before {
+	content: " ";
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: 0;
+	height: 100%;
+	border-width: 3px 0;
+	visibility: hidden;
+}
+
+.contanier:hover .box:before {
+	left: 0;
+	width: 100%;
+	border: 3px solid #fff;
+	border-width: 3px 0;
+	visibility: visible;
+	transition: all 1s ease-in;
+}
+
+.box:after{
+	content: " ";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 100%;
+	height: 0;
+	border-width: 0 3px;
+	visibility: hidden;
+}
+
+.contanier:hover .box:after {
+	top: 0;
+	height: 100%;
+	border: 3px solid #fff;
+	border-width: 0 3px;
+	visibility: visible;
+	transition: all 1s ease-in;
+}
+
+.contanier h3 {
+	visibility: hidden;
+	/*渐变背景*/
+	background-image: -webkit-linear-gradient(left, blue, red 25%, blue 50%, red 75%, blue 100%);
+	/*裁剪背景图*/
+	-webkit-background-clip: text;
+	color: transparent;
+	background-size: 200% 100%;
+	text-align: center;
+	margin-top: 40px;
+	animation: streamer 5s infinite linear;
+}
+
+.contanier:hover h3 {
+	visibility: visible;
+	transition: all 0.5s ease;
+}
+
+@keyframes streamer {
+	0% {
+		background-position: 0 0;
+	}
+
+	100% {
+		background-position: -100% 0;
+	}
+}
+
+.contanier p {
+	visibility: hidden;
+	/*渐变背景*/
+	background-image: -webkit-linear-gradient(left, yellow, green 50%, yellow 100%);
+	/*裁剪背景图*/
+	-webkit-background-clip: text;
+	color: transparent;
+	background-size: 200% 100%;
+	text-align: center;
+	margin-top: 40px;
+	animation: streamer 5s infinite linear;
+}
+
+.contanier:hover p {
+	visibility: visible;
+	transition: all 0.5s ease;
+}
+
