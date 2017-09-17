@@ -16,7 +16,7 @@
 				val=obj[key];
 
 				//判断是否到最底层，属性值是否还是对象
-				if(typeof key==='object') {
+				if(typeof val==='object') {
 					new Observer(val);
 				}
 
