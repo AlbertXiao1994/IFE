@@ -1,8 +1,34 @@
+	//实现发布-订阅类
+	function Event() {
+		this.events={};//事件对象
+	}
+
+	//注册和触发
+	Event.prototype={
+		//订阅事件(注册)
+		on: function(key,callback) {
+			if(!this.events[key]) {
+				this.events[key]=[];
+			}
+			this.events[key].push(callback);
+		},
+
+		//发布事件（触发）
+		emit: function(key) {
+			var _this=this;
+			var callbackArgs=Array.prototype.slice.call(arguments,1);
+			var arr=this.events[key];
+			for(var i=0;i<arr.length;i++) {
+				_this.events[key][i].apply(this,callbackArgs);
+			}
+		}
+	};
+
 	//观察者构造函数
 	function Observer(data) {
 		this.data=data;
 		this.walk(data);
-		this.event=new Event();
+		this.eventBus=new Event();
 	}
 
 	//递归遍历对象的每一个属性
@@ -25,7 +51,7 @@
 	};
 
 	Observer.prototype.convert=function(key,val) {
-		var self=this;
+		var _this=this;
 		Object.defineProperty(this.data,key,{
 			enumerable: true,
 			configuration: true,
@@ -40,69 +66,29 @@
 
 				console.log("你设置了"+key);
 				console.log("新的"+key+"="+newVal);
-				//触发$watch监听到对象的处理函数
-				self.event.emit(key,newVal);
-
-				if(newVal==val)
+				if(newVal==val)data
 					return;
+				//触发$watch监听到对象的处理函数
+				_this.eventBus.emit(key,newVal);
 				val=newVal;
 			}
 		})
 	};
 
 	Observer.prototype.$watch=function(key,callback) {
-		this.event.on(key,callback);
+		this.eventBus.on(key,callback);
 	}
-
-	//实现发布-订阅类
-	function Event() {
-		this.events={};//事件对象
-	}
-
-	//注册和触发
-	Event.prototype={
-		//订阅事件(注册)
-		on: function(key,callback) {
-			if(!this.events[key]) {
-				this.events[key]=[];
-			}
-			this.events[key].push(callback);
-		},
-
-		//发布事件（触发）
-		emit: function(key) {
-			var callbackArgs=Array.prototype.slice.call(arguments,1);
-			var arr=this.events[key];
-			for(var i=0;i<arr.length;i++) {
-				this.events[key][i].apply(this,callbackArgs);
-			}
-		}
-	};
 
 	var data={
-		user: {
+		basicInfo: {
 			name: "albert",
-			age: "23"
-		},
-		address: {
 			city: "Hangzhou"
-		}
+		},
+		age: 23
 	};
 
 	var app=new Observer(data);//实例化
 
 	app.$watch("age",function(age) {
-		console.log("我的年龄变了，现在已经是：${age}岁了");
+		console.log(`我的年纪变了，现在已经是：${age}岁了`)
 	});
-
-	// var e=new Event();
-
-	// e.on("A",function(data) {
-	// 	console.log(1 + data);  // 执行第一个回调业务函数
-	// });
-
-	// e.on("A",function(data) {
-	// 	console.log(2 + data);  // 执行第二个回调业务函数
-	// });
-
-	// e.emit("A","我是参数");
