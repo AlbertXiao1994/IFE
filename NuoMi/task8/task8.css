@@ -1,0 +1,83 @@
+.container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+
+	width: 500px;
+	height: 120px;
+
+	border: 1px solid #000;
+	
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+p {
+	font-weight: bold;
+}
+
+input {
+	display: none;
+}
+
+label {
+	display: inline-block;
+	width: 80px;
+	height: 21px;
+	position: relative;
+}
+
+span {
+	display: inline-block;
+	position: relative;
+	left: 20px;
+}
+
+.sprite_radio label {
+	background-image: url(img/non-radio.png);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+input[type="radio"]:checked + label {
+	background-image: url(img/radio.png);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+.sprite_check label {
+	background-image: url(img/non-checkbox.png);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+input[type="checkbox"]:checked + label {
+	background-image: url(img/checkbox.png);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+.pseudo_radio label::before {
+	content: "";
+	display: inline-block;
+	position: relative;
+	left: -5px;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	border: 1px solid #C1BABA;
+}
+
+input[type="radio"]:checked + label::before {
+	content: "";
+	display: inline-block;
+	position: relative;
+	left: -5px;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	border: 1px solid #F64949;
+	background: #F64949;
+}
+
