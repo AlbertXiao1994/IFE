@@ -37,10 +37,13 @@
 	};
 
 	//观察者构造函数
-	function Vue(data,path,eventBus) {
+	function Vue(data,path,eventBus,el,html,inialdata) {
+		this.el=el||document.getElementById(data.el.slice(1));//获取元素
+		this.html=html||this.el.innerHTML;
 		this.eventBus=eventBus||new Event();
 		this.path=path||[];//记录路径
 		this.data=data;
+		this.inialdata=inialdata||data;
 		this.walk(data);
 	}
 
@@ -60,7 +63,7 @@
 				//判断是否到最底层，属性值是否还是对象
 				if(typeof val==='object') {
 					_this.path.push(key);
-					new Vue(val,this.path,_this.eventBus);
+					new Vue(val,_this.path,_this.eventBus,_this.el,_this.html,_this.inialdata);
 				}
 
 				_this.convert(key,val);
@@ -85,30 +88,33 @@
 				_this.eventBus.emit(_this.path,newVal);
 				//如果设置的为对象，继续进入下一层
 				if(typeof newVal==="object")
-					new Vue(newVal,_this.path,_this.eventBus);
+					new Vue(newVal,_this.path,_this.eventBus,_this.el,_this.html,_this.inialdata);
+				_this.render();
 			}
 		});
 	};
 
 	//将数据渲染成内容
 	Vue.prototype.render=function() {
-		var el=document.getElementById(this.data.el.slice(1));//获取元素
+		var el=this.el;
+		var html=this.html;
 
-		var marks=el.innerHTML.match(/\{\{.+\}\}/g);//匹配{{}}字符串
+		var marks=html.match(/\{\{.+\}\}/g);//匹配{{}}字符串
 		for(var i=0;i<marks.length;i++) {
 			var key=marks[i].replace(/[\{\}]/g,"");//去除大括号
 			key=key.split(".");
 			var text;//属性值
 			if(key.length>1) {
-				text=this.data.data;
+				text=this.inialdata.data;
 				for(var j=0,len=key.length;j<len;j++) {
 					text=text[key[j]];
 				}
 			}
 			else
 				value=this.data[key];
-			el.innerHTML=el.innerHTML.replace(marks[i],text);
+			html=html.replace(marks[i],text);
 		}
+		el.innerHTML=html;
 	};
 
 	var app=new Vue({
@@ -123,24 +129,3 @@
 
 	//渲染页面
 	app.render();
-
-	// //将数据渲染成内容
-	// window.onload=function() {
-	// 	var el=document.getElementById(app.data.el.slice(1));//获取元素
-
-	// 	var marks=el.innerHTML.match(/\{\{.+\}\}/g);//匹配{{}}字符串
-	// 	for(var i=0;i<marks.length;i++) {
-	// 		var key=marks[i].replace(/[\{\}]/g,"");//去除大括号
-	// 		key=key.split(".");
-	// 		var text;//属性值
-	// 		if(key.length>1) {
-	// 			text=app.data.data;
-	// 			for(var j=0,len=key.length;j<len;j++) {
-	// 				text=text[key[j]];
-	// 			}
-	// 		}
-	// 		else
-	// 			value=app.data[key];
-	// 		el.innerHTML=el.innerHTML.replace(marks[i],text);
-	// 	}
-	// };
