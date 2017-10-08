@@ -1,9 +1,9 @@
 .container {
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 
-	width: 500px;
+	width: 600px;
 	height: 120px;
 
 	border: 1px solid #000;
@@ -40,7 +40,7 @@ span {
 	background-position: left;
 }
 
-input[type="radio"]:checked + label {
+.sprite_radio input[type="radio"]:checked + label {
 	background-image: url(img/radio.png);
 	background-repeat: no-repeat;
 	background-position: left;
@@ -52,7 +52,7 @@ input[type="radio"]:checked + label {
 	background-position: left;
 }
 
-input[type="checkbox"]:checked + label {
+.sprite_check input[type="checkbox"]:checked + label {
 	background-image: url(img/checkbox.png);
 	background-repeat: no-repeat;
 	background-position: left;
@@ -62,22 +62,61 @@ input[type="checkbox"]:checked + label {
 	content: "";
 	display: inline-block;
 	position: relative;
-	left: -5px;
-	width: 13px;
-	height: 13px;
+	box-sizing: border-box;
+	left: -4px;
+	top: 2px;
+	width: 14px;
+	height: 14px;
 	border-radius: 50%;
 	border: 1px solid #C1BABA;
 }
 
-input[type="radio"]:checked + label::before {
+.pseudo_radio input[type="radio"]:checked + label::before {
 	content: "";
 	display: inline-block;
 	position: relative;
 	left: -5px;
-	width: 13px;
-	height: 13px;
+	width: 14px;
+	height: 14px;
 	border-radius: 50%;
-	border: 1px solid #F64949;
-	background: #F64949;
+	border: 1px solid #F73939;
+	background-clip: content-box;
+	background-color: #F73939;
+	padding: 3px;
+}
+
+.pseudo_check label::before {
+	content: "";
+	display: inline-block;
+	position: relative;
+	box-sizing: border-box;
+	left: -5px;
+	width: 14px;
+	height: 14px;
+	border: 1px solid #C1BABA;
+}
+
+.pseudo_check input[type="checkbox"]:checked + label::before {
+	content: "";
+	display: inline-block;
+	position: relative;
+	left: -5px;
+	width: 14px;
+	height: 14px;
+	border: 1px solid #F73939;
+}
+
+.pseudo_check input[type="checkbox"]:checked + label::after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	left: -1px;
+	top: 3px;
+	width: 4px;
+	height: 8px;
+	border-color: #F73939;
+	border-width: 0 2px 2px 0;
+	border-style: solid;
+	transform: rotate(45deg);
 }
 
