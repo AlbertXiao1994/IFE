@@ -1,7 +1,6 @@
 window.onload=function() {
 	var elt=document.getElementById("container");//操作区域
-	//菜单元素
-	var menu=document.getElementById("contextmenu");
+	var ul=document.getElementsByTagName("ul");
 
 	//操作区右键事件处理程序
 	if(elt.addEventListener) { //标准事件模型
@@ -19,7 +18,13 @@ window.onload=function() {
 		elt.attachEvent("onclick",mouseClick);
 	}
 
-
+	//菜单选项点击事件
+	if(ul.addEventListener) { //标准事件模型
+		ul.addEventListener("click",itemClick,false);
+	}
+	else if(ul.attachEvent) {	//IE事件模型
+		ul.attachEvent("click",itemClick);
+	}
 }
 
 //操作区右键
@@ -75,4 +80,37 @@ function mouseClick(e) {
 	//菜单元素
 	var elt=document.getElementById("contextmenu");
 	elt.style.display="none";//隐藏
+
+	//阻止事件冒泡
+	if(e.stopPropagation)
+		e.stopPropagation();//标准模型
+	else
+		e.cancelBubble=true;//IE模型
+
+	//阻止默认事件
+	if(e.preventDefault)
+		e.preventDefault();//标准
+	else
+		e.returnValue=false;//IE
+}
+
+//菜单选项点击事件
+function itemClick(e) {
+	if(!e)
+		e=window.event;//IE模型
+	var target=e.target||e.srcElement;//事件目标，标准或IE模型
+
+	alert(target.innerText);
+
+	//阻止事件冒泡
+	if(e.stopPropagation)
+		e.stopPropagation();//标准模型
+	else
+		e.cancelBubble=true;//IE模型
+
+	//阻止默认事件
+	if(e.preventDefault)
+		e.preventDefault();//标准
+	else
+		e.returnValue=false;//IE
 }
