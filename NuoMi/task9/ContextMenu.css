@@ -1,0 +1,38 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+#container {
+	width: 100%;
+	height: 300px;
+
+	padding: 20px;
+
+	background-color: #A7A5A5;
+}
+
+#contextmenu {
+	position: absolute;
+	display: none;
+}
+
+ul {
+	list-style-type:none;
+	width: 200px;
+	background-color: #F24343;
+	color: #fff;
+	cursor: default;
+}
+
+li {
+	width: 100%;
+	height: 40px;
+
+	padding: 10px;
+}
+
+li:hover {
+	background-color: #E48888;
+}
