@@ -1,6 +1,6 @@
 window.onload=function() {
 	var elt=document.getElementById("container");//操作区域
-	var ul=document.getElementsByTagName("ul");
+	var lis=document.getElementsByTagName("li");
 
 	//操作区右键事件处理程序
 	if(elt.addEventListener) { //标准事件模型
@@ -19,11 +19,13 @@ window.onload=function() {
 	}
 
 	//菜单选项点击事件
-	if(ul.addEventListener) { //标准事件模型
-		ul.addEventListener("click",itemClick,false);
-	}
-	else if(ul.attachEvent) {	//IE事件模型
-		ul.attachEvent("click",itemClick);
+	for(var i=0;i<lis.length;i++) {
+		if(lis[i].addEventListener) { //标准事件模型
+			lis[i].addEventListener("click",itemClick,false);
+		}
+		else if(lis[i].attachEvent) {	//IE事件模型
+			lis[i].attachEvent("click",itemClick);
+		}
 	}
 }
 
@@ -98,9 +100,13 @@ function mouseClick(e) {
 function itemClick(e) {
 	if(!e)
 		e=window.event;//IE模型
-	var target=e.target||e.srcElement;//事件目标，标准或IE模型
+	// var target=e.target||e.srcElement;//事件目标，标准或IE模型
 
-	alert(target.innerText);
+	alert("你选择了"+this.innerText);
+	
+	//菜单元素
+	var elt=document.getElementById("contextmenu");
+	elt.style.display="none";//隐藏
 
 	//阻止事件冒泡
 	if(e.stopPropagation)
