@@ -34,9 +34,20 @@ label {
 
 .panel-collapse {
 	width: 100%;
+	height: 0;
+	
+	overflow: hidden;
+
 	border-top: 1px solid #D7D6D6;
-	padding: 10px;
-	display: none;
+
+	transition: height ease 1s;
+	-webkit-transition: height ease 1s;
+	-moz-transition: height ease 1s;
+	-o-transition: height ease 1s;
+}
+
+.panel-body {
+	padding: 10px
 }
 
 input {
@@ -49,5 +60,5 @@ input:hover + label {
 }
 
 input:checked + label + div {
-	display: block;
+	height: 150px;
 }
