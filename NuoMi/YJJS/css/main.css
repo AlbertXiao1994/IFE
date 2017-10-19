@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.topBar {
+	width: 100%;
+
+	position: absolute;
+
+	background-image: url(../images/1_首页及账户-00.jpg);
+	background-size: 100% 100%;
+}
+
+.loginBtn {
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+
+	width: 200px;
+	height: 50px;
+}
+
+.loginBtn button {
+	display: inline-block;
+
+	width: 80px;
+	height: 30px;
+
+	color: #fff;
+	font-size: 18px;
+	font-family: "微软雅黑";
+	text-align: center;
+
+	background-color: transparent;
+	border: 1px solid #fff;
+	border-radius: 15px;
+
+	cursor: pointer;
+}
+
+.loginBtn button:hover {
+	color: #FCEE21;
+	border-color: #FCEE21;
+}
+
+#shadow {
+	display: none;
+
+	position: absolute;
+	left: 0;
+	top: 0;
+
+	width: 100%;
+	height: 1000px;
+
+	background-color: black;
+	opacity: 0.2;
+}
+
+.loginBar {
+	display: none;
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	margin-top: 100px;
+
+	width: 420px;
+	/*height: 450px;*/
+
+	font-family: "微软雅黑";
+
+	z-index: 1;
+
+	background-color: #fff;
+	
+	border: 1px solid #fff;
+	border-radius: 20px;
+}
+
+#closeLoginBar {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+
+	width: 24px;
+	height: 24px;
+	background-color: #000;
+
+	border-radius: 12px;
+}
+
+#closeLoginBar::before,#closeLoginBar::after {
+	content: "";
+	width: 100%;
+	height: 2px;
+	position: absolute;
+	top: 50%;
+	background-color: #fff;
+}
+
+#closeLoginBar::before {
+	transform: rotate(45deg);
+}
+
+#closeLoginBar::after {
+	transform: rotate(-45deg);
+}
+
+#closeLoginBar:hover {
+	background-color: #F39D9D;
+}
+
+.logo {
+	width: 100%;
+	height: 110px;
+
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 30px;
+}
+
+.logo img {
+	width: 55%;
+}
+
+.tabBar {
+	width: 100%;
+}
+
+.tab-heading {
+	width: 100%;
+	height: 50px;
+
+	font-family: "微软雅黑";
+	font-size: 22px;
+	font-weight: bold;
+
+	border-bottom: 1px solid #B3B3B3;
+}
+
+.tab-heading input {
+	display: none;
+}
+
+.tab-heading label {
+	display: inline-block;
+	float: left;
+
+	width: 50%;
+	height: 100%;
+
+	line-height: 50px;
+
+	cursor: pointer;
+}
+
+#label_in {
+	padding-left: 50px;
+	text-align: left;
+}
+
+#label_up {
+	padding-right: 50px;
+	text-align: right;
+
+	font-weight: lighter;
+	color: #B3B3B3;
+}
+
+.tab_content {
+	padding-left: 50px;
+	padding-right: 50px;
+
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+
+.tab_content div {
+	margin-top: 15px;
+}
+
+.tab_content label {
+	display: inline-block;
+	position: relative;
+	
+	width: 320px;
+	height: 20px;
+
+	font-weight: bold;
+}
+
+.tab_content label span {
+	display: inline-block;
+	visibility: hidden;
+
+	position: absolute;
+	color: #ED1C24;
+	font-weight: lighter;
+
+	right: 0;
+}
+
+.tab_content input[type="text"] {
+	border: 1px solid #B3B3B3;
+	border-radius: 5px;
+
+	padding: 5px;
+
+	width: 320px;
+	height: 30px;
+}
+
+.tab_content input[type="password"] {
+	border: 1px solid #B3B3B3;
+	border-radius: 5px;
+
+	padding: 5px;
+
+	width: 320px;
+	height: 30px;
+}
+
+.saveLogin {
+	font-weight: lighter;
+	color: #B3B3B3;
+}
+
+.tab_content input[type="checkbox"] {
+	display: inline-block;
+
+	position: relative;
+	top: 1px;
+}
+
+#btn-sign-in {
+	background-color: #E6E6E6;
+
+	width: 320px;
+	height: 30px;
+
+	font-weight: bold;
+	cursor: pointer;
+
+	border-radius: 5px;
+}
+
+label.label_create {
+	padding-left: 50px;
+	text-align: left;
+	cursor: default;
+}
+
+#check_label_in {
+	padding-right: 50px;
+	text-align: right;
+	font-weight: lighter;
+	color: #B3B3B3;
+}
+
+button {
+	outline: none;
+}

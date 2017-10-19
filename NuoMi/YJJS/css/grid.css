@@ -1,0 +1,54 @@
+/*-- our cleafix hack -- */ 
+.row:before, 
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.col {
+    border: 1px solid #999; 
+    background-color: #eee;
+    margin: 10px;
+    height: 50px;             
+    float: left; 
+}
+
+@media only screen and (min-width:769px){
+    .col-md-1{ 
+        width: calc(8.333% - 20px);    
+    }
+    .col-md-2{ 
+        width: calc(16.66% - 20px);       
+    }
+    .col-md-3{ 
+        width: calc(24.99% - 20px);   
+    }
+    .col-md-4{ 
+        width: calc(33.333% - 20px);   
+    }
+    .col-md-5{ 
+        width: calc(41.666% - 20px);   
+    }
+    .col-md-6{ 
+        width: calc(50% - 20px);    
+    }
+}
+
+@media only screen and (max-width:768px){
+    .col-sm-2{ 
+        width: calc(16.66% - 20px);       
+    }
+    .col-sm-3{ 
+        width: calc(25% - 20px);   
+    }
+    .col-sm-6{ 
+        width: calc(50% - 20px);   
+    }
+    .col-sm-8{ 
+        width: calc(66.66% - 20px);   
+    }
+    .col-sm-12{ 
+        width: calc(100% - 20px);    
+    }
+}

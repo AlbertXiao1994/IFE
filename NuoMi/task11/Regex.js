@@ -52,7 +52,7 @@ function init() {
 		var v=input_string.value;
 		var s=document.getElementById("tip_string");
 
-		var reg_word=/^([a-zA-Z]+\s?)+$/;
+		var reg_word=/^([a-zA-Z]+\s+)+$/;
 
 		if(v==""||v==null) {
 			s.style.color="#F16565";
@@ -61,10 +61,6 @@ function init() {
 		else if(!reg_word.test(v)) {
 			s.style.color="#F16565";
 			s.innerHTML="输入的字符串中含有非法字符";
-		}
-		else if(!reg_length.test(v)) {
-			s.style.color="#F16565";
-			s.innerHTML="手机号为11位数字";
 		}
 		else if(reg_correct.test(v)){
 			s.style.color="#63E96E";

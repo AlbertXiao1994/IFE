@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>欢迎来到亿间教室</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/grid.css">
+</head>
+<body>
+	<div class="topBar" id="topBar">
+		<div class="loginBtn">
+			<button id="open_login">登录</button>
+			<button id="open_register">注册</button>
+		</div>
+	</div>
+	<div id="shadow"></div>
+	<div class="loginBar" id="loginBar">
+		<div class="logo">
+			<img src="images/logo.png">
+		</div>
+		<div id="closeLoginBar"></div>
+		<div class="tabBar">
+			<!-- 登陆状态 -->                                                                              
+			<div id="form_in">
+				<div class="tab-heading">
+					<label id="label_in">登录</label>
+					<input type="radio" name="loginBar" id="sign_up">
+					<label for="sign_up" id="label_up">注册</label>
+				</div>
+				<div class="tab_content">
+					<form>
+						<div>
+							<label for="username">用户名<span>!您的账号或密码有误</span></label>
+							<input type="text" name="username" id="username" placeholder="邮箱地址或手机号码">
+						</div>
+						<div>
+							<label for="psw">密码</label>
+							<input type="password" name="psw" id="psw">
+						</div>
+						<div>
+							<label class="saveLogin"><input type="checkbox" name="saveLogin" id="saveLogin">&nbsp;&nbsp;记住登录状态</label>
+						</div>
+						<div>
+							<button id="btn-sign-in">登录</button>
+						</div>								
+					</form>
+				</div>
+			</div>
+			<!-- 注册状态 -->
+			<div id="form_up">
+				<div class="tab-heading">
+					<label class="label_create">创建一个新账户</label>
+					<input type="checkbox" id="check_sign_in">
+					<label for="check_sign_in" id="check_label_in">登录</label>
+				</div>
+				<div class="tab_content">
+					<form>
+						<div>
+							<label for="name">您的姓名<span id="s_name">!请输入您的姓名</span></label>
+							<input type="text" name="name" id="name">
+						</div>
+						<div>
+							<label for="cellphone">手机号<span id="s_phone">!请输入您的手机号</span></label>
+							<input type="text" name="cellphone" id="cellphone">
+						</div>
+						<div>
+							<label for="email">电子邮箱地址（可选）<span id="s_eamil">!您输入的邮件格式不正确</span></label>
+							<input type="text" name="email" id="email">
+						</div>
+						<div>
+							<label for="psw_up">密码<span id="s_psw">！请输入您的密码</span></label>
+							<input type="password" name="psw" id="psw_up" placeholder="至少6个字符">
+						</div>
+						<div>
+							<label for="re_psw">确认密码<span id="s_re_psw">！请您确认密码</span></label>
+							<input type="password" name="re_psw" id="re_psw">
+						</div>
+						<div>
+							<label class="saveLogin"><input type="checkbox" name="saveLogin" id="saveLogin">&nbsp;&nbsp;我已阅读并同意网站的<a href="#" target="_blank">《使用条件及隐私声明》</a></label>
+						</div>
+						<div>
+							<button id="btn-sign-in">注册</button>
+						</div>								
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
