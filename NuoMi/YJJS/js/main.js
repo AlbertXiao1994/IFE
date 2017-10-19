@@ -9,6 +9,7 @@ window.onload=function() {
 	var shadow=document.getElementById("shadow");//遮罩层
 	var closeLoginBar=document.getElementById("closeLoginBar");//关闭按钮
 	var sign_up=document.getElementById("sign_up");//注册选将卡
+	var sign_in=document.getElementById("check_sign_in");//登录选将卡
 
 	var input_name=document.getElementById("name");//姓名输入框
 	var input_phone=document.getElementById("cellphone");//手机输入框
@@ -38,7 +39,6 @@ window.onload=function() {
 		loginBar.style.display="block";//登录-注册框
 		loginBar.style.height="450px";
 		form_in.style.display="block";//显示登录框
-		form_in.style.checked="true";//置为选中
 		form_up.style.display="none";//隐藏注册框
 	};
 
@@ -48,16 +48,21 @@ window.onload=function() {
 		loginBar.style.display="block";//登录-注册框
 		form_in.style.display="none";//隐藏登录框
 		loginBar.style.height="600px";
-		form_up.style.checked="true";//置为选中
 		form_up.style.display="block";//显示注册框
 	};
 
-	//切换状态
+	//切换成注册状态
 	sign_up.onchange=function() {
-			//切换成注册
-			form_in.style.display="none";//隐藏登录框
-			loginBar.style.height="600px";
-			form_up.style.display="block";//显示注册框
+		form_in.style.display="none";//隐藏登录框
+		loginBar.style.height="600px";
+		form_up.style.display="block";//显示注册框
+	};
+
+	//切换成登录状态
+	sign_in.onchange=function() {
+		form_in.style.display="block";//显示登录框
+		loginBar.style.height="450px";
+		form_up.style.display="none";//隐藏注册框
 	};
 
 	//关闭登录-注册框
@@ -96,6 +101,7 @@ function validate_name() {
 	var s=document.getElementById("s_name");//获取提示元素
 	s.style.visibility="visible";
 	var v=this.value;//获取输入文本
+	this.style.borderColor="#ED1C24";
 
 	if(v==""||v==null) {
 		s.innerHTML="!请输入您的姓名";
@@ -110,6 +116,7 @@ function validate_phone() {
 		var s=document.getElementById("s_phone");
 		s.style.visibility="visible";
 		s.innerHTML="";
+		this.style.borderColor="#ED1C24";
 
 		var reg_digital=/^[\d]+$/;
 		var reg_length=/\d{11}/;
@@ -133,23 +140,20 @@ function validate_phone() {
 }
 
 function validate_email() {
-		var p=document.getElementById("p_email");//获取提示元素
+		var s=document.getElementById("s_email");//获取提示元素
 		var v=input_email.value;//获取输入文本
 
 		var apos=v.indexOf("@");//@的位置
 		dotpos=v.lastIndexOf(".");//.的位置
 
-		if(v==""||v==null) {
-			p.style.color="#F16565";
-			p.innerHTML="邮件不能为空";
-		}
-		else if (apos<1||dotpos-apos<2) {
-			p.style.color="#F16565";
-			p.innerHTML="邮件格式不正确";
-		}
-		else {
-			p.style.color="#63E96E";
-			p.innerHTML="邮件格式正确";
+		if(v!=""&&v!=null) {
+			if (apos<1||dotpos-apos<2) {
+				s.style.visibility="visible";
+				s.innerHTML="邮件格式不正确";
+			}
+			else {
+				s.style.visibility="hidden";
+			}
 		}
 }
 
@@ -157,6 +161,7 @@ function validate_psw() {
 		var s=document.getElementById("s_psw");//获取提示元素
 		s.style.visibility="visible";
 		var v=this.value;//获取输入文本
+		this.style.borderColor="#ED1C24";
 		var reg=/^[\w\d]+$/;
 
 		if(v==""||v==null) {
@@ -174,6 +179,7 @@ function validate_re() {
 		var s=document.getElementById("s_re_psw");//获取提示元素
 		s.style.visibility="visible";
 		var v_re=this.value;//获取确认密码输入文本
+		this.style.borderColor="#ED1C24";
 		var v_psw=document.getElementById("psw_up").value;//获取密码输入文本
 		var reg=/^[\w\d]+$/;
         
