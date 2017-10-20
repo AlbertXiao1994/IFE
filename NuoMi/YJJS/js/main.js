@@ -13,6 +13,9 @@ window.onload=function() {
 	var sign_up=document.getElementById("sign_up");//注册选将卡
 	var sign_in=document.getElementById("check_sign_in");//登录选将卡
 	var btn_signup=document.getElementById("btn-sign-up");//注册框中的注册按钮
+	var palace_left=document.getElementById("palace_left");//宫殿页左翻页按钮
+	var palace_right=document.getElementById("palace_right");//宫殿页右翻页按钮
+	var palace_indicator=document.getElementById("palace_indicator");//指示栏
 
 	var input_name=document.getElementById("name");//姓名输入框
 	var input_phone=document.getElementById("cellphone");//手机输入框
@@ -77,7 +80,22 @@ window.onload=function() {
 		shadow.style.display="none";
 	};
 
+	//提交注册表单按钮
 	btn_signup.onclick=validate_final;
+
+	//宫殿页向左翻页
+	palace_left.onclick=function() {
+		var elt_box=document.getElementById("carousel-box");//轮播框盒子
+
+		elt_box.style.left="-100%";
+	}
+
+	//宫殿页向右翻页
+	palace_right.onclick=function() {
+		var elt_box=document.getElementById("carousel-box");//轮播框盒子
+
+		elt_box.style.left="100%";
+	}
 
 }
 
