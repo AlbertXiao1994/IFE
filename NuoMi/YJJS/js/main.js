@@ -1,5 +1,7 @@
 window.onload=function() {
 	var elt_topBar=document.getElementById("topBar");//顶栏
+	var elt_drt=document.getElementById("direction");//使用说明页
+	var elt_palace=document.getElementById("palace");//宫殿展示页
 	var shadow=document.getElementById("shadow");//遮罩层
 	var open_login=document.getElementById("open_login");//打开登录框按钮
 	var open_register=document.getElementById("open_register");//打开注册框按钮
@@ -10,12 +12,19 @@ window.onload=function() {
 	var closeLoginBar=document.getElementById("closeLoginBar");//关闭按钮
 	var sign_up=document.getElementById("sign_up");//注册选将卡
 	var sign_in=document.getElementById("check_sign_in");//登录选将卡
+	var btn_signup=document.getElementById("btn-sign-up");//注册框中的注册按钮
 
 	var input_name=document.getElementById("name");//姓名输入框
 	var input_phone=document.getElementById("cellphone");//手机输入框
 	var input_email=document.getElementById("email");//电子邮件输入框
 	var input_psw=document.getElementById("psw_up");//密码输入框
 	var input_re=document.getElementById("re_psw");//确认密码输入框
+
+	//设置首页背景图高度等于视口高度
+	var h=getViewportSize(window).h;//获取视口高度
+	elt_topBar.style.height=h+"px";//设置高度
+	elt_drt.style.height=h+"px";//设置高度
+	elt_palace.style.height=h+"px";//设置高度
 
 	//检验表单输入
 	//名称失去焦点事件处理程序
@@ -29,9 +38,6 @@ window.onload=function() {
 	//确认密码失去焦点事件处理程序
 	input_re.onblur=validate_re;
 	
-
-	var h=getViewportSize(window).h;//获取视口高度
-	elt_topBar.style.height=h+"px";//设置高度
 
 	//注册登录按钮相应事件
 	open_login.onclick=function() {
@@ -71,11 +77,7 @@ window.onload=function() {
 		shadow.style.display="none";
 	};
 
-	//打开浮出层以及登录-注册框
-	function horizonActive() {
-		shadow.style.display="block";
-		loginBar.style.display="block";
-	}
+	btn_signup.onclick=validate_final;
 
 }
 
@@ -99,24 +101,29 @@ function getViewportSize(w) {
 
 function validate_name() {
 	var s=document.getElementById("s_name");//获取提示元素
+	var _this=document.getElementById("name");//姓名输入框
+	var v=_this.value;//获取输入文本
+
+	_this.style.borderColor="#ED1C24";
 	s.style.visibility="visible";
-	var v=this.value;//获取输入文本
-	this.style.borderColor="#ED1C24";
 
 	if(v==""||v==null) {
 		s.innerHTML="!请输入您的姓名";
 	}
 	else {
 		s.style.visibility="hidden";
+		_this.style.borderColor="#B3B3B3";
 	}
 }
 
 function validate_phone() {
-		var v=this.value;
+		var _this=document.getElementById("cellphone");//手机输入框
+		var v=_this.value;
 		var s=document.getElementById("s_phone");
+
 		s.style.visibility="visible";
 		s.innerHTML="";
-		this.style.borderColor="#ED1C24";
+		_this.style.borderColor="#ED1C24";
 
 		var reg_digital=/^[\d]+$/;
 		var reg_length=/\d{11}/;
@@ -133,6 +140,7 @@ function validate_phone() {
 		}
 		else if(reg_correct.test(v)){
 			s.style.visibility="hidden";
+			_this.style.borderColor="#B3B3B3";
 		}
 		else {
 			s.innerHTML="！手机号不存在";
@@ -140,29 +148,36 @@ function validate_phone() {
 }
 
 function validate_email() {
+		var _this=document.getElementById("email");//电子邮件输入框
 		var s=document.getElementById("s_email");//获取提示元素
-		var v=input_email.value;//获取输入文本
+		var v=_this.value;//获取输入文本
+
 
 		var apos=v.indexOf("@");//@的位置
 		dotpos=v.lastIndexOf(".");//.的位置
 
 		if(v!=""&&v!=null) {
 			if (apos<1||dotpos-apos<2) {
+				_this.style.borderColor="#ED1C24";
 				s.style.visibility="visible";
 				s.innerHTML="邮件格式不正确";
 			}
 			else {
 				s.style.visibility="hidden";
+				_this.style.borderColor="#B3B3B3";
 			}
 		}
 }
 
 function validate_psw() {
+		var _this=document.getElementById("psw_up");//密码输入框
 		var s=document.getElementById("s_psw");//获取提示元素
-		s.style.visibility="visible";
-		var v=this.value;//获取输入文本
-		this.style.borderColor="#ED1C24";
+		var v=_this.value;//获取输入文本
 		var reg=/^[\w\d]+$/;
+
+		//初始属性
+		s.style.visibility="visible";
+		_this.style.borderColor="#ED1C24";
 
 		if(v==""||v==null) {
 			s.innerHTML="！请输入您的密码";
@@ -172,16 +187,19 @@ function validate_psw() {
 		}
 		else {
 			s.style.visibility="hidden";
+			this.style.borderColor="#B3B3B3";
 		}
 }
 
 function validate_re() {
+		var _this=document.getElementById("re_psw");//确认密码输入框
 		var s=document.getElementById("s_re_psw");//获取提示元素
-		s.style.visibility="visible";
-		var v_re=this.value;//获取确认密码输入文本
-		this.style.borderColor="#ED1C24";
+		var v_re=_this.value;//获取确认密码输入文本
 		var v_psw=document.getElementById("psw_up").value;//获取密码输入文本
 		var reg=/^[\w\d]+$/;
+
+		_this.style.borderColor="#ED1C24";
+		s.style.visibility="visible";
         
         if(v_re==""||v_re==null) {
 			s.innerHTML="！请您确认密码";
@@ -191,5 +209,30 @@ function validate_re() {
 		}
 		else {
 			s.style.visibility="hidden";
+			this.style.borderColor="#B3B3B3";
 		}
+}
+
+//提交表单前验证注册信息
+function validate_final(e) {
+	if(!e)
+		e=window.event;
+
+	validate_name();
+	validate_phone();
+	validate_email();
+	validate_psw();
+	validate_re();
+
+	//阻止事件冒泡
+	if(e.stopPropagation)
+		e.stopPropagation();//标准模型
+	else
+		e.cancelBubble=true;//IE模型
+
+	//阻止默认事件
+	if(e.preventDefault)
+		e.preventDefault();//标准
+	else
+		e.returnValue=false;//IE
 }

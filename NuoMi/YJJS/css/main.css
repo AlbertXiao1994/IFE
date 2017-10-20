@@ -7,7 +7,7 @@
 .topBar {
 	width: 100%;
 
-	position: absolute;
+	position: relative;
 
 	background-image: url(../images/1_首页及账户-00.jpg);
 	background-size: 100% 100%;
@@ -111,10 +111,18 @@
 
 #closeLoginBar::before {
 	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);/*Safari或Chrome*/
+	-o-transform: rotate(45deg);/*opera*/
+	-ms-transform: rotate(45deg);/*IE9*/
+	-moz-transform: rotate(45deg);/*火狐*/
 }
 
 #closeLoginBar::after {
 	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);/*Safari或Chrome*/
+	-o-transform: rotate(-45deg);/*opera*/
+	-ms-transform: rotate(-45deg);/*IE9*/
+	-moz-transform: rotate(-45deg);/*火狐*/
 }
 
 #closeLoginBar:hover {
@@ -243,7 +251,7 @@
 	top: 1px;
 }
 
-#btn-sign-in {
+#btn-sign-in,#btn-sign-up {
 	background-color: #E6E6E6;
 
 	width: 320px;
@@ -270,4 +278,90 @@ label.label_create {
 
 button {
 	outline: none;
+}
+
+.direction {
+	width: 100%;
+
+	background-image: url(../images/1_首页及账户-011.jpg);
+	background-size: 100% 100%;
+}
+
+.palace {
+	width: 100%;
+
+	position: relative;
+
+	background-color: #1A1A1A;
+}
+
+.palace-content {
+	width: 65%;
+	height: 85%;
+
+	position: relative;
+
+	margin: auto;
+
+	overflow: hidden;
+}
+
+.palace-content h2 {
+	width: 100%;
+	height: 60px;
+
+	font-size: 36px;
+	font-family: "微软雅黑";
+	color: #fff;
+	text-align: center;
+	line-height: 50px;
+}
+
+.carousel {
+	width: 400%;
+	height: calc(100% - 90px);
+
+	position: relative;
+	left: 0;
+	top: 0;
+}
+
+.carousel-items {
+	width: 25%;
+	height: 100%;
+
+	float: left;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-content: space-between;
+}
+
+.carousel-item {
+	width: 30%;
+	height: 46%;
+
+	background-color: #fff;
+}
+
+.carousel-item img {
+	width: 100%;
+	height: 100%;
+}
+
+.carousel-indicators {
+	width: 100%;
+	height: 10px;
+
+	margin-top: 20px;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.carousel-indicator {
+	width: 24.5%;
+	background-color: #fff;
 }
