@@ -10,4 +10,4 @@ window.onload=function() {
 	elt_drt.style.height=h+"px";//设置高度
 	elt_palace.style.height=h+"px";//设置高度
 	elt_co.style.height=h+"px";//设置高度
-}
+};

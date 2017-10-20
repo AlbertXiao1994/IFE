@@ -425,7 +425,7 @@ button {
 }
 
 .cooperateion-wrap {
-	width: 100%
+	width: 100%;
 	height: 75%;
 
 	display: flex;
@@ -435,7 +435,9 @@ button {
 
 .cooperateion-content {
 	width: 65%;
-	height: 75%;
+	height: 80%;
+
+	position: relative;
 
 	margin: auto;
 
@@ -458,4 +460,18 @@ button {
 	height: 25%;
 
 	background-color: #000;
+}
+
+.cooperateion .carousel {
+	height: calc(100% - 110px);
+}
+
+.cooperateion .carousel-item {
+	width: 100%;
+	height: 100%;
+}
+
+.cooperateion .carousel-item img {
+	width: 100%;
+	height: 100%;
 }

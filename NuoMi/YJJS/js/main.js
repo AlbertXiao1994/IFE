@@ -4,6 +4,13 @@ window.onload=function() {
 	var elt_palace=document.getElementById("palace");//宫殿展示页
 	var elt_co=document.getElementById("cooperateion");//合作页
 
+	//设置首页背景图高度等于视口高度
+	var h=getViewportSize(window).h;//获取视口高度
+	elt_topBar.style.height=h+"px";//设置高度
+	elt_drt.style.height=h+"px";//设置高度
+	elt_palace.style.height=h+"px";//设置高度
+	elt_co.style.height=h+"px";//设置高度
+
 	var shadow=document.getElementById("shadow");//遮罩层
 	var open_login=document.getElementById("open_login");//打开登录框按钮
 	var open_register=document.getElementById("open_register");//打开注册框按钮
@@ -15,22 +22,22 @@ window.onload=function() {
 	var sign_up=document.getElementById("sign_up");//注册选将卡
 	var sign_in=document.getElementById("check_sign_in");//登录选将卡
 	var btn_signup=document.getElementById("btn-sign-up");//注册框中的注册按钮
+
+	//宫殿页
 	var palace_left=document.getElementById("palace_left");//宫殿页左翻页按钮
 	var palace_right=document.getElementById("palace_right");//宫殿页右翻页按钮
 	var palace_indicator=document.getElementById("palace_indicator");//指示栏
+
+	//合作页
+	var co_left=document.getElementById("co_left");//合作页左翻页按钮
+	var co_right=document.getElementById("co_right");//合作页右翻页按钮
+	var co_indicator=document.getElementById("co_indicator");//指示栏
 
 	var input_name=document.getElementById("name");//姓名输入框
 	var input_phone=document.getElementById("cellphone");//手机输入框
 	var input_email=document.getElementById("email");//电子邮件输入框
 	var input_psw=document.getElementById("psw_up");//密码输入框
 	var input_re=document.getElementById("re_psw");//确认密码输入框
-
-	//设置首页背景图高度等于视口高度
-	var h=getViewportSize(window).h;//获取视口高度
-	elt_topBar.style.height=h+"px";//设置高度
-	elt_drt.style.height=h+"px";//设置高度
-	elt_palace.style.height=h+"px";//设置高度
-	elt_co.style.height=h+"px";//设置高度
 
 	//检验表单输入
 	//名称失去焦点事件处理程序
@@ -91,7 +98,7 @@ window.onload=function() {
 	//宫殿页向左翻页
 	palace_left.onclick=function() {
 		var elt_box=document.getElementById("carousel-box");//轮播框盒子
-		var indicators=document.getElementsByClassName("carousel-indicator");//指示元素
+		var i=document.getElementById("palace_indicator");//指示元素
 
 		//移动位置
 		switch(palace_index) {
@@ -110,11 +117,12 @@ window.onload=function() {
 		}
 
 		//改变指示
-		var elt_i=indicators[palace_index];//当前选中元素
+		var c=i.children;
+		var elt_i=c[palace_index];//当前选中元素
 		if(palace_index!=3)
-			indicators[palace_index+1].classList.remove("selected");
+			c[palace_index+1].classList.remove("selected");
 		else
-			indicators[0].classList.remove("selected");
+			c[0].classList.remove("selected");
 		elt_i.classList.add("selected");
 
 	}
@@ -122,7 +130,7 @@ window.onload=function() {
 	//宫殿页向右翻页
 	palace_right.onclick=function() {
 		var elt_box=document.getElementById("carousel-box");//轮播框盒子
-		var indicators=document.getElementsByClassName("carousel-indicator");//指示元素
+		var i=document.getElementById("palace_indicator");//指示元素
 
 		//移动位置
 		switch(palace_index) {
@@ -141,15 +149,81 @@ window.onload=function() {
 		}
 
 		//改变指示
-		var elt_i=indicators[palace_index];//当前选中元素
+		var c=i.children;
+		var elt_i=c[palace_index];//当前选中元素
 		if(palace_index!=0)
-			indicators[palace_index-1].classList.remove("selected");
+			c[palace_index-1].classList.remove("selected");
 		else
-			indicators[3].classList.remove("selected");
+			c[3].classList.remove("selected");
 		elt_i.classList.add("selected");
 	}
 
-}
+	//合作翻页标签
+	var co_index=0;
+	//合作页向左翻页
+	co_left.onclick=function() {
+		var elt_box=document.getElementById("co_box");//轮播框盒子
+		var i=document.getElementById("co_indicator");//指示元素
+
+		//移动位置
+		switch(co_index) {
+			case 0:elt_box.style.left="-300%";//第一栏
+				   co_index=3;
+				   break;
+			case 1:elt_box.style.left="0";//第二栏
+				   co_index=0;
+				   break;
+			case 2:elt_box.style.left="-100%";//第三栏
+				   co_index=1;
+				   break;
+			case 3:elt_box.style.left="-200%";//第四栏
+				   co_index=2;
+				   break;
+		}
+
+		//改变指示
+		var c=i.children;
+		var elt_i=c[co_index];//当前选中元素
+		if(co_index!=3)
+			c[co_index+1].classList.remove("selected");
+		else
+			c[0].classList.remove("selected");
+		elt_i.classList.add("selected");
+
+	}
+
+	//合作页向右翻页
+	co_right.onclick=function() {
+		var elt_box=document.getElementById("co_box");//轮播框盒子
+		var i=document.getElementById("co_indicator");//指示元素
+
+		//移动位置
+		switch(co_index) {
+			case 0:elt_box.style.left="-100%";//第一栏
+				   co_index=1;
+				   break;
+			case 1:elt_box.style.left="-200%";//第二栏
+				   co_index=2;
+				   break;
+			case 2:elt_box.style.left="-300%";//第三栏
+				   co_index=3;
+				   break;
+			case 3:elt_box.style.left="0";//第四栏
+				   co_index=0;
+				   break;
+		}
+
+		//改变指示
+		var c=i.children;
+		var elt_i=c[co_index];//当前选中元素
+		if(co_index!=0)
+			c[co_index-1].classList.remove("selected");
+		else
+			c[3].classList.remove("selected");
+		elt_i.classList.add("selected");
+	}
+
+};
 
 //查询窗口的视口尺寸
 function getViewportSize(w) {
