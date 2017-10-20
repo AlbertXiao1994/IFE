@@ -2,6 +2,8 @@ window.onload=function() {
 	var elt_topBar=document.getElementById("topBar");//顶栏
 	var elt_drt=document.getElementById("direction");//使用说明页
 	var elt_palace=document.getElementById("palace");//宫殿展示页
+	var elt_co=document.getElementById("cooperateion");//合作页
+
 	var shadow=document.getElementById("shadow");//遮罩层
 	var open_login=document.getElementById("open_login");//打开登录框按钮
 	var open_register=document.getElementById("open_register");//打开注册框按钮
@@ -28,6 +30,7 @@ window.onload=function() {
 	elt_topBar.style.height=h+"px";//设置高度
 	elt_drt.style.height=h+"px";//设置高度
 	elt_palace.style.height=h+"px";//设置高度
+	elt_co.style.height=h+"px";//设置高度
 
 	//检验表单输入
 	//名称失去焦点事件处理程序
@@ -83,18 +86,67 @@ window.onload=function() {
 	//提交注册表单按钮
 	btn_signup.onclick=validate_final;
 
+	//宫殿翻页标签
+	var palace_index=0;
 	//宫殿页向左翻页
 	palace_left.onclick=function() {
 		var elt_box=document.getElementById("carousel-box");//轮播框盒子
+		var indicators=document.getElementsByClassName("carousel-indicator");//指示元素
 
-		elt_box.style.left="-100%";
+		//移动位置
+		switch(palace_index) {
+			case 0:elt_box.style.left="-300%";//第一栏
+				   palace_index=3;
+				   break;
+			case 1:elt_box.style.left="0";//第二栏
+				   palace_index=0;
+				   break;
+			case 2:elt_box.style.left="-100%";//第三栏
+				   palace_index=1;
+				   break;
+			case 3:elt_box.style.left="-200%";//第四栏
+				   palace_index=2;
+				   break;
+		}
+
+		//改变指示
+		var elt_i=indicators[palace_index];//当前选中元素
+		if(palace_index!=3)
+			indicators[palace_index+1].classList.remove("selected");
+		else
+			indicators[0].classList.remove("selected");
+		elt_i.classList.add("selected");
+
 	}
 
 	//宫殿页向右翻页
 	palace_right.onclick=function() {
 		var elt_box=document.getElementById("carousel-box");//轮播框盒子
+		var indicators=document.getElementsByClassName("carousel-indicator");//指示元素
 
-		elt_box.style.left="100%";
+		//移动位置
+		switch(palace_index) {
+			case 0:elt_box.style.left="-100%";//第一栏
+				   palace_index=1;
+				   break;
+			case 1:elt_box.style.left="-200%";//第二栏
+				   palace_index=2;
+				   break;
+			case 2:elt_box.style.left="-300%";//第三栏
+				   palace_index=3;
+				   break;
+			case 3:elt_box.style.left="0";//第四栏
+				   palace_index=0;
+				   break;
+		}
+
+		//改变指示
+		var elt_i=indicators[palace_index];//当前选中元素
+		if(palace_index!=0)
+			indicators[palace_index-1].classList.remove("selected");
+		else
+			indicators[3].classList.remove("selected");
+		elt_i.classList.add("selected");
 	}
 
 }
@@ -117,6 +169,7 @@ function getViewportSize(w) {
 	return {w:d.body.clientWidth,h:d.body.clientHeight};
 }
 
+//验证姓名
 function validate_name() {
 	var s=document.getElementById("s_name");//获取提示元素
 	var _this=document.getElementById("name");//姓名输入框
@@ -134,6 +187,7 @@ function validate_name() {
 	}
 }
 
+//验证手机
 function validate_phone() {
 		var _this=document.getElementById("cellphone");//手机输入框
 		var v=_this.value;
@@ -165,6 +219,7 @@ function validate_phone() {
 		}
 }
 
+//验证电子邮件
 function validate_email() {
 		var _this=document.getElementById("email");//电子邮件输入框
 		var s=document.getElementById("s_email");//获取提示元素
@@ -187,6 +242,7 @@ function validate_email() {
 		}
 }
 
+//验证密码
 function validate_psw() {
 		var _this=document.getElementById("psw_up");//密码输入框
 		var s=document.getElementById("s_psw");//获取提示元素
@@ -209,6 +265,7 @@ function validate_psw() {
 		}
 }
 
+//重复验证密码
 function validate_re() {
 		var _this=document.getElementById("re_psw");//确认密码输入框
 		var s=document.getElementById("s_re_psw");//获取提示元素
