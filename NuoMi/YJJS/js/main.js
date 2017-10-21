@@ -22,6 +22,7 @@ window.onload=function() {
 	var sign_up=document.getElementById("sign_up");//注册选将卡
 	var sign_in=document.getElementById("check_sign_in");//登录选将卡
 	var btn_signup=document.getElementById("btn-sign-up");//注册框中的注册按钮
+	var btn_top=document.getElementById("retrunTop");//返回顶部
 
 	//宫殿页
 	var palace_left=document.getElementById("palace_left");//宫殿页左翻页按钮
@@ -39,6 +40,15 @@ window.onload=function() {
 	var input_psw=document.getElementById("psw_up");//密码输入框
 	var input_re=document.getElementById("re_psw");//确认密码输入框
 
+	//窗口滚动
+	window.onscroll=function() {
+		//显示/隐藏返回顶部按钮
+		if(getScrolloffsets().y>getViewportSize().h)
+			btn_top.style.display="block";
+		else
+			btn_top.style.display="none";
+	}
+
 	//检验表单输入
 	//名称失去焦点事件处理程序
 	input_name.onblur=validate_name;
@@ -50,7 +60,7 @@ window.onload=function() {
 	input_psw.onblur=validate_psw;
 	//确认密码失去焦点事件处理程序
 	input_re.onblur=validate_re;
-	
+
 
 	//注册登录按钮相应事件
 	open_login.onclick=function() {
@@ -223,6 +233,10 @@ window.onload=function() {
 		elt_i.classList.add("selected");
 	}
 
+	//返回顶部
+	btn_top.onclick=function() {
+		window.scrollTo(0.0,0.0);//返回顶部
+	}
 };
 
 //查询窗口的视口尺寸
@@ -241,6 +255,24 @@ function getViewportSize(w) {
 
 	//怪异模式下的浏览器
 	return {w:d.body.clientWidth,h:d.body.clientHeight};
+}
+
+//查询窗口滚动条的位置
+function getScrolloffsets(w) {
+	//使用指定窗口，如果不带参数则使用当前窗口
+	w=w||window;
+
+	//除IE 8及更早版本，其他浏览器都适用
+	if(w.pageXoffset!=null)
+		return {x:w.pageXoffset,y:w.pageYoffset};
+
+	//对标准模式下的IE及任何浏览器
+	var d=w.document;
+	if(document.compatMode=="CSS1Compat")
+		return {x:d.documentElement.scrollLeft,y:d.documentElement.scrollTop};
+
+	//怪异模式下
+	return {x:d.body.scrollLeft,y:d.body.scrollTop};
 }
 
 //验证姓名
