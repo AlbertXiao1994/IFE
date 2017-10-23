@@ -73,10 +73,8 @@
 	bottom: 0;
 	left: 0;
 	margin: auto;
-	margin-top: 100px;
 
 	width: 420px;
-	/*height: 450px;*/
 
 	font-family: "微软雅黑";
 
@@ -148,7 +146,7 @@
 
 .tab-heading {
 	width: 100%;
-	height: 50px;
+	height: 45px;
 
 	font-family: "微软雅黑";
 	font-size: 22px;
@@ -168,7 +166,7 @@
 	width: 50%;
 	height: 100%;
 
-	line-height: 50px;
+	line-height: 45px;
 
 	cursor: pointer;
 }
@@ -195,7 +193,7 @@
 }
 
 .tab_content div {
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 .tab_content label {
@@ -424,13 +422,13 @@ button {
 	background-color: #FCEE21;
 }
 
-.cooperateion {
+.cooperation {
 	width: 100%;
 
 	position: relative;
 }
 
-.cooperateion-wrap {
+.cooperation-wrap {
 	width: 100%;
 	height: 75%;
 	
@@ -441,7 +439,7 @@ button {
 	background-color: #1A1A1A;
 }
 
-.cooperateion-content {
+.cooperation-content {
 	width: 65%;
 	height: 80%;
 
@@ -452,7 +450,7 @@ button {
 	background-color: #1A1A1A;
 }
 
-.cooperateion-content h2 {
+.cooperation-content h2 {
 	width: 100%;
 	height: 80px;
 
@@ -463,19 +461,19 @@ button {
 	line-height: 50px;
 }
 
-.cooperateion footer {
+.cooperation footer {
 	width: 100%;
 	height: 25%;
 
 	background-color: #000;
 }
 
-.cooperateion .carousel-item {
+.cooperation .carousel-item {
 	width: 100%;
 	height: 100%;
 }
 
-.cooperateion .carousel-item img {
+.cooperation .carousel-item img {
 	width: 100%;
 	height: 100%;
 }

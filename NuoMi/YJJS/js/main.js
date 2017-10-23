@@ -2,7 +2,7 @@ window.onload=function() {
 	var elt_topBar=document.getElementById("topBar");//顶栏
 	var elt_drt=document.getElementById("direction");//使用说明页
 	var elt_palace=document.getElementById("palace");//宫殿展示页
-	var elt_co=document.getElementById("cooperateion");//合作页
+	var elt_co=document.getElementById("cooperation");//合作页
 
 	//设置首页背景图高度等于视口高度
 	var h=getViewportSize(window).h;//获取视口高度
@@ -49,6 +49,15 @@ window.onload=function() {
 			btn_top.style.display="none";
 	}
 
+	window.onresize=function() {
+		//设置首页背景图高度等于视口高度
+		var h=getViewportSize(window).h;//获取视口高度
+		elt_topBar.style.height=h+"px";//设置高度
+		elt_drt.style.height=h+"px";//设置高度
+		elt_palace.style.height=h+"px";//设置高度
+		elt_co.style.height=h+"px";//设置高度
+	}
+
 	//检验表单输入
 	//名称失去焦点事件处理程序
 	input_name.onblur=validate_name;
@@ -66,7 +75,7 @@ window.onload=function() {
 	open_login.onclick=function() {
 		shadow.style.display="block";//遮罩
 		loginBar.style.display="block";//登录-注册框
-		loginBar.style.height="450px";
+		loginBar.style.height="380px";
 		form_in.style.display="block";//显示登录框
 		form_up.style.display="none";//隐藏注册框
 	};
@@ -76,21 +85,21 @@ window.onload=function() {
 		shadow.style.display="block";//遮罩
 		loginBar.style.display="block";//登录-注册框
 		form_in.style.display="none";//隐藏登录框
-		loginBar.style.height="600px";
+		loginBar.style.height="560px";
 		form_up.style.display="block";//显示注册框
 	};
 
 	//切换成注册状态
 	sign_up.onchange=function() {
 		form_in.style.display="none";//隐藏登录框
-		loginBar.style.height="600px";
+		loginBar.style.height="560px";
 		form_up.style.display="block";//显示注册框
 	};
 
 	//切换成登录状态
 	sign_in.onchange=function() {
 		form_in.style.display="block";//显示登录框
-		loginBar.style.height="450px";
+		loginBar.style.height="380px";
 		form_up.style.display="none";//隐藏注册框
 	};
 
@@ -134,7 +143,6 @@ window.onload=function() {
 		else
 			c[0].classList.remove("selected");
 		elt_i.classList.add("selected");
-
 	}
 
 	//宫殿页向右翻页
