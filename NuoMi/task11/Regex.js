@@ -12,7 +12,7 @@ function init() {
 	}
 	else if(document.attachEvent) { //IE
 		input_cell.attachEvent("onblur",validate_cell);
-		input_cell.attachEvent("onblur",validate_string);
+		input_string.attachEvent("onblur",validate_string);
 	}
 
 	//手机号输入检测
@@ -52,23 +52,26 @@ function init() {
 		var v=input_string.value;
 		var s=document.getElementById("tip_string");
 
-		var reg_word=/^([a-zA-Z]+\s+)+$/;
+		var reg_word=/([a-zA-Z]+)\b\s*/;
+		var reg_repeat=/([a-zA-Z]+)\b\s*\1/;
+
+		s.innerHTML="";//清空
 
 		if(v==""||v==null) {
 			s.style.color="#F16565";
-			s.innerHTML="手机号不能为空";
+			s.innerHTML="字符为空";
 		}
 		else if(!reg_word.test(v)) {
 			s.style.color="#F16565";
 			s.innerHTML="输入的字符串中含有非法字符";
 		}
-		else if(reg_correct.test(v)){
+		else if(reg_repeat.test(v)){
 			s.style.color="#63E96E";
-			s.innerHTML="手机号格式正确";
+			s.innerHTML="含有重复相邻单词";
 		}
 		else {
 			s.style.color="#F16565";
-			s.innerHTML="手机号不存在";
+			s.innerHTML="不含有重复相邻单词";
 		}
 	}
 }
