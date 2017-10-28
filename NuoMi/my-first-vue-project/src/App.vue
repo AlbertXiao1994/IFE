@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <component-a msgFromFather="good boy" v-on:child-tell-me-something="listenToMyBoy"></component-a>
+    <p>child tell ms:{{ childWords }}</p>
     <h1 v-html="title"></h1>
     <label>请输入一个值：<input type="text" v-model="newItem" @keyup.enter="addItem"></label>
     <ul>
@@ -10,14 +12,17 @@
 
 <script>
 import Store from './Store'
+import ComponentA from './components/componentA'
 export default {
   data () {
     return {
       title: 'this is todo list',
       items: Store.fetch(),
-      newItem: ''
+      newItem: '',
+      childWords: ''
     }
   },
+  components: { ComponentA },
   watch: {
     items: {
       handler: function(items) {
@@ -36,6 +41,9 @@ export default {
         isFinished: false
       })
       this.newItem="";
+    },
+    listenToMyBoy: function(msg) {
+      this.childWords=msg;
     }
   }
 }
