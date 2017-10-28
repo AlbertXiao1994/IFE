@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <component-a msgFromFather="good boy" v-on:child-tell-me-something="listenToMyBoy"></component-a>
+    <component-a msgFromFather="good boy" @child-tell-me-something="listenToMyBoy"></component-a>
     <p>child tell ms:{{ childWords }}</p>
     <h1 v-html="title"></h1>
     <label>请输入一个值：<input type="text" v-model="newItem" @keyup.enter="addItem"></label>
