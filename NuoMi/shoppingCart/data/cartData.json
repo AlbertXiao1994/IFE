@@ -45,12 +45,12 @@
         "parts":[
           {
             "partsId":"10001",
-            "partsName":"打火机-1",
+            "partsName":"包装袋",
             "imgSrc":"static/img/part-1.jpg"
           },
           {
             "partsId":"10002",
-            "partsName":"打火机-2",
+            "partsName":"火柴",
             "imgSrc":"static/img/part-1.jpg"
           }
         ]

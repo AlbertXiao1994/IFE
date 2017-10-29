@@ -666,6 +666,9 @@
     float: left;
     margin-top: 2px;
   }
+  .item-all-del {
+    margin-left: 20px;
+  }
   .cart-foot-wrap .cart-foot-r {
     float: right; }
   .cart-foot-wrap .item-total {

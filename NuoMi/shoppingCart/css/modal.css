@@ -139,6 +139,11 @@
 }
 input, select, button {
     vertical-align: middle;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 50px;
 }
 
 .btn--m {
