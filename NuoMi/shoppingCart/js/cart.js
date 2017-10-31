@@ -73,6 +73,11 @@ var vm=new Vue({
       this.productsList.splice(index,1);
       this.calTotalMoney();
     },
+    payMoney: function() {
+      if(this.totalMoney > 0) {
+        window.location.href="address.html";
+      }
+    }
   }
 });
 
