@@ -5,7 +5,7 @@
 }
 
 .container {
-	
+	font-size: 14px;
 }
 
 .leftBar {
@@ -24,7 +24,6 @@
 	background-color: #585353;
 
 	font-family: "微软雅黑";
-	font-size: 15px;
 	color: #fff;
 
 	outline: none;
@@ -35,6 +34,30 @@
 .rightBar {
 	float: left;
 	width: 50%;
+
+	padding: 10px;
 	
 	overflow-y: auto;
+}
+
+.rightBar img {
+	display: block;
+	max-width: 50%;
+
+	box-shadow:2px 2px 3px #aaaaaa;
+
+	margin-bottom: 20px;
+}
+
+.cite {
+	width: 100%;
+
+	padding: 15px;
+	margin-bottom: 20px;
+
+	vertical-align: center;
+
+	background-color: #F1EDED;
+
+	border-left: 5px solid #C3BFBF;
 }

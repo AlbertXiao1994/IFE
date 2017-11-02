@@ -1,8 +1,7 @@
 new Vue({
 	el: ".container",
 	data: {
-		elt_left: {},
-		elt_right: {}
+		inputWords :""
 	},
 	mounted: function() {
 		this.$nextTick(function() {
@@ -12,8 +11,8 @@ new Vue({
 	methods: {
 		setPageHeight: function() {
 			var _this=this;
-			elt_left=document.getElementById("leftBar");//左栏
-			elt_right=document.getElementById("rightBar");//右栏
+			var elt_left=document.getElementById("leftBar");//左栏
+			var elt_right=document.getElementById("rightBar");//右栏
 
 			//设置首页背景图高度等于视口高度
 			var h=this.getViewportSize(window).h;//获取视口高度
