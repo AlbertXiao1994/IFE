@@ -1,12 +1,19 @@
 new Vue({
 	el: ".container",
 	data: {
-		inputWords :""
+		//文本框输入
+		inputWords: ""
 	},
 	mounted: function() {
 		this.$nextTick(function() {
 			this.setPageHeight();
 		});
+	},
+	watch: {
+		//监听输入变化，重新渲染
+		inputWords: function() {
+			this.renderWords();
+		}
 	},
 	methods: {
 		setPageHeight: function() {
@@ -41,6 +48,22 @@ new Vue({
 
 			//怪异模式下的浏览器
 			return {w:d.body.clientWidth,h:d.body.clientHeight};
-		}
+		},
+		renderWords: _.debounce(
+		function() {
+				var parent=document.getElementById("rightBar");//右栏
+
+				//正则表达式
+				// var regex=/(^([#]{1,6})\s*([\w\W]+)\b$)/;
+				var regex=/^#{1,6}\s+[\w\W]*([\w\W]|\s)$/;
+
+				var result=this.inputWords.match(regex);
+				var p = document.createElement("h1");
+    			p.innerText = ""+result[0]+"";
+     			// 添加到body元素里
+     			parent.appendChild(p);
+			},
+			500
+		)
 	}
 });
