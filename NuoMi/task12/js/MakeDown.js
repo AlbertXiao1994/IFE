@@ -54,14 +54,19 @@ new Vue({
 				var parent=document.getElementById("rightBar");//右栏
 
 				//正则表达式
-				// var regex=/(^([#]{1,6})\s*([\w\W]+)\b$)/;
-				var regex=/^#{1,6}\s+[\w\W]*([\w\W]|\s)$/;
+				var regex=/^#{1,6} +.+\s*$/gm;
 
 				var result=this.inputWords.match(regex);
-				var p = document.createElement("h1");
-    			p.innerText = ""+result[0]+"";
-     			// 添加到body元素里
-     			parent.appendChild(p);
+				if(result !=null) {
+					parent.innerHTML="";//清空内容
+					result.forEach(function(x) {
+						var p = document.createElement("h1");
+						var text=x;
+    					p.innerText = ""+text+"";
+     					// 添加到body元素里
+     					parent.appendChild(p);
+					});
+				}		
 			},
 			500
 		)
