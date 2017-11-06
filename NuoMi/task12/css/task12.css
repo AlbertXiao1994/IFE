@@ -77,3 +77,12 @@ h1,h2,h3,h4,h5,h6 {
 .code code {
 	white-space: pre-wrap;
 }
+
+ul {
+	display: block;
+	margin-left: 20px;
+}
+
+ol {
+	margin-left: 15px;
+}

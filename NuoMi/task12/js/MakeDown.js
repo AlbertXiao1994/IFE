@@ -2,7 +2,7 @@ new Vue({
 	el: ".container",
 	data: {
 		//文本框输入
-		inputWords: ""
+		inputWords: "",
 	},
 	mounted: function() {
 		this.$nextTick(function() {
@@ -53,17 +53,20 @@ new Vue({
 		function() {
 				var parent=document.getElementById("rightBar");//右栏
 				parent.innerHTML="";//清空内容
+				var _this=this;
 
 				//正则表达式
 				var input=/^.+\s*$/gm;
 				var heading=/#{1,6} +.+\s*/;
 				var cite=/^> +.+\s*$/;
-				var link=/\[.+\]\(.+\)/;
-				var img=/!\[.+\]\(.+\)/;
+				var link=/\[.+\]\(.+\)\s*/;
+				var img=/!\[.+\]\(.+\)\s*/;
+				var ul=/^\* .+\s*$/;
+				var ol=/^[0-9]\. .+\s*$/;
 
 				var result=this.inputWords.match(input);
 				if(result !=null) {
-					result.forEach(function(x) {
+					result.forEach(function(x,index) {
 						if(x.match(heading)!=null) {
 							var i=x.toString().search(/ /);
 							var p;
@@ -111,6 +114,27 @@ new Vue({
     						a.target="_blank";
      						// 添加到body元素里
      						parent.appendChild(a);
+     					}
+     					else if(x.match(ul)!=null) {
+     						var i=x.toString().search(/ /);
+     						var u= document.createElement("ul");
+     						parent.appendChild(u);
+							var li=document.createElement("li");
+    						li.innerText = ""+x.toString().slice(i+1)+"";
+     						u.appendChild(li);
+     					}
+     					else if(x.match(ol)!=null) {
+     						var i=x.toString().search(/ /);
+     						var u= document.createElement("ol");
+     						parent.appendChild(u);
+							var li=document.createElement("li");
+    						li.innerText = ""+x.toString().slice(i+1)+"";
+     						u.appendChild(li);
+     					}
+     					else {
+     						var p=document.createElement("p");
+     						p.innerHTML=x.toString();
+     						parent.appendChild(p);
      					}
 					});
 				}		
