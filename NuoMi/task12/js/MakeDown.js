@@ -2,20 +2,28 @@ new Vue({
 	el: ".container",
 	data: {
 		//文本框输入
-		inputWords: "",
+		inputWords: JSON.parse(window.localStorage.getItem("makedown"||'[]'))
 	},
 	mounted: function() {
 		this.$nextTick(function() {
 			this.setPageHeight();
+			this.renderWords();
 		});
 	},
 	watch: {
 		//监听输入变化，重新渲染
-		inputWords: function() {
-			this.renderWords();
+		inputWords: {
+			handler: function(item) {
+				this.save(item);
+				this.renderWords();
+			},
+			deep: true
 		}
 	},
 	methods: {
+		save: function(items) {
+			window.localStorage.setItem("makedown",JSON.stringify(items))
+		},
 		setPageHeight: function() {
 			var _this=this;
 			var elt_left=document.getElementById("leftBar");//左栏
@@ -57,10 +65,10 @@ new Vue({
 
 				//正则表达式
 				var input=/^.+\s*$/gm;
-				var heading=/#{1,6} +.+\s*/;
+				var heading=/#{1,4} +.+\s*/;
 				var cite=/^> +.+\s*$/;
 				var link=/\[.+\]\(.+\)\s*/;
-				var img=/!\[.+\]\(.+\)\s*/;
+				var img=/!\[.+\]\(.+\)/;
 				var ul=/^\* .+\s*$/;
 				var ol=/^[0-9]\. .+\s*$/;
 
@@ -78,10 +86,6 @@ new Vue({
 								p = document.createElement("h3");
 							else if(i=4)
 								p = document.createElement("h4");
-							else if(i=5)
-								p = document.createElement("h5");
-							else if(i=6)
-								p = document.createElement("h6");
     						p.innerText = ""+x.toString().slice(i+1)+"";
      						// 添加到body元素里
      						parent.appendChild(p);
@@ -97,7 +101,8 @@ new Vue({
      					else if(x.match(img)!=null) {
 							var i = document.createElement("img");
 							var s=x.toString().search(/\(/);
-							i.src=x.toString().slice(s+1,-1);
+							var e=x.toString().search(/\)/);
+							i.src=x.toString().slice(s+1,e);
 							var s1=x.toString().search(/\[/);
 							var e1=x.toString().search(/\]/);
     						i.alt = x.toString().slice(s1+1,e1);
@@ -107,7 +112,8 @@ new Vue({
      					else if(x.match(link)!=null) {
 							var a = document.createElement("a");
 							var s=x.toString().search(/\(/);
-							a.href=x.toString().slice(s+1,-1);
+							var e=x.toString().search(/\)/);
+							a.href=x.toString().slice(s+1,e);
 							var s1=x.toString().search(/\[/);
 							var e1=x.toString().search(/\]/);
     						a.innerText = x.toString().slice(s1+1,e1);
