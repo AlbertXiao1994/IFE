@@ -1,0 +1,64 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	padding: 20px;
+}
+
+.panel-group {
+	width: 800px;
+}
+
+.panel {
+	width: 100%;
+
+	margin-bottom: 5px;
+
+	border: 1px solid #D7D6D6;
+	border-radius: 5px;
+}
+
+label {
+	display: block;
+
+	width: 100%;
+	height: 40px;
+
+	padding: 10px;
+	
+	background-color: #F4F7F8;
+}
+
+.panel-collapse {
+	width: 100%;
+	height: 0;
+	
+	overflow: hidden;
+
+	border-top: 1px solid #D7D6D6;
+
+	transition: height ease 1s;
+	-webkit-transition: height ease 1s;
+	-moz-transition: height ease 1s;
+	-o-transition: height ease 1s;
+}
+
+.panel-body {
+	padding: 10px
+}
+
+input {
+	display: none;
+}
+
+input:hover + label {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+input:checked + label + div {
+	height: 150px;
+}

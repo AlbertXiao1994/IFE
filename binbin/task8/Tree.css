@@ -1,0 +1,30 @@
+* {
+	padding: 0;
+}
+
+div {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+
+	border: 1px solid black;
+
+	height: 80%;
+	padding: 5px;
+	margin: 5px;
+}
+
+.flexContainer {
+	border: 0;
+}
+
+.btnContainer {
+	width: 40%;
+	height: 50px;
+
+	margin: 0 auto;
+
+	border: 0;
+}
+

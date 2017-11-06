@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态数据绑定（五）</title>
+	<style type="text/css">
+		.img {
+			position: absolute;
+			right: 500px;
+			top: 10px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<h3>模拟Vue：当数据改变时，重新渲染DOM</h3>
+	<div id="app">
+		<p>姓名：{{user.name}}</p>
+		<p>年龄：{{user.age}}</p>
+	</div>
+	<div class="img">
+		<h3>功能演示</h3>
+		<img src="img/1.gif">
+	</div>
+	<script type="text/javascript" src="Vue.js"></script>
+</body>
+</html>

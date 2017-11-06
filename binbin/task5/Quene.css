@@ -1,0 +1,15 @@
+* {
+	padding: 0;
+}
+
+ul {
+	margin-top: 20px;
+	height: 100px;
+}
+
+li {
+	display: inline-block;
+	width: 25px;
+	background-color: red;
+	margin-right: 5px;
+}

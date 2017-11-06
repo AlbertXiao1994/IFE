@@ -1,0 +1,23 @@
+* {
+	padding: 0;
+}
+
+ul {
+	margin-top: 10px;
+}
+
+li {
+	display: inline-block;
+	height: 40px;
+	font-size: 20pt;
+	color: #fff;
+	text-align: center;
+	background-color: #ddd;
+	margin-right: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+span {
+	background-color: red;
+}

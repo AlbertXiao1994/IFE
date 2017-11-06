@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单联动</title>
+	<link rel="stylesheet" type="text/css" href="task3.css">
+</head>
+<body>
+	<form>
+		<div class="choice">
+			<label><input type="radio" name="identity" value="yes" checked="true">在校生</label>
+			<label><input type="radio" name="identity" value="no">非在校生</label>
+		</div>
+		<div class="school" id="yesStudent">
+			<label>学校</label>
+			<select id="city">
+				<option value="0">北京</option>
+				<option value="1">上海</option>
+				<option value="2">杭州</option>
+			</select>
+			<select id="school">
+				<option value="0">北京大学</option>
+				<option value="1">清华大学</option>
+				<option value="2">中国科学院大学</option>
+			</select>
+		</div>
+		<div class="company" id="noStudent">
+			<label>就业单位</label>
+			<input type="text" name="company">
+		</div>
+	</form>
+	<script type="text/javascript" src="Form.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+  font  : 17px sans-serif;
+
+  padding : 2em;
+
+  background : #222;
+}
+
+form {
+	position: relative;
+	display: block;
+	margin: 0 auto;
+
+	width: 500px;
+	height: 200px;
+
+	background: #fff;
+}
+
+.choice {
+	height: 25px;
+
+	position: relative;
+	top: 50px;
+}
+
+.choice label{
+	display: inline-block; 
+
+    width: 49%;
+
+    text-align: center;
+    font-weight: bold;
+}
+
+.school,.company {
+	height: 25px;
+
+	position: relative;
+	top: 100px;
+}
+
+.school label {
+	display: inline-block; 
+	width: 100px;
+
+	text-align: center;
+    font-weight: bold;
+}
+
+#city {
+	display: inline-block; 
+	width: 100px;
+}
+
+#school {
+	display: inline-block; 
+	margin-left: 20px;
+
+	width: 200px;
+}
+
+select {
+	height: 25px;
+
+	border-radius: 5px;
+	border: 1px solid #94CDFC;
+}
+
+.company {
+	display: none;
+}
+
+.company label {
+	display: inline-block;
+	width: 100px;
+    text-align: center;
+
+    font-weight: bold;
+}
+
+.company input {
+	width: 350px;
+	height: 25px;
+
+	border-radius: 5px;
+	border: 1px solid #94CDFC;
+}

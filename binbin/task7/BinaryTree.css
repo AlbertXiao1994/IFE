@@ -1,0 +1,68 @@
+* {
+	padding: 0;
+}
+
+div {
+	border: 1px solid black;
+}
+
+.flexContainer {
+	display: flex;
+	flex: row wrap;
+	justify-content: space-around;
+	align-items: center;
+
+	height: 500px;
+	border: 0;
+}
+
+.root {
+	display: flex;
+	flex: row wrap;
+	justify-content: space-around;
+	align-items: center;
+
+	width: 60%;
+	height: 60%;
+	margin: auto;
+}
+
+.first {
+	display: flex;
+	flex: row wrap;
+	justify-content: space-around;
+	align-items: center;
+
+	width: 45%;
+	height: 80%;
+}
+
+.second {
+	display: flex;
+	flex: row wrap;
+	justify-content: space-around;
+	align-items: center;
+
+	width: 40%;
+	height: 80%;
+}
+
+.third {
+	width: 35%;
+	height: 80%;
+}
+
+.btnContainer {
+	display: flex;
+	flex: row wrap;
+	justify-content: space-around;
+	align-items: center;
+
+	width: 60%;
+	height: 50px;
+
+	margin: 0 auto;
+
+	border: 0;
+}
+
