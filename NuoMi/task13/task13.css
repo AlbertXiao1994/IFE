@@ -1,49 +1,120 @@
-/*给这个按钮创建一个动名名称：buttonLight，然后在每个时间段设置不同的background,color来达到变色效果，改变box-shadow来达到发光效果*/
-  @-webkit-keyframes 'buttonLight' {
-     from {
-       background: rgba(96, 203, 27,0.5);
-       -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);
-       color: red;
-     }
-     25% {
-       background: rgba(196, 203, 27,0.8);
-       -webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8);
-       color: blue;
-    }
-    50% {
-      background: rgba(196, 203, 127,1);
-      -webkit-box-shadow: 0 0 5px rgba(155, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 100, 1);
-      color: orange;
-    }
-    75% {
-      background: rgba(196, 203, 27,0.8);
-      -webkit-box-shadow: 0 0 10px rgba(255, 155, 255, 0.5) inset, 0 0 8px rgba(120, 120, 200, 0.8); 
-      color: black;
-    }
-   to {
-     background: rgba(96, 203, 27,0.5);
-     -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 3px rgba(220, 120, 200, 0.5);
-     color: green;
-    }
+body {
+  overflow: hidden;
+}
+
+.circle,.round,.deep,.light {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  margin: auto;
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+
+  border: 2px solid #F43271;
+  border-radius: 40px;
+  border-top-color: transparent;
+
+  animation: circleSpin 1s linear infinite;
+  -webkit-animation: circleSpin 1s linear infinite;
+}
+
+@keyframes circleSpin {
+  0% {
+    transform: rotate(0deg);
   }
-  a.btn {
-    /*按钮的基本属性*/
-    background: #60cb1b;
-    font-size: 16px;
-    padding: 10px 15px;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    text-shadow: 0 -1px 1px rgba(0,0,0,0.3);
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -moz-box-shadow: 0 0 5px rgba(255, 255, 255, 0.6) inset, 0 0 3px rgba(220, 120, 200, 0.8);
-    -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.6) inset, 0 0 3px rgba(220, 120, 200, 0.8);
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.6) inset, 0 0 3px rgba(220, 120, 200, 0.8);
-    /*调用animation属性，从而让按钮在载入页面时就具有动画效果*/
-    -webkit-animation-name: "buttonLight"; /*动画名称，需要跟@keyframes定义的名称一致*/
-    -webkit-animation-duration: 5s;/*动画持续的时间长*/
-    -webkit-animation-iteration-count: infinite;/*动画循环播放的次数*/
+  100% {
+    transform: rotate(-360deg);
   }
+}
+
+.round,.deep,.light {
+  width: 0;
+  height: 0;
+
+  border: 30px solid;
+  border-radius: 30px;
+}
+
+.round {
+  border-left-color: #F5A7C4;
+  border-top-color: #F5A7C4;
+  border-right-color: #F43271;
+  border-bottom-color: #F43271;
+}
+
+.deep {
+  border-left-color: #F43271;
+  border-top-color: #F43271;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  z-index: 3;
+  animation: deepSpin 1s linear infinite;
+  -webkit-animation: deepSpin 1s linear infinite;
+}
+
+@keyframes deepSpin {
+  0% {
+        transform: rotate(0deg);
+        z-index: 3;
+  }
+  25% {
+        transform: rotate(0deg);
+        z-index: 3;
+  }
+  25.001% {
+        transform: rotate(0deg);
+        z-index: 2;
+  }
+  50% {
+        transform: rotate(-180deg);
+        z-index: 2;
+  }
+  75% {
+        transform: rotate(-180deg);
+        z-index: 2;
+  }
+  75.001% {
+        transform: rotate(-180deg);
+        z-index: 3;
+  }
+  100% {
+        transform: rotate(-360deg);
+        z-index: 3;
+  }
+}
+
+.light {
+  border-left-color: #F5A7C4;
+  border-top-color: #F5A7C4;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  z-index: 1;
+  animation: lightSpin 1s linear infinite;
+  -webkit-animation: lightSpin 1s linear infinite;
+}
+
+@keyframes lightSpin {
+  0% {
+        transform: rotate(0deg);
+    }
+  25% {
+        transform: rotate(-180deg);
+  }
+  50% {
+        transform: rotate(-180deg);
+        z-index: 3;
+  }
+  75% {
+        transform: rotate(-360deg);
+        z-index: 3;
+  }
+  100% {
+        transform: rotate(-360deg);
+  }
+}
