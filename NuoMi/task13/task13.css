@@ -1,0 +1,120 @@
+body {
+  overflow: hidden;
+}
+
+.circle,.round,.deep,.light {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  margin: auto;
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+
+  border: 2px solid #F43271;
+  border-radius: 40px;
+  border-top-color: transparent;
+
+  animation: circleSpin 1s linear infinite;
+  -webkit-animation: circleSpin 1s linear infinite;
+}
+
+@keyframes circleSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.round,.deep,.light {
+  width: 0;
+  height: 0;
+
+  border: 30px solid;
+  border-radius: 30px;
+}
+
+.round {
+  border-left-color: #F5A7C4;
+  border-top-color: #F5A7C4;
+  border-right-color: #F43271;
+  border-bottom-color: #F43271;
+}
+
+.deep {
+  border-left-color: #F43271;
+  border-top-color: #F43271;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  z-index: 3;
+  animation: deepSpin 1s linear infinite;
+  -webkit-animation: deepSpin 1s linear infinite;
+}
+
+@keyframes deepSpin {
+  0% {
+        transform: rotate(0deg);
+        z-index: 3;
+  }
+  25% {
+        transform: rotate(0deg);
+        z-index: 3;
+  }
+  25.001% {
+        transform: rotate(0deg);
+        z-index: 2;
+  }
+  50% {
+        transform: rotate(-180deg);
+        z-index: 2;
+  }
+  75% {
+        transform: rotate(-180deg);
+        z-index: 2;
+  }
+  75.001% {
+        transform: rotate(-180deg);
+        z-index: 3;
+  }
+  100% {
+        transform: rotate(-360deg);
+        z-index: 3;
+  }
+}
+
+.light {
+  border-left-color: #F5A7C4;
+  border-top-color: #F5A7C4;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  z-index: 1;
+  animation: lightSpin 1s linear infinite;
+  -webkit-animation: lightSpin 1s linear infinite;
+}
+
+@keyframes lightSpin {
+  0% {
+        transform: rotate(0deg);
+    }
+  25% {
+        transform: rotate(-180deg);
+  }
+  50% {
+        transform: rotate(-180deg);
+        z-index: 3;
+  }
+  75% {
+        transform: rotate(-360deg);
+        z-index: 3;
+  }
+  100% {
+        transform: rotate(-360deg);
+  }
+}
