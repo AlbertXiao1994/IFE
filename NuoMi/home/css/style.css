@@ -1,0 +1,53 @@
+﻿* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.homePage {
+	width: 100%;
+	position: relative;
+	background: url(../images/00.jpg);
+  	background-size: 100% 100%;
+  	text-align: center;
+}
+
+.direction {
+	width: 100%;
+	position: relative;
+	background: url(../images/01.jpg);
+  	background-size: 100% 100%;
+}
+
+.btns {
+	position: relative;
+	top: 70%;
+	width: 200px;
+	height: 30px;
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.btns button {
+	display: inline-block;
+
+	width: 80px;
+	height: 30px;
+
+	color: #fff;
+	font-size: 18px;
+	font-family: "微软雅黑";
+	text-align: center;
+
+	background-color: transparent;
+	border: 1px solid #fff;
+	border-radius: 15px;
+
+	cursor: pointer;
+}
+
+.btns button:hover {
+	color: #FCEE21;
+	border-color: #FCEE21;
+}
