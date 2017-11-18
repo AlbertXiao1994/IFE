@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Albert Music</title>  
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!--你自己的样式文件 -->
+        <link href="css/main.css" rel="stylesheet">     
+        <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="logo">Albert Music</div>
+        <div class="wrap">
+        	<div class="container">
+        		<div class="row music-content">
+        			<div class="col-md-8 music-list">
+        				<table class="table">
+        					<tbody>
+        						<tr>
+        							<td class="musicName">人海</td>
+        							<td class="musician">燕池</td>
+        							<td class="album">燕歌行</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">失恋阵线联盟</td>
+        							<td class="musician">陈坤</td>
+        							<td class="album">《火锅英雄》电影原声带</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">都选C（抒情版）</td>
+        							<td class="musician">缝纫机乐队</td>
+        							<td class="album">《缝纫机乐队》电影原声带</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">兄弟情主题</td>
+        							<td class="musician">孟可</td>
+        							<td class="album">《伪装者》电视剧原声带</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">我害怕</td>
+        							<td class="musician">薛之谦</td>
+        							<td class="album">我害怕</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">不潮不用花钱</td>
+        							<td class="musician">林俊杰</td>
+        							<td class="album">JJ陆</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">不为谁而作的歌（live）</td>
+        							<td class="musician">蔡宗强</td>
+        							<td class="album">蒙面唱将猜猜猜第二季 第2期</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">最后一首情歌</td>
+        							<td class="musician">苏琛</td>
+        							<td class="album">好说好散</td>
+        						</tr>
+								<tr>
+        							<td class="musicName">想い出は遠くの日々</td>
+        							<td class="musician">天門（てんもん）</td>
+        							<td class="album">秒速5センチメートル オリジナルサウンドトラック</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">眼泪（live）</td>
+        							<td class="musician">张学友</td>
+        							<td class="album">活出生命Live演唱会</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">医生</td>
+        							<td class="musician">许嵩</td>
+        							<td class="album">苏格拉没有底</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">もうひとつの世界</td>
+        							<td class="musician">Cécile Corbel</td>
+        							<td class="album">Kari-gurashi~借りぐらし~（借りぐらしのアリエッティイメージ歌集アルバム）</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">伤心证明书</td>
+        							<td class="musician">陈奕迅</td>
+        							<td class="album">婚礼的祝福</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">不将就</td>
+        							<td class="musician">Amy Chanrich</td>
+        							<td class="album"></td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">主题情感</td>
+        							<td class="musician">孟可</td>
+        							<td class="album">《伪装者》电视剧原声带</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">500 Miles</td>
+        							<td class="musician">The Innocence Mission</td>
+        							<td class="album">We Will Be Together (Pastel Season Edition)</td>
+        						</tr>
+        					</tbody>
+        				</table>
+        			</div>
+        			<div class="col-md-4 music-cover">
+        				<div class="photo">
+        					<img src="images/1.jpg">
+        				</div>
+        				<p id="musicName">人海</p>
+        				<p id="musician">燕池</p>
+        				<p id="album">燕歌行</p>
+        				<p><a href="#">查看歌词</a></p>
+        			</div>
+        		</div>
+				<div class="row music-control">
+					<div class="col-md-7 progress">
+						 <div class="progress-bar"></div>
+						 <div class="progress-btn"></div>
+						 <div class="progress-name">人海</div>
+						 <div class="progress-time"><span id="curent">2:14</span>/<span id="total">4:20</span></div>
+					</div>
+					<div class="col-md-5 btns">
+						<div class="play-way">
+							<span class="glyphicon glyphicon-retweet"></span>
+							<span class="glyphicon glyphicon-random"></span>
+						</div>
+						<div class="volume">
+							<span class="glyphicon glyphicon-volume-off"></span>
+							<span class="glyphicon glyphicon-volume-up"></span>
+						</div>
+						<div class="play">
+							<span class="glyphicon glyphicon-step-backward"></span>
+							<span class="glyphicon glyphicon-play"></span>
+							<span class="glyphicon glyphicon-step-forward"></span>
+						</div>
+					</div>
+				</div>
+        	</div>
+    	</div>
+		<audio></audio>
+        <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+        <script src="js/lib/jquery-3.2.1.min.js"></script>
+        <script src="js/lib/jquery-ui-1.9.2.min.js"></script>
+         <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　 -->
+        <script src="js/lib/bootstrap.min.js"></script>		
+        <script src="js/main.js"></script>
+        <script>
+        	$(function() {
+        		$(".progress-btn").draggable({ axis:"x" });
+        	});
+        </script>
+    </body>
+</html>

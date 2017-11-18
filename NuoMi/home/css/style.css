@@ -45,6 +45,8 @@
 	border-radius: 15px;
 
 	cursor: pointer;
+
+	outline: none;
 }
 
 .btns button:hover {
