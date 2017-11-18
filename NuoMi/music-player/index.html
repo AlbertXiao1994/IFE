@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>基于Bootstrap的管理系统首页</title>  
+        <title>仿豆瓣音乐播放器</title>  
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!--你自己的样式文件 -->
@@ -16,149 +16,109 @@
         <![endif]-->
     </head>
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-  			<div class="container-fluid">
-    			<div class="navbar-header">
-      				<a class="navbar-brand" href="#">管理系统</a>
-    			</div>
-    			<!-- Collect the nav links, forms, and other content for toggling -->
-    			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      				<ul class="nav navbar-nav">
-        				<li class="active"><a href="#">首页</a></li>
-        				<li class="dropdown">
-         					 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">功能 <span class="caret"></span></a>
-          					<ul class="dropdown-menu">
-            					<li><a href="#">查找</a></li>
-            					<li><a href="#">新建</a></li>
-            					<li><a href="#">保存</a></li>
-            					<li role="separator" class="divider"></li>
-            					<li><a href="#">另存为</a></li>
-            					<li role="separator" class="divider"></li>
-            					<li><a href="#">导出</a></li>
-          					</ul>
-        				</li>
-        				<li><a href="#">帮助</a></li>
-       				</ul>
-      				<form class="navbar-form navbar-right">
-        				<div class="form-group">
-          					<input type="text" class="form-control" placeholder="用户名">
+        <div class="logo">Albert Music</div>
+        <div class="wrap">
+        	<div class="container">
+        		<div class="row music-content">
+        			<div class="col-md-8 music-list">
+        				<table class="table">
+        					<tbody>
+        						<tr>
+        							<td class="musicName">人海</td>
+        							<td class="musician">燕池</td>
+        							<td class="album">燕歌行</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">失恋阵线联盟</td>
+        							<td class="musician">陈坤</td>
+        							<td class="album">《火锅英雄》电影原声带</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">都选C（抒情版）</td>
+        							<td class="musician">缝纫机乐队</td>
+        							<td class="album">《缝纫机乐队》电影原声带</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">兄弟情主题</td>
+        							<td class="musician">孟可</td>
+        							<td class="album">《伪装者》电视剧原声带</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">我害怕</td>
+        							<td class="musician">薛之谦</td>
+        							<td class="album">我害怕</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">不潮不用花钱</td>
+        							<td class="musician">林俊杰</td>
+        							<td class="album">JJ陆</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">不为谁而作的歌（live）</td>
+        							<td class="musician">蔡宗强</td>
+        							<td class="album">蒙面唱将猜猜猜第二季 第2期</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">最后一首情歌</td>
+        							<td class="musician">苏琛</td>
+        							<td class="album">好说好散</td>
+        						</tr>
+								<tr>
+        							<td class="musicName">想い出は遠くの日々 (遥远岁月的回忆)</td>
+        							<td class="musician">天門（てんもん）</td>
+        							<td class="album">秒速5センチメートル オリジナルサウンドトラック ／a chain of short stories about their distance (秒速5厘米 原声带)</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">眼泪（live）</td>
+        							<td class="musician">张学友</td>
+        							<td class="album">活出生命Live演唱会</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">医生</td>
+        							<td class="musician">许嵩</td>
+        							<td class="album">苏格拉没有底</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">もうひとつの世界</td>
+        							<td class="musician">Cécile Corbel</td>
+        							<td class="album">Kari-gurashi~借りぐらし~（借りぐらしのアリエッティイメージ歌集アルバム） (借东西的小人阿莉埃蒂 歌曲专辑)</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">伤心证明书</td>
+        							<td class="musician">陈奕迅</td>
+        							<td class="album">婚礼的祝福</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">不将就</td>
+        							<td class="musician">Amy Chanrich</td>
+        							<td class="album"></td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">主题情感</td>
+        							<td class="musician">孟可</td>
+        							<td class="album">《伪装者》电视剧原声带</td>
+        						</tr>
+        						<tr>
+        							<td class="musicName">500 Miles</td>
+        							<td class="musician">The Innocence Mission</td>
+        							<td class="album">We Will Be Together (Pastel Season Edition)</td>
+        						</tr>
+        					</tbody>
+        				</table>
+        			</div>
+        			<div class="col-md-4 music-cover">
+        				<div class="photo">
+        					<img src="images/1.jpg">
         				</div>
-        				<div class="form-group">
-          					<input type="password" class="form-control" placeholder="密码">
-        				</div>
-        				<button type="submit" class="btn btn-default">登录</button>
-      				</form>
-    			</div><!-- /.navbar-collapse -->
-  			</div><!-- /.container-fluid -->
-		</nav>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-2 leftbar">
-					<ul class="nav navbar-pills navbar-stacked ">
-						<li class="active"><a href="#">首页</a></li>
-					</ul>
-					<ul class="nav navbar-pills navbar-stacked">
-						<li><a href="#">信息建立</a></li>
-						<li><a href="#">信息查询</a></li>
-						<li><a href="#">信息管理</a></li>
-					</ul>
-					<ul class="nav navbar-pills navbar-stacked">
-						<li><a href="#">设置</a></li>
-						<li><a href="#">帮助</a></li>
-					</ul>
-				</div>
-				<div class="col-md-10 console">
-					<h3>管理控制台</h3>
-					<div class="divider"></div>
-					<div class="btns">
-						<button type="button" class="btn btn-default">操作1</button>
-						<button type="button" class="btn btn-primary">操作2</button>
-						<button type="button" class="btn btn-success">操作3</button>
-						<button type="button" class="btn btn-info">操作4</button>
-						<button type="button" class="btn btn-warning">操作5</button>
-						<button type="button" class="btn btn-danger">操作6</button>
-					</div>
-					
-					<div class="container">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="panel panel-primary">
-									<div class="panel-heading">最新提醒</div>
-									<div class="panel-body">
-										<div class="alert alert-success" role="alert"><b>提示</b>您的订单（2014001）已经审批通过！</div>
-										<div class="alert alert-danger" role="alert"><b>提示</b>您的订单（2014002）被退回！</div>
-										<div class="alert alert-warning" role="alert"><b>提示</b>您的订单（2014003）客户付款延迟！</div>
-									</div>
-								</div>
-								<div class="panel panel-primary">
-									<div class="panel-heading">最新订单</div>
-									<div class="panel-body">
-										<table class="table table-striped">
-											<thead>
-												<tr>
-													<th>#</th>
-													<th>产品</th>
-													<th>数量</th>
-													<th>总金额</th>
-													<th>业务员</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>1</td>
-													<td>Apple Macbook air</td>
-													<td>10</td>
-													<td>80000</td>
-													<td>王小贱</td>
-												</tr>
-												<tr>
-													<td>2</td>
-													<td>Apple iPad air</td>
-													<td>20</td>
-													<td>65000</td>
-													<td>尹开花</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>Apple Macbook pro</td>
-													<td>5</td>
-													<td>50000</td>
-													<td>刘老根</td>
-												</tr>
-											</tbody>
-										</table>
-										<button type="button" class="btn btn-primary">查看更多&raquo;</button>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 col-md-offset-1">
-								<div class="panel panel-primary">
-									<div class="panel-heading">我的任务</div>
-									<div class="panel-body">
-										<div class="alert alert-info" role="alert">订单审批<span class="badge pull-right">42</div>
-										<div class="alert alert-info" role="alert">收货审批<span class="badge pull-right">20</div>
-										<div class="alert alert-info" role="alert">付款审批<span class="badge pull-right">10</div>
-									</div>
-								</div>
-								<div class="panel panel-primary">
-									<div class="panel-heading">工作进度</div>
-									<div class="panel-body">
-										<a href="##" class="btn btn-primary">水井挖掘工程</a>
-										<div class="progress">
-											<div class="progress-bar" style="width:60%"></div>
-										</div>
-										<a href="##" class="btn btn-danger">基建工程</a>
-										<div class="progress">
-											<div class="progress-bar" style="width:80%;background-color: red"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        				<p id="musicName">人海</p>
+        				<p id="musician">燕池</p>
+        				<p><a href="#">查看歌词</a></p>
+        			</div>
+        		</div>	
+        			
+        		</div>
+        	</div>
+    	</div>
 
         <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
         <script src="js/lib/jquery-3.2.1.min.js"></script>
