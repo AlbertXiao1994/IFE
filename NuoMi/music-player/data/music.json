@@ -1,0 +1,101 @@
+{
+  "songs": [
+    {
+      "name": "人海",
+      "musician": "燕池",
+      "album": "燕歌行",
+      "img": "images/1.jpg",
+      "url": "music/人海.mp3"
+    },
+    {
+      "name": "失恋阵线联盟",
+      "musician": "陈坤",
+      "album": "《火锅英雄》电影原声带",
+      "img": "images/2.jpg"
+    },
+    {
+      "name": "都选C（抒情版）",
+      "musician": "缝纫机乐队",
+      "album": "《缝纫机乐队》电影原声带",
+      "img": "images/3.jpg"
+    },
+    {
+      "name": "兄弟情主题",
+      "musician": "孟可",
+      "album": "《伪装者》电视剧原声带",
+      "img": "images/4.jpg"
+    },
+    {
+      "name": "我害怕",
+      "musician": "薛之谦",
+      "album": "我害怕",
+      "img": "images/5.jpg"
+    },
+    {
+      "name": "不潮不用花钱",
+      "musician": "林俊杰",
+      "album": "JJ陆",
+      "img": "images/6.jpg"
+    },
+    {
+      "name": "不为谁而作的歌（live）",
+      "musician": "蔡宗强",
+      "album": "蒙面唱将猜猜猜第二季 第2期",
+      "img": "images/7.jpg"
+    },
+    {
+      "name": "最后一首情歌",
+      "musician": "苏琛",
+      "album": "好说好散",
+      "img": "images/8.jpg"
+    },
+    {
+      "name": "想い出は遠くの日々",
+      "musician": "天門（てんもん）",
+      "album": "秒速5センチメートル オリジナルサウンドトラック",
+      "img": "images/9.jpg"
+    },
+    {
+      "name": "眼泪（live）",
+      "musician": "张学友",
+      "album": "活出生命Live演唱会",
+      "img": "images/10.jpg"
+    },
+    {
+      "name": "医生",
+      "musician": "许嵩",
+      "album": "苏格拉没有底",
+      "img": "images/11.jpg"
+    },
+    {
+      "name": "もうひとつの世界",
+      "musician": "Cécile Corbel",
+      "album": "Kari-gurashi~借りぐらし~（借りぐらしのアリエッティイメージ歌集アルバム）",
+      "img": "images/12.jpg"
+    },
+    {
+      "name": "伤心证明书",
+      "musician": "陈奕迅",
+      "album": "婚礼的祝福",
+      "img": "images/13.jpg"
+    },
+    {
+      "name": "不将就",
+      "musician": "Amy Chanrich",
+      "album": "",
+      "img": "images/14.jpg"
+    },
+    {
+      "name": "主题情感",
+      "musician": "孟可",
+      "album": "《伪装者》电视剧原声带",
+      "img": "images/15.jpg"
+    },
+    {
+      "name": "500 Miles",
+      "musician": "The Innocence Mission",
+      "album": "We Will Be Together (Pastel Season Edition)",
+      "img": "images/16.jpg"
+    },
+  ]
+}

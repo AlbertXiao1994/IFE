@@ -26,7 +26,7 @@ html,body {
 }
 
 .logo:hover {
-	color: #D1CCCC;
+	color: #E4E2E2;
 }
 
 .wrap {
@@ -74,7 +74,7 @@ td.album {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 
-	border-top-color: #8D8C8C;
+	border-top-color: #777777;
 }
 
 .table tr:hover  {
@@ -117,6 +117,80 @@ td.album {
 	margin-top: 5px;
 }
 
+.music-cover a {
+	color: #ADA9A9;
+}
+
 .music-cover a:hover {
 	color: #DED9D9;
+}
+
+.music-control {
+	height: 30%;
+
+	padding-top: 10%;
+}
+
+.progress {
+	position: relative;
+	height: 5px;
+
+	padding: 0;
+	background-color: #898888;
+
+	overflow: visible;
+}
+
+.progress-bar {
+	background-color: #D8D5D5;
+}
+
+.progress-btn {
+	position: relative;
+	top: -3px;
+
+	width: 10px;
+	height: 10px;
+
+	border-radius: 5px;
+
+	background-color: #D8D5D5;
+}
+
+.progress-name {
+	position: absolute;
+	top: -25px;
+}
+
+.progress-time {
+	position: absolute;
+	top: -25px;
+	right: 0;
+}
+
+.btns {
+	height: 20px;
+	margin-top: -5px;
+}
+
+.btns div {
+	display: inline-block;
+	float: left;
+
+	margin-right: 30px;
+}
+
+.play {
+	position: relative;
+	top: -10px;
+}
+
+.play span {
+	font-size: 30px;
+
+	margin-right: 20px;
+}
+
+.glyphicon:hover {
+	color: #D0CDCD;
 }

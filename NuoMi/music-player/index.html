@@ -64,9 +64,9 @@
         							<td class="album">好说好散</td>
         						</tr>
 								<tr>
-        							<td class="musicName">想い出は遠くの日々 (遥远岁月的回忆)</td>
+        							<td class="musicName">想い出は遠くの日々</td>
         							<td class="musician">天門（てんもん）</td>
-        							<td class="album">秒速5センチメートル オリジナルサウンドトラック ／a chain of short stories about their distance (秒速5厘米 原声带)</td>
+        							<td class="album">秒速5センチメートル オリジナルサウンドトラック</td>
         						</tr>
         						<tr>
         							<td class="musicName">眼泪（live）</td>
@@ -81,7 +81,7 @@
         						<tr>
         							<td class="musicName">もうひとつの世界</td>
         							<td class="musician">Cécile Corbel</td>
-        							<td class="album">Kari-gurashi~借りぐらし~（借りぐらしのアリエッティイメージ歌集アルバム） (借东西的小人阿莉埃蒂 歌曲专辑)</td>
+        							<td class="album">Kari-gurashi~借りぐらし~（借りぐらしのアリエッティイメージ歌集アルバム）</td>
         						</tr>
         						<tr>
         							<td class="musicName">伤心证明书</td>
@@ -112,17 +112,46 @@
         				</div>
         				<p id="musicName">人海</p>
         				<p id="musician">燕池</p>
+        				<p id="album">燕歌行</p>
         				<p><a href="#">查看歌词</a></p>
         			</div>
-        		</div>	
-        			
         		</div>
+				<div class="row music-control">
+					<div class="col-md-7 progress">
+						 <div class="progress-bar"></div>
+						 <div class="progress-btn"></div>
+						 <div class="progress-name">人海</div>
+						 <div class="progress-time"><span id="curent">2:14</span>/<span id="total">4:20</span></div>
+					</div>
+					<div class="col-md-5 btns">
+						<div class="play-way">
+							<span class="glyphicon glyphicon-retweet"></span>
+							<span class="glyphicon glyphicon-random"></span>
+						</div>
+						<div class="volume">
+							<span class="glyphicon glyphicon-volume-off"></span>
+							<span class="glyphicon glyphicon-volume-up"></span>
+						</div>
+						<div class="play">
+							<span class="glyphicon glyphicon-step-backward"></span>
+							<span class="glyphicon glyphicon-play"></span>
+							<span class="glyphicon glyphicon-step-forward"></span>
+						</div>
+					</div>
+				</div>
         	</div>
     	</div>
-
+		<audio></audio>
         <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
         <script src="js/lib/jquery-3.2.1.min.js"></script>
+        <script src="js/lib/jquery-ui-1.9.2.min.js"></script>
          <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　 -->
-        <script src="js/lib/bootstrap.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>		
+        <script src="js/main.js"></script>
+        <script>
+        	$(function() {
+        		$(".progress-btn").draggable({ axis:"x" });
+        	});
+        </script>
     </body>
 </html>
