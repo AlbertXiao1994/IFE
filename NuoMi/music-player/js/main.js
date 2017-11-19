@@ -63,7 +63,7 @@ function displayInfo() {
 	$(tr).addClass("tr-hover");
 
 	//更换背景
-	$("html").css("background-image",'url("../'+currentSong.img+'")');
+	$("html").css("background-image",'url("./'+currentSong.img+'")');
 }
 
 //更新歌曲信息
