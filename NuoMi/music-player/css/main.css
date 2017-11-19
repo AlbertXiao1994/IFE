@@ -4,15 +4,24 @@
 	box-sizing: border-box;
 }
 
-html,body {
+html {
 	width: 100%;
 	height: 100%;
+	
+	background-image: url("../images/6.jpg");
+	background-size: 150% 150%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	
+	background: -webkit-linear-gradient(top,#403E3E,#7E7D7D);
+	opacity: 0.9;
 
 	font-family: "微软雅黑";
 	font-size: 14px;
 	color: #ADA9A9;
-
-	background: -webkit-linear-gradient(top,#403E3E,#7E7D7D);
 }
 
 .logo {
@@ -82,6 +91,11 @@ td.album {
 	color: #FFFFFF;
 
 	cursor: pointer;
+}
+
+.tr-hover {
+	background-color: #8A8888;
+	color: #FFFFFF;
 }
 
 ::-webkit-scrollbar {
