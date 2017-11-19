@@ -19,7 +19,7 @@ var cutSongMode=0;//0:顺序播放，1:随机播放
 $(function() {
 	$.ajaxSetup({async:false});//设置为同步
 	//获取歌曲信息
-	$.getJSON("https://github.com/AlbertXiao1994/IFE/blob/master/NuoMi/music-player/data/music.json",function(data) {
+	$.getJSON("./data/music.json",function(data) {
 		songs=data;
 	});
 
