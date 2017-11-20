@@ -4,111 +4,111 @@
       "musician": "燕池",
       "album": "燕歌行",
       "img": "images/1.jpg",
-      "url": "music/renhai.mp3"
+      "url": "music/0.mp3"
     },
     {
       "name": "失恋阵线联盟",
       "musician": "陈坤",
       "album": "《火锅英雄》电影原声带",
       "img": "images/2.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C400004WMBnc3AQ9sr.m4a?vkey=BDB6CCE6C5DA7A2CFDA94823103D64C361059B9A9B3CD8DF4BA3DAFF7AD4A53CEA4D5637220694285BE444208C1A6269D1E003A6101A2FD4&guid=5594205320&uin=502583304&fromtag=66"
+      "url": "music/1.mp3"
     },
     {
       "name": "都选C（抒情版）",
       "musician": "缝纫机乐队",
       "album": "《缝纫机乐队》电影原声带",
       "img": "images/3.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C400000377nr42zqG1.m4a?vkey=298CD0F5D75A9F082C690417DBA43A3E00FB0E188E0DE624028BC0A91651E904CAC03C7195693EA2F53C03707BD8D468EF81328CB46C5138&guid=5594205320&uin=502583304&fromtag=66"
+      "url": "music/2.mp3"
     },
     {
       "name": "兄弟情主题",
       "musician": "孟可",
       "album": "《伪装者》电视剧原声带",
       "img": "images/4.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C400000H8Mq83OpVqy.m4a?vkey=14240406C27B1EF796DD166E489581017DBACE29F715416343523E52D36827215A251A3688883201BF30C9DAC08E63E5AABB6CDB7FA551FB&guid=5594205320&uin=502583304&fromtag=66"
+      "url": "music/3.mp3"
     },
     {
       "name": "我害怕",
       "musician": "薛之谦",
       "album": "我害怕",
       "img": "images/5.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C4000028TjDC1vC6xv.m4a?vkey=F45A45515EC82573079B8BF602F2FA41BA3071150FAF096A76EF880CD0C23C80F637FD216E7E0C7BC86AF1A927565529250EE6FC568445D6&guid=5594205320&uin=502583304&fromtag=66"
+      "url": "music/4.mp3"
     },
     {
       "name": "不潮不用花钱",
       "musician": "林俊杰",
       "album": "JJ陆",
       "img": "images/6.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C4000026G2Lq3Cl7ig.m4a?vkey=6B1C5F7C4E71038D8483FC0766E13B054EB6381E8BC1AD42A5A79C3C3E2753A8BB32D35C054B6679F9D35E29DCD67623EEAAD3535AF3C073&guid=5594205320&uin=502583304&fromtag=66"
+      "url": "music/5.mp3"
     },
     {
-      "name": "不为谁而作的歌（live）",
-      "musician": "蔡宗强",
-      "album": "蒙面唱将猜猜猜第二季 第2期",
+      "name": "陪我到可可西里去看海",
+      "musician": "前冲",
+      "album": "民谣歌曲翻唱合集",
       "img": "images/7.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C4000007Pb7d2x80ea.m4a?vkey=443602FA9670BA9BC25F5DB9E8111C41D2C8099548AE32369D863053BF1A0B45248592BEBEC502F60E2D5505F9877A5489F1E2395E080017&guid=5594205320&uin=502583304&fromtag=66"
+      "url": "music/6.mp3"
     },
     {
       "name": "最后一首情歌",
       "musician": "苏琛",
       "album": "好说好散",
       "img": "images/8.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C400003Q0Pcc28ZJCg.m4a?vkey=AB76AA8CC0EE9B92086F4744DAE380F05048941A437915032C9F98A42AB62F4B3579688F42C652239FEE36D5C44F671ABC574D7F8A834D52&guid=5594205320&uin=502583304&fromtag=66"
+      "url": "music/7.mp3"
     },
     {
       "name": "想い出は遠くの日々",
       "musician": "天門（てんもん）",
       "album": "秒速5センチメートル オリジナルサウンドトラック",
       "img": "images/9.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C400003BL5C41VBQwn.m4a?vkey=7E263BD704012D58897DA888E3152BD21229419E4EC9332F84C8C66BE6C367AF8F251D9A163CB59257A99C8105903AD2A311B9E6C8B0DF59&guid=5594205320&uin=0&fromtag=66"
+      "url": "music/8.mp3"
     },
     {
       "name": "眼泪（live）",
       "musician": "张学友",
       "album": "活出生命Live演唱会",
       "img": "images/10.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C400001Tq2qj3k2VrY.m4a?vkey=2D15B28E88C29FE24060F6F48C64CF3EAB7BB1338C3E4C5C1C7278B4CB970DC845B31E692C00E06BE6D1320AE4751FE881B0B9CF4C034FFA&guid=5594205320&uin=0&fromtag=66"
+      "url": "music/9.mp3"
     },
     {
       "name": "医生",
       "musician": "许嵩",
       "album": "苏格拉没有底",
       "img": "images/11.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C400001FL0V21f8blE.m4a?vkey=09C65E0EE009D49C0F2972EB128BFB94B370E0DFFC5841BE0A2890014FCDEB34F761F337F1FFF9E0A434A2FF291E8C870569534869EBE21D&guid=5594205320&uin=0&fromtag=66"
+      "url": "music/10.mp3"
     },
     {
       "name": "もうひとつの世界",
       "musician": "Cécile Corbel",
       "album": "Kari-gurashi~借りぐらし~（借りぐらしのアリエッティイメージ歌集アルバム）",
       "img": "images/12.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C400001pxmZU2JLh6V.m4a?vkey=600E0DA49CDA330BAE4FAF03B950CC29D3EF2F6EA5DAD37FA2F7C84D2A0F581022B4719BC67A561F35F0700F0471EDA8F6656229B3B57725&guid=5594205320&uin=0&fromtag=66"
+      "url": "music/11.mp3"
     },
     {
       "name": "伤心证明书",
       "musician": "陈奕迅",
       "album": "婚礼的祝福",
       "img": "images/13.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C400001pb12z0BX0H5.m4a?vkey=A5DE0C5B4DC4E438ADB72337449C6BC775A0A7CAD9737BCCCA746F6552F8DE98CE2CA6497AABE424F585714003821D9294EDE2B8E29B9B34&guid=5594205320&uin=0&fromtag=66"
+      "url": "music/12.mp3"
     },
     {
       "name": "不将就",
       "musician": "Amy Chanrich",
       "album": "",
       "img": "images/14.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C400004EeNXA2yw6hI.m4a?vkey=FE38DCA7D1065A903DAF52B744662600F114E4FE562DC9BF6C157FDFCF2992057BC99A34CF6D69FB0E3034917B597A03C6128814ACEA0E1E&guid=5594205320&uin=0&fromtag=66"
+      "url": "music/13.mp3"
     },
     {
       "name": "主题情感",
       "musician": "孟可",
       "album": "《伪装者》电视剧原声带",
       "img": "images/15.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C400000E9hN02xlGYQ.m4a?vkey=5F3118246EAA5D9DE297A4C03718C1ED7CE9B38A077FF5D8F8E7C02D3F9516DA04E6029FA49D099B6E654B8C29CF651B1A348D17747563C9&guid=5594205320&uin=0&fromtag=66"
+      "url": "music/14.mp3"
     },
     {
       "name": "500 Miles",
       "musician": "The Innocence Mission",
       "album": "We Will Be Together (Pastel Season Edition)",
       "img": "images/16.jpg",
-      "url": "http://dl.stream.qqmusic.qq.com/C400003u8OIx3a92Vr.m4a?vkey=7664073DD39D4DA3495C35E8E20B34AD15A28BDDB32386D818C1C62E3E89487463844ADA4BC50BFBD5E1DD281A66BB1E3618D58E2E69BEC8&guid=5594205320&uin=0&fromtag=66"
+      "url": "music/15.mp3"
     }
 ]
