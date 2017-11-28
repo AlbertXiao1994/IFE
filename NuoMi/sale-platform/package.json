@@ -7,10 +7,10 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-
     "build": "node build/build.js"
   },
   "dependencies": {
+    "json-server": "^0.12.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
