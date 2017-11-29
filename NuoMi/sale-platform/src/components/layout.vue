@@ -5,14 +5,14 @@
         <img src="../assets/logo.png">
         <div class="head-nav">
           <ul class="nav-list">
-            <!-- <li> {{ username }}</li> -->
-            <!-- <li class="nav-pile">|</li> -->
-            <!-- <li>退出</li> -->
-            <li>登录</li>
+            <li> {{ username }}</li>
+            <li class="nav-pile" v-if="!username==''">|</li>
+            <li v-if="!username==''" @click="quit">退出</li>
+            <li @click="openDialog('isShowLogDialog')" v-if="username==''">登录</li>
+            <li class="nav-pile" v-if="username==''">|</li>
+            <li @click="openDialog('isShowRegDialog')" v-if="username==''">注册</li>
             <li class="nav-pile">|</li>
-            <li>注册</li>
-            <li class="nav-pile">|</li>
-            <li>关于</li>
+            <li @click="openDialog('isShowAboutDialog')">关于</li>
           </ul>
         </div>  
       </div>
@@ -25,15 +25,53 @@
     <div class="app-foot">
       <p>© 2017 Albert MIT</p>
     </div>
+    <!-- 登录 -->
+    <my-dialog @on-close="closeDialog('isShowLogDialog')" :isShow="isShowLogDialog">
+      <log-form @has-log="onSuccessLogin"></log-form>
+    </my-dialog>
+    <!-- 注册 -->
+    <my-dialog @on-close="closeDialog('isShowRegDialog')" :isShow="isShowRegDialog">
+      <reg-form></reg-form>
+    </my-dialog>
+    <!-- 关于 -->
+    <my-dialog @on-close="closeDialog('isShowAboutDialog')" :isShow="isShowAboutDialog">
+      <p>本网站是我跟着慕课网《带你入门Vue2.0开发》课程做的，主要学习Vue在项目开发中的作用，在听课与源码的基础上，所有js代码都过了一遍，使用vue-cli搭建脚手架项目，使用vue-router设置路由，vue-resource调用封装好的ajax方法，使用json-server模拟数据接口，编写布局、轮播线性、登录-注册、模态框等组件，熟悉模块化开发，而HTML和CSS部分没太多关注，收获颇丰，熟悉了单页面开发</p>
+    </my-dialog>
   </div>
 </template>
 
 <script>
+import Dialog from './base/dialog'
+import logForm from './logForm'
+import regForm from './regForm'
 export default {
   name: 'Layout',
+  components: {
+    myDialog: Dialog,
+    logForm,
+    regForm
+  },
   data () {
     return {
-      
+      isShowLogDialog: false,
+      isShowRegDialog: false,
+      isShowAboutDialog: false,
+      username: ''
+    }
+  },
+  methods: {
+    openDialog (attr) {
+      this[attr]=true
+    },
+    closeDialog (attr) {
+      this[attr]=false
+    },
+    onSuccessLogin (data) {
+      this.closeDialog('isShowLogDialog')
+      this.username=data.username
+    },
+    quit () {
+      this.username=''
     }
   }
 }
