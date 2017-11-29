@@ -20,7 +20,7 @@
         <span class="g-form-error">{{ pswErrors.erroText }}</span>
       </div>
       <div class="g-form-line">
-        <div class="g-form-btn">
+        <div class= "g-form-btn">
           <a class="button" @click="onLogin">登录</a>
         </div>
       </div>
