@@ -25,7 +25,9 @@
                   有效时间：
               </div>
               <div class="sales-board-line-right">
-                  
+                  <v-chooser
+                  :selections="periodList"
+                  @on-change="onParamChange('period', $event)"></v-chooser>
               </div>
           </div>
           <div class="sales-board-line">
@@ -33,7 +35,7 @@
                   产品版本：
               </div>
               <div class="sales-board-line-right">
-                  
+                  <v-mult-chooser :selections="versionList"></v-mult-chooser>
               </div>
           </div>
           <div class="sales-board-line">
@@ -80,12 +82,44 @@
 
 <script>
 import VSelect from '../../components/base/selection'
+import VChooser from '../../components/base/chooser'
+import VMultChooser from '../../components/base/multiplyChooser'
 export default {
   components: {
-    VSelect
+    VSelect,
+    VChooser,
+    VMultChooser
   },
   data () {
     return {
+      periodList: [
+        {
+          label: '半年',
+          value: 0
+        },
+        {
+          label: '一年',
+          value: 1
+        },
+        {
+          label: '三年',
+          value: 2
+        }
+      ],
+      versionList: [
+        {
+          label: '客户版',
+          value: 0
+        },
+        {
+          label: '代理商版',
+          value: 1
+        },
+        {
+          label: '专家版',
+          value: 2
+        }
+      ],
       buyTypes: [
         {
           label: '入门版',

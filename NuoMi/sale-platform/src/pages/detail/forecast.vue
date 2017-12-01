@@ -10,6 +10,7 @@
                   购买数量：
               </div>
               <div class="sales-board-line-right">
+                <v-counter :max="100" :min="20"></v-counter>
               </div>
           </div>
           <div class="sales-board-line">
@@ -58,9 +59,11 @@
 
 <script>
 import VMultChooser from '../../components/base/multiplyChooser'
+import VCounter from '../../components/base/counter'
 export default {
   components: {
-    VMultChooser
+    VMultChooser,
+    VCounter
   },
   data () {
     return {
