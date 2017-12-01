@@ -10,6 +10,7 @@
                   购买数量：
               </div>
               <div class="sales-board-line-right">
+                <v-counter :max="100" :min="20" @on-change="onParamChange('buyNum',$event)"></v-counter>
               </div>
           </div>
           <div class="sales-board-line">
@@ -17,7 +18,7 @@
                   产品类型：
               </div>
               <div class="sales-board-line-right">
-                  <v-select :selections="buyTypes" @on-change="onParamChange"></v-select>
+                  <v-select :selections="buyTypes" @on-change="onParamChange('buyType',$event)"></v-select>
               </div>
           </div>
           <div class="sales-board-line">
@@ -27,7 +28,7 @@
               <div class="sales-board-line-right">
                   <v-chooser
                   :selections="periodList"
-                  @on-change="onParamChange('period', $event)"></v-chooser>
+                  @on-change="onParamChange('buyPeriod', $event)"></v-chooser>
               </div>
           </div>
           <div class="sales-board-line">
@@ -35,7 +36,8 @@
                   产品版本：
               </div>
               <div class="sales-board-line-right">
-                  <v-mult-chooser :selections="versionList"></v-mult-chooser>
+                  <v-mult-chooser :selections="versionList"
+                  @on-change="onParamChange('buyVersions', $event)"></v-mult-chooser>
               </div>
           </div>
           <div class="sales-board-line">
@@ -43,7 +45,7 @@
                   总价：
               </div>
               <div class="sales-board-line-right">
-                   元
+                {{ price }}   元
               </div>
           </div>
           <div class="sales-board-line">
@@ -84,14 +86,28 @@
 import VSelect from '../../components/base/selection'
 import VChooser from '../../components/base/chooser'
 import VMultChooser from '../../components/base/multiplyChooser'
+import VCounter from '../../components/base/counter'
 export default {
   components: {
     VSelect,
     VChooser,
-    VMultChooser
+    VMultChooser,
+    VCounter
+  },
+  mounted () {
+    this.buyNum=1
+    this.buyType=this.buyTypes[0]
+    this.buyVersions=[this.versionList[0]]
+    this.buyPeriod=this.periodList[0]
+    this.getPrice()
   },
   data () {
     return {
+      buyNum: 0,
+      buyType: {},
+      buyPeriod: {},
+      buyVersions: {},
+      price: 0,
       periodList: [
         {
           label: '半年',
@@ -134,6 +150,28 @@ export default {
           value: 2
         }
       ]
+    }
+  },
+  methods: {
+    onParamChange (attr,val) {
+      this[attr]=val
+      this.getPrice()
+    },
+    getPrice () {
+      let buyVersionsArray=_.map(this.buyVersions,(item) => {
+        return item.value
+      })
+      let reqParams= {
+        buyNumber: this.buyNum,
+        buyType: this.buyType.value,
+        period: this.buyPeriod.value,
+        version: buyVersionsArray.join(',')
+      }
+
+      this.$http.post('/api/getPrice',reqParams)
+      .then((res) => {
+        this.price=res.data.amount
+      })
     }
   }
 }

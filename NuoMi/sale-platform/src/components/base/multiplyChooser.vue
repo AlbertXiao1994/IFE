@@ -32,14 +32,17 @@ export default {
   methods: {
     toggleSelection (index) {
       if(this.nowIndexes.includes(index)) {
-        this.nowIndexes=_.remove(this.nowIndexes,(id) => {
-          return id!=index
+        this.nowIndexes=_.remove(this.nowIndexes,(idx) => {
+          return idx!=index
         })
       }
       else {
         this.nowIndexes.push(index)
       }
-      this.$emit('on-change',this.nowIndexes)
+      let nowObjArray=_.map(this.nowIndexes,(idx) => {
+        return this.selections[idx]
+      })
+      this.$emit('on-change',nowObjArray)
     },
     checkActive (index) {
       return this.nowIndexes.includes(index)
