@@ -13,12 +13,18 @@
 </template>
 
 <script>
+import { eventBus } from '../../../eventBus'
 export default {
   props: {
     selections: {
       type: Array,
       default: [{label:'text',value: 0}]
     }
+  },
+  mounted () {
+    eventBus.$on('reset-component',() => {
+      this.isDrop=false
+    })
   },
   data () {
     return {
@@ -27,7 +33,9 @@ export default {
     }
   },
   methods: {
-    toggleDrop () {
+    toggleDrop (event) {
+      event.stopPropagation()
+      eventBus.$emit('reset-component')
       this.isDrop=!this.isDrop
     },
     chooseOption (index) {
