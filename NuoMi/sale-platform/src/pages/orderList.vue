@@ -47,7 +47,13 @@ export default {
     }
   },
   mounted () {
-    this.getList()
+    // this.getList()
+    this.$store.dispatch('fetchOrderList')
+  },
+  computed: {
+    tableData () {
+      return this.$store.getters.getOrderList
+    }
   },
   data () {
     return {
@@ -103,22 +109,37 @@ export default {
           key: 'amount'
         }
       ],
-      tableData: [],
+      // tableData: [],
       currentOrder: "asc"
     }
   },
   methods: {
     changeProduct (obj) {
-      this.productId=obj.value
-      this.getList()
+      this.$store.commit('updateParams',{
+        key: 'productId',
+        val: obj.value
+      })
+      this.$store.dispatch('fetchOrderList')
+      // this.productId=obj.value
+      // this.getList()
     },
     changeStartDate (date) {
-      this.startDate=date
-      this.getList()
+      this.$store.commit('updateParams',{
+        key: 'startDate',
+        val: date
+      })
+      this.$store.dispatch('fetchOrderList')
+      // this.startDate=date
+      // this.getList()
     },
     changeEndDate (date) {
-      this.EndDate=date
-      this.getList()
+      this.$store.commit('updateParams',{
+        key: 'EndDate',
+        val: date
+      })
+      this.$store.dispatch('fetchOrderList')
+      // this.EndDate=date
+      // this.getList()
     },
     getList () {
       let reqParams= {
