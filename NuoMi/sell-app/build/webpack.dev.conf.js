@@ -53,6 +53,39 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   ]
 })
 
+//使用express模拟数据接口
+// default port where dev server listens for incoming traffic
+const express = require('express')
+var apiServer = express()
+var bodyParser = require('body-parser')
+apiServer.use(bodyParser.urlencoded({ extended: true }))
+apiServer.use(bodyParser.json())
+var apiRouter = express.Router()
+var fs = require('fs')
+apiRouter.route('/:apiName')
+.all(function (req, res) {
+  fs.readFile('./data.json', 'utf8', function (err, data) {
+    if (err) throw err
+    var data = JSON.parse(data)
+    if (data[req.params.apiName]) {
+      res.json(data[req.params.apiName])  
+    }
+    else {
+      res.send('no such api name')
+    }
+    
+  })
+})
+
+apiServer.use('/api', apiRouter);
+apiServer.listen(3000, function (err) {
+  if (err) {
+    console.log(err)
+    return
+  }
+  console.log('Listening at http://localhost:' + 3000 + '\n')
+})
+
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
   portfinder.getPort((err, port) => {

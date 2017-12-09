@@ -1,13 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <div class="header">
+    	<v-header></v-header>
+    </div>
+    <div class="tab">
+    	<router-link class="tab-item" :to="{path: '/goods'}" active-class="active">商品</router-link>
+      <router-link class="tab-item" :to="{path: '/ratings'}" active-class="active">评价</router-link>
+      <router-link class="tab-item" :to="{path: '/seller'}" active-class="active">商家</router-link>
+    </div>
+    <div class="content">
+    	<router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
+import Header from './components/header/header'
 export default {
-  name: 'app'
+  components: {
+    vHeader: Header
+  }
 }
 </script>
 
@@ -19,5 +31,21 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.tab {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid rgba(7,17,27,0.1);
+}
+.tab-item {
+  display: block;
+  flex: 1;
+  color: rgb(77,85,93);
+  text-align: center;
+}
+.active {
+  color: rgb(240,20,20);
 }
 </style>
