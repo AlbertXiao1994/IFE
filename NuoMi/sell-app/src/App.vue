@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="header">
-    	<v-header></v-header>
+    	<v-header :msg="seller"></v-header>
     </div>
     <div class="tab">
     	<router-link class="tab-item" :to="{path: '/goods'}" active-class="active">商品</router-link>
@@ -19,11 +19,25 @@ import Header from './components/header/header'
 export default {
   components: {
     vHeader: Header
+  },
+  created () {
+    this.$http.get('/api/seller')
+    .then((res) => {
+      this.seller = res.data
+    }, (err) => {
+      console.log(err)
+    })
+  },
+  data () {
+    return {
+      seller: {}
+    }
   }
 }
 </script>
 
 <style>
+@import './common/style/icon.css'
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
