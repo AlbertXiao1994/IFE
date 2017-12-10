@@ -1,11 +1,14 @@
 <template>
-  <div class="icon">
-    <span :class="classMap[item.type]"></span>
-  </div>
+  <span :class="classMap[type]" class="icon"></span>
 </template>
 
 <script>
 export default {
+  props: {
+    type: {
+      type: Number
+    }
+  },
   data () {
     return {
       classMap: []
@@ -21,6 +24,8 @@ export default {
 <style scoped>
 .icon {
   display: inline-block;
+  width: 16px;
+  height: 16px;
 }
 .decrease {
   background: url('./decrease_2@2x.png') no-repeat;

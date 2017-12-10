@@ -43,7 +43,8 @@
             </div>
             <ul class="supports-info" v-if="msg.supports">
               <li class="info-item" v-for="item in msg.supports">
-                <span class="icon" :class="classMap[item.type]"></span>
+                <!-- <span class="icon" :class="classMap[item.type]"></span> -->
+                <icon :type="item.type"></icon>
                 <span class="text">{{ item.description }}</span>
               </li>
             </ul>
@@ -63,9 +64,11 @@
 
 <script>
 import star from '../star/star'
+import icon from '../icon/icon'
 export default {
   components: {
-    star
+    star,
+    icon
   },
   props: {
     msg: {
@@ -301,26 +304,6 @@ export default {
   font-weight: 200;
   margin-left: 6px;
   vertical-align: top;
-}
-.decrease {
-  background: url('./decrease_2@2x.png') no-repeat;
-  background-size: 100% 100%;
-}
-.discount {
-  background: url('./discount_2@2x.png') no-repeat;
-  background-size: 100% 100%;
-}
-.special {
-  background: url('./special_2@2x.png') no-repeat;
-  background-size: 100% 100%;
-}
-.invoice {
-  background: url('./invoice_2@2x.png') no-repeat;
-  background-size: 100% 100%;
-}
-.guarantee {
-  background: url('./guarantee_2@2x.png') no-repeat;
-  background-size: 100% 100%;
 }
 .bulletin-content {
   padding: 0 12px;
