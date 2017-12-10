@@ -33,6 +33,26 @@
         <div class="more-wrapper clearfix">
           <div class="more-main">
             <h1 class="name">{{ msg.name }}</h1>
+            <div class="star-wrapper">
+              <star :score="msg.score"></star>
+            </div>
+            <div class="title">
+              <div class="line"></div>
+              <div class="text">优惠信息</div>
+              <div class="line"></div>
+            </div>
+            <ul class="supports-info" v-if="msg.supports">
+              <li class="info-item" v-for="item in msg.supports">
+                <span class="icon" :class="classMap[item.type]"></span>
+                <span class="text">{{ item.description }}</span>
+              </li>
+            </ul>
+            <div class="title">
+              <div class="line"></div>
+              <div class="text">商家公告</div>
+              <div class="line"></div>
+            </div>
+            <div class="bulletin-content">{{ msg.bulletin }}</div>
           </div>
         </div>
         <div class="icon-close" @click="closeMore"></div>
@@ -42,16 +62,24 @@
 </template>
 
 <script>
+import star from '../star/star'
 export default {
+  components: {
+    star
+  },
   props: {
     msg: {
       type: Object
     }
   },
+  created () {
+    this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
+  },
   data () {
     return {
       seller: {},
-      isShow: false
+      isShow: false,
+      classMap: []
     }
   },
   methods: {
@@ -67,20 +95,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 .header {
   position: relative;
   background: rgba(7,17,27,0.5);
@@ -139,7 +153,7 @@ a {
   display: inline-block;
   width: 12px;
   height: 12px;
-  background-image: url('./decrease_1@2x.png');
+  background-image: url('./decrease_2@2x.png');
   background-size: 100% 100%;
   margin-right: 4px;
 }
@@ -227,6 +241,8 @@ a {
 .more-main {
   margin-top: 64px;
   padding-bottom: 64px;
+  margin-left: 36px;
+  margin-right: 36px;
 }
 .more-main .name {
   font-size: 16px;
@@ -242,5 +258,74 @@ a {
   color: rgba(255,255,255,0.5);
   margin: -64px auto 0 auto;
   clear: both;
+}
+.star-wrapper {
+  width: 100%;
+  text-align: center;
+  margin-top: 16px;
+}
+.title {
+  display: flex;
+  width: 100%;
+  margin: 28px auto 24px auto;
+}
+.title .line {
+  position: relative;
+  top: -6px;
+  flex: 1;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.title .text {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+  padding: 0 12px;
+}
+.supports-info .info-item {
+  display: block;
+  padding: 0 12px;
+  margin-bottom: 12px;
+  font-size: 0;
+}
+.supports-info .info-item:last-child {
+  margin-bottom: 0;
+}
+.info-item .icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+.info-item .text {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 200;
+  margin-left: 6px;
+  vertical-align: top;
+}
+.decrease {
+  background: url('./decrease_2@2x.png') no-repeat;
+  background-size: 100% 100%;
+}
+.discount {
+  background: url('./discount_2@2x.png') no-repeat;
+  background-size: 100% 100%;
+}
+.special {
+  background: url('./special_2@2x.png') no-repeat;
+  background-size: 100% 100%;
+}
+.invoice {
+  background: url('./invoice_2@2x.png') no-repeat;
+  background-size: 100% 100%;
+}
+.guarantee {
+  background: url('./guarantee_2@2x.png') no-repeat;
+  background-size: 100% 100%;
+}
+.bulletin-content {
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 24px; 
 }
 </style>
