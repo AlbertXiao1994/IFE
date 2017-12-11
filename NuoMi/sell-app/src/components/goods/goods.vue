@@ -2,8 +2,8 @@
   <div class="goods">
     <div class="menu-wrapper" ref="menuWrapper">
       <ul class="menu">
-        <li v-for="(item,index) in goods" class="menu-item" 
-        :class="{selected: index==selectIndex}" @click="selectOption(index)">
+        <li v-for="(item,index) in goods" class="menu-item"
+        :class="{selected: currentIndex==index}" @click="selectOption(index,$event)">
           <span class="text"><icon v-if="item.type>0" :type="item.type" class="icon"></icon>{{ item.name }}</span>
           <span class="line"></span>
         </li>
@@ -11,7 +11,7 @@
     </div>
     <div class="goods-wrapper" ref="goodsWrapper">
       <ul>
-        <li v-for="item in goods" class="food-list">
+        <li v-for="item in goods" class="food-list food-list-hook">
           <h1 class="header">{{ item.name }}</h1>
           <ul class="food-content">
             <li v-for="food in item.foods" class="food-item">
@@ -20,7 +20,7 @@
               </div>
               <div class="content">
                 <h2 class="name">{{ food.name }}</h2>
-                <p class="description">{{ food.description }}</p>
+                <p class="description" v-show="food.description">{{ food.description }}</p>
                 <div class=extra>
                   <span class="sellCount">月售{{ food.sellCount }}份</span><span class="rating">好评率{{ food.rating }}%</span>
                 </div>
@@ -47,7 +47,20 @@ export default {
   data () {
     return {
       goods: {},
-      selectIndex: 0
+      scrollY: 0,
+      listHeight: []
+    }
+  },
+  computed: {
+    currentIndex () {
+      for (let i = 0; i < this.listHeight.length - 1; i++) {
+        let height1 = this.listHeight[i]
+        let height2 = this.listHeight[i + 1]
+        if (this.scrollY > height1 && this.scrollY < height2) {
+          return i
+        }
+      }
+      return 0
     }
   },
   created () {
@@ -56,18 +69,36 @@ export default {
       this.goods = res.data
       this.$nextTick(() => {
         this._initScroll()
+        this.calcHeight()
       })
     }, (err) => {
       console.log(err)
     })
   },
   methods: {
-    selectOption (index) {
-      this.selectIndex = index
+    selectOption (index, event) {
+      if (!event._constructed) {
+        return
+      }
+      let foodlist = this.$refs.goodsWrapper.getElementsByClassName('food-list-hook')
+      let el = foodlist[index]
+      this.goodsScroll.scrollToElement(el, 300)
     },
     _initScroll () {
-      this.menuScroll = new BScroll(this.$refs.menuWrapper, {})
-      this.goodsScroll = new BScroll(this.$refs.goodsWrapper, {})
+      this.menuScroll = new BScroll(this.$refs.menuWrapper, {click: true})
+      this.goodsScroll = new BScroll(this.$refs.goodsWrapper, {probeType: 3})
+      this.goodsScroll.on('scroll', (pos) => {
+        this.scrollY = Math.abs(Math.round(pos.y))
+      })
+    },
+    calcHeight () {
+      let foodlist = this.$refs.goodsWrapper.getElementsByClassName('food-list-hook')
+      let height = 0
+      this.listHeight.push(height)
+      for (let i = 0; i < foodlist.length; i++) {
+        height += foodlist[i].clientHeight
+        this.listHeight.push(height)
+      }
     }
   }
 }
@@ -120,9 +151,13 @@ export default {
 .selected {
   color: rgb(240,20,20);
   background: #fff;
+  font-weight: 700;
+  border: none;
 }
 .goods-wrapper {
   flex: 1;
+  width: 100%;
+  overflow: hidden;
 }
 .header {
   width: 100%;
@@ -153,6 +188,9 @@ export default {
 .food-item .content {
   flex: 1;
   padding-top: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .content .name {
   font-size: 14px;
@@ -164,6 +202,11 @@ export default {
   color: rgb(147,153,159);
   line-height: 10px;
   margin-top: 8px;
+}
+.content .description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 12px;
 }
 .content .price {
   margin-top: 8px;

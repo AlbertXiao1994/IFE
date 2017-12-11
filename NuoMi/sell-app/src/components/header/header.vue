@@ -186,7 +186,6 @@ export default {
 }
 .bulletin {
   position: relative;
-  box-sizing: border-box;
   margin-top: 18px;
   width: 100%;
   height: 28px;
