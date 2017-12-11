@@ -35,15 +35,18 @@
         </li>
       </ul>
     </div>
+    <shop-cart></shop-cart>
   </div>
 </template>
 
 <script>
 import icon from '../icon/icon'
 import BScroll from 'better-scroll'
+import ShopCart from '../shopCart/shopCart'
 export default {
   components: {
-    icon
+    icon,
+    ShopCart
   },
   data () {
     return {
