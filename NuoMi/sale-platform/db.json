@@ -1,0 +1,65 @@
+{
+  "getNewsList": [
+    {
+      "id": 1,
+      "title": "Vue生态大指南",
+      "url": "https://www.vue-js.com/topic/58750c15a9c1282817afbfb7"
+    },
+    {
+      "id": 2,
+      "title": "transition 动画",
+      "url": "https://www.vue-js.com/topic/5a1b827ff89597967eb99cef"
+    },
+    {
+      "id": 3,
+      "title": "基于vue+vuex构建大型单页面应用",
+      "url": "https://www.vue-js.com/topic/58abbd21a9c1282817afc28d"
+    },
+    {
+      "id": 4,
+      "title": "后台管理页面",
+      "url": "https://www.vue-js.com/topic/59dc138d80b2e10363514cef"
+    }
+  ],
+  "login": {
+    "username": "Albert",
+    "userId": 123123
+  },
+  "getPrice": {
+    "amount": 678
+  },
+  "createOrder": {
+    "orderId": "6djk979"
+  },
+  "getOrderList": {
+    "list": [
+      {
+        "orderId": "ddj123",
+        "product": "数据统计",
+        "version": "高级版",
+        "period": "1年",
+        "buyNum": 2,
+        "date": "2016-10-10",
+        "amount": "500元"
+      },
+      {
+        "orderId": "yuj583",
+        "product": "流量分析",
+        "version": "户外版",
+        "period": "3个月",
+        "buyNum": 1,
+        "date": "2016-5-2",
+        "amount": "2200元"
+      },
+      {
+        "orderId": "pmd201",
+        "product": "广告发布",
+        "version": "商铺版",
+        "period": "3年",
+        "buyNum": 12,
+        "date": "2016-8-3",
+        "amount": "7890元"
+      }
+    ]
+  }
+}

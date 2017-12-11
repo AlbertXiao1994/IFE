@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>树形组件</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="tree">
+		<div class="tree-heading">父节点1</div>
+			<ul class="node">
+				<li>
+					<div class="tree">
+						<div class="tree-heading">子节点1</div>
+					</div>
+					<div class="tree">
+						<div class="tree-heading">子节点2</div>
+					</div>	
+				</li>
+			</ul>
+	</div>
+	<div class="tree">
+		<div class="tree-heading">父节点2</div>
+			<ul class="node">
+				<li>
+					<div class="tree">
+						<div class="tree-heading">子节点3</div>
+					</div>	
+					<div class="tree">
+						<div class="tree-heading">子节点4</div>
+						<ul class="node">
+							<li>
+								<div class="tree">
+									<div class="tree-heading">子节点5</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+	</div>
+	<script type="text/javascript" src="jsTree.js"></script>
+</body>
+</html>
