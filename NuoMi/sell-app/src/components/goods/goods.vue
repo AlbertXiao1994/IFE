@@ -3,7 +3,8 @@
     <div class="menu-wrapper" ref="menuWrapper">
       <ul class="menu">
         <li v-for="(item,index) in goods" class="menu-item"
-        :class="{selected: currentIndex==index}" @click.stop.prevent="selectOption(index,$event)">
+        @click="selectOption(index,$event)"
+        :class="{selected: currentIndex==index}">
           <span class="text"><icon v-if="item.type>0" :type="item.type" class="icon"></icon>{{ item.name }}</span>
           <span class="line"></span>
         </li>
@@ -48,19 +49,19 @@ export default {
     return {
       goods: {},
       scrollY: 0,
-      listHeight: [],
-      currentIndex: 0
+      listHeight: []
     }
   },
-  watch: {
-    scrollY () {
+  computed: {
+    currentIndex () {
       for (let i = 0; i < this.listHeight.length - 1; i++) {
         let height1 = this.listHeight[i]
         let height2 = this.listHeight[i + 1]
-        if (this.scrollY >= height1 && this.scrollY < height2) {
-          this.currentIndex = i
+        if (this.scrollY + 5 >= height1 && this.scrollY + 5 < height2) {
+          return i
         }
       }
+      return 0
     }
   },
   created () {
