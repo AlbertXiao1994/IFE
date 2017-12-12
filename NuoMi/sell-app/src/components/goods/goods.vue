@@ -35,7 +35,7 @@
         </li>
       </ul>
     </div>
-    <shop-cart></shop-cart>
+    <shop-cart :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice"></shop-cart>
   </div>
 </template>
 
@@ -47,6 +47,11 @@ export default {
   components: {
     icon,
     ShopCart
+  },
+  props: {
+    seller: {
+      type: Object
+    }
   },
   data () {
     return {
@@ -117,6 +122,7 @@ export default {
   bottom: 46px;
   width: 100%;
   overflow: hidden;
+  z-index: -1;
 }
 .menu-wrapper {
   flex: 0 0 80px;
@@ -129,6 +135,7 @@ export default {
   width: 100%;
   height: 54px;
   padding: 0 12px;
+  box-sizing: border-box;
 }
 .menu-item .text {
   display: table-cell;

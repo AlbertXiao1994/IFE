@@ -57,6 +57,7 @@
           </div>
         </div>
         <div class="icon-close" @click="closeMore"></div>
+        <!-- <div class="more-shadow"></div> -->
       </div>
     </div>
   </div>
@@ -195,7 +196,6 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   background-color: rgba(7,17,27,0.2);
-
 }
 .bulletin-text {
   font-size: 10px;
@@ -233,12 +233,13 @@ export default {
   width: 100%;
   height: 100%;
   background: rgba(7,17,27,0.8);
-  z-index: 10;
+  z-index: 100;
   overflow: auto;
 }
 .more-wrapper {
   min-height: 100%;
   width: 100%;
+  z-index: 200;
 }
 .more-main {
   margin-top: 64px;
@@ -260,7 +261,18 @@ export default {
   color: rgba(255,255,255,0.5);
   margin: -64px auto 0 auto;
   clear: both;
+  z-index: 20;
 }
+/*.more-shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: rgba(7,17,27,0.8);
+  filter: blur(10px);
+}*/
 .star-wrapper {
   width: 100%;
   text-align: center;

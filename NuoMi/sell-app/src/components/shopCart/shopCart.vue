@@ -2,20 +2,54 @@
   <div class="shopCart">
     <div class="left-wrapper">
       <div class="logo-wrapper">
-        <div class="logo">
-          <span class="icon-shopping_cart"></span>
+        <div class="logo" :class="{active: totalPrice}">
+          <span class="icon-shopping_cart" :class="{active: totalPrice}"></span>
+        </div>
+        <div class="badge" v-show="totalCount">
+          <span class="num">{{ totalCount }}</span>
         </div>
       </div>
-      <div class="price">¥0</div>
-      <div class="extra-price">另需配送费¥4</div>
+      <div class="price" :class="{active: totalPrice}">¥{{ totalPrice }}</div>
+      <div class="extra-price">另需配送费¥{{ deliveryPrice }}</div>
     </div>
-    <div class="right-wrapper">¥20起送</div>
+    <div class="right-wrapper" :class="{enough: totalPrice > minPrice}">¥{{ minPrice }}起送</div>
   </div>
 </template>
 
 <script>
 export default {
-
+  props: {
+    selectedFood: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    deliveryPrice: {
+      type: Number,
+      default: 0
+    },
+    minPrice: {
+      type: Number,
+      default: 20
+    }
+  },
+  computed: {
+    totalPrice () {
+      let total = 0
+      this.selectedFood.forEach((food) => {
+        total += food.price * food.count
+      })
+      return total
+    },
+    totalCount () {
+      let count = 0
+      this.selectedFood.forEach((food) => {
+        count += food.count
+      })
+      return count
+    }
+  }
 }
 </script>
 
@@ -28,7 +62,7 @@ export default {
   bottom: 0;
   width: 100%;
   height: 48px;
-  z-index: 10;
+  z-index: 5;
 }
 .left-wrapper {
   flex: 1;
@@ -64,6 +98,26 @@ export default {
   font-size: 24px;
   line-height: 44px;
 }
+.logo-wrapper .badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 16px;
+  border-radius: 6px;
+  background: rgb(240,20,20);
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+}
+.badge .num {
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 16px;
+}
+.logo-wrapper .active {
+  background: rgb(0,160,220);
+}
 .left-wrapper .price,.extra-price {
   display: inline-block;
   color: #808589;
@@ -81,11 +135,18 @@ export default {
 .left-wrapper .extra-price {
   margin-left:  12px;
 }
+.left-wrapper .active {
+  color: #fff;
+}
 .right-wrapper {
   font-size: 12px;
   color: #808589;
   font-weight: 700;
   line-height: 48px;
   text-align: center;
+}
+.shopCart .enough {
+  color: #fff;
+  background: #11B33C;
 }
 </style>
