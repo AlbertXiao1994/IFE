@@ -12,7 +12,10 @@
       <div class="price" :class="{active: totalPrice}">¥{{ totalPrice }}</div>
       <div class="extra-price">另需配送费¥{{ deliveryPrice }}</div>
     </div>
-    <div class="right-wrapper" :class="{enough: totalPrice > minPrice}">¥{{ minPrice }}起送</div>
+    <div class="right-wrapper" :class="{enough: totalPrice>=minPrice}">{{ payDes }}</div>
+    <div class="ball-wrapper">
+      <div class="ball" v-for="ball in balls" v-show="ball.show"></div>
+    </div>
   </div>
 </template>
 
@@ -48,6 +51,37 @@ export default {
         count += food.count
       })
       return count
+    },
+    payDes () {
+      if (this.totalPrice === 0) {
+        return `¥${this.minPrice}起送`
+      } else if (this.totalPrice < this.minPrice) {
+        let diff = this.minPrice - this.totalPrice
+        return `还差¥${diff}起送`
+      } else {
+        return '去结算'
+      }
+    }
+  },
+  data () {
+    return {
+      balls: [
+        {
+          show: false
+        },
+        {
+          show: false
+        },
+        {
+          show: false
+        },
+        {
+          show: false
+        },
+        {
+          show: false
+        }
+      ]
     }
   }
 }
@@ -148,5 +182,16 @@ export default {
 .shopCart .enough {
   color: #fff;
   background: #11B33C;
+}
+.ball-wrapper {
+  position: fixed;
+  left: 32px;
+  bottom: 22px;
+}
+.ball {
+  width: 16px;
+  height: 16px;
+  background: rgb(0,160,220);
+  border-radius: 50%;
 }
 </style>

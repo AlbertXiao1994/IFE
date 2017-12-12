@@ -102,6 +102,7 @@ export default {
 .header {
   position: relative;
   background: rgba(7,17,27,0.5);
+  overflow: hidden;
 }
 .header-wrapper {
   position: relative;
@@ -188,7 +189,6 @@ export default {
 .bulletin {
   position: relative;
   margin-top: 18px;
-  width: 100%;
   height: 28px;
   padding: 0 22px 0 12px;
   line-height: 28px;

@@ -29,13 +29,14 @@
                   <span class="nowPrice">¥{{ food.price }}</span>
                   <span class="oldPrice" v-if="food.oldPrice">¥{{ food.oldPrice }}<span class="line"></span></span>
                 </div>
+                <cart-control :food="food" @ball-move=""></cart-control>
               </div>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <shop-cart :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice"></shop-cart>
+    <shop-cart :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice" :selectedFood="selectedFood"></shop-cart>
   </div>
 </template>
 
@@ -43,10 +44,12 @@
 import icon from '../icon/icon'
 import BScroll from 'better-scroll'
 import ShopCart from '../shopCart/shopCart'
+import cartControl from '../cartControl/cartControl'
 export default {
   components: {
     icon,
-    ShopCart
+    ShopCart,
+    cartControl
   },
   props: {
     seller: {
@@ -55,7 +58,7 @@ export default {
   },
   data () {
     return {
-      goods: {},
+      goods: [],
       scrollY: 0,
       listHeight: []
     }
@@ -70,6 +73,17 @@ export default {
         }
       }
       return 0
+    },
+    selectedFood () {
+      let foods = []
+      this.goods.forEach((good) => {
+        good.foods.forEach((food) => {
+          if (food.count) {
+            foods.push(food)
+          }
+        })
+      })
+      return foods
     }
   },
   created () {
@@ -95,7 +109,10 @@ export default {
     },
     _initScroll () {
       this.menuScroll = new BScroll(this.$refs.menuWrapper, {click: true})
-      this.goodsScroll = new BScroll(this.$refs.goodsWrapper, {probeType: 3})
+      this.goodsScroll = new BScroll(this.$refs.goodsWrapper, {
+        click: true,
+        probeType: 3
+      })
       this.goodsScroll.on('scroll', (pos) => {
         this.scrollY = Math.abs(Math.round(pos.y))
       })
@@ -167,7 +184,6 @@ export default {
 }
 .goods-wrapper {
   flex: 1;
-  width: 100%;
   overflow: hidden;
 }
 .header {
@@ -197,11 +213,11 @@ export default {
   margin-right: 10px;
 }
 .food-item .content {
+  position: relative;
   flex: 1;
   padding-top: 2px;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
 }
 .content .name {
   font-size: 14px;
