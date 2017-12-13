@@ -26,7 +26,7 @@ export default {
       } else {
         this.food.count++
       }
-      this.$emit('ball-move',event.target)
+      this.$emit('ball-move', event.target)
     },
     desCount (event) {
       if (!event._constructed) {

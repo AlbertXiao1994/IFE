@@ -29,14 +29,14 @@
                   <span class="nowPrice">¥{{ food.price }}</span>
                   <span class="oldPrice" v-if="food.oldPrice">¥{{ food.oldPrice }}<span class="line"></span></span>
                 </div>
-                <cart-control :food="food" @ball-move=""></cart-control>
+                <cart-control :food="food" @ball-move="_drop"></cart-control>
               </div>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <shop-cart :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice" :selectedFood="selectedFood"></shop-cart>
+    <shop-cart :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice" :selectedFood="selectedFood" refs="shopCart"></shop-cart>
   </div>
 </template>
 
@@ -125,6 +125,12 @@ export default {
         height += foodlist[i].clientHeight
         this.listHeight.push(height)
       }
+    },
+    _drop (el) {
+      // 异步执行
+      this.$nextTick(() => {
+        this.$refs.shopCart.drop(el)
+      })
     }
   }
 }

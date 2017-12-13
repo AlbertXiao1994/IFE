@@ -13,9 +13,15 @@
       <div class="extra-price">另需配送费¥{{ deliveryPrice }}</div>
     </div>
     <div class="right-wrapper" :class="{enough: totalPrice>=minPrice}">{{ payDes }}</div>
-    <div class="ball-wrapper">
-      <div class="ball" v-for="ball in balls" v-show="ball.show"></div>
-    </div>
+    <transition
+      v-on:before-enter="beforeEnter"
+      v-on:enter="enter"
+      v-on:after-enter="afterEnter"
+    >
+      <div class="ball-wrapper">
+        <div class="ball" v-for="ball in balls" v-show="ball.show"></div>
+      </div>
+  </transition>
   </div>
 </template>
 
@@ -81,7 +87,50 @@ export default {
         {
           show: false
         }
-      ]
+      ],
+      dropBalls: []
+    }
+  },
+  methods: {
+    drop (el) {
+      for (let i = 0; i < this.balls.length; i++) {
+        let ball = this.balls[i]
+        if (!ball.show) {
+          ball.show = true
+          ball.el = el
+          this.dropBalls.push(ball)
+          return
+        }
+      }
+    },
+    beforeEnter (el) {
+      let count = this.balls.length
+      while (count--) {
+        let ball = this.balls[count]
+        if (ball.show) {
+          let rect = ball.el.getBoundingClientRect()
+          let x = rect.left - 32
+          let y = -(window.innerHeight - rect.top - 22)
+          el.style.display = ''
+          el.style.webkitTransform = `translate3d(${x}px,${y}px,0)`
+          el.style.Transform = `translate3d(${x}px,${y}px,0)`
+        }
+      }
+    },
+    enter (el) {
+      /* eslint-disable no-unused-vars */
+      let rf = el.offsetHeigt
+      this.$nextTick(() => {
+        el.style.webkitTransform = 'translate3d(0,0,0)'
+        el.style.Transform = 'translate3d(0,0,0)'
+      })
+    },
+    afterEnter (el) {
+      let ball = this.dropBalls.shift()
+      if (ball) {
+        ball.show = false
+        el.display.display = 'none'
+      }
     }
   }
 }
