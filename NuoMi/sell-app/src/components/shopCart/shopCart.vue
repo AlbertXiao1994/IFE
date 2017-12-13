@@ -1,6 +1,6 @@
 <template>
   <div class="shopCart">
-    <div class="left-wrapper">
+    <div class="left-wrapper" @click="toggleShow">
       <div class="logo-wrapper">
         <div class="logo" :class="{active: totalPrice}">
           <span class="icon-shopping_cart" :class="{active: totalPrice}"></span>
@@ -22,11 +22,35 @@
         <span class="ball" v-for="(ball,index) in balls" v-show="ball.show" :key="index"></span>
       </transition-group>
     </div>
+    <!-- <transition name="fold"> -->
+      <div class="cart-list" v-show="listShow">
+        <div class="list-header">
+          <h1 class="head-title">购物车</h1>
+          <span class="head-clear">清空</span>
+        </div>
+        <div class="list-content" ref="listContent">
+          <ul draggable>
+            <li v-for="food in selectedFood" class="list-item">
+              <span class="food-name">{{ food.name }}</span>
+              <div class="cartControl-wrapper">
+                <cart-control :food="food"></cart-control>
+              </div>
+              <span class="food-price">{{ food.count*food.price }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <!-- </transition> -->
   </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
+import cartControl from '../cartControl/cartControl'
 export default {
+  components: {
+    cartControl
+  },
   props: {
     selectedFood: {
       type: Array,
@@ -67,6 +91,23 @@ export default {
       } else {
         return '去结算'
       }
+    },
+    listShow () {
+      if (!this.totalCount) {
+        this.fold = true
+        return false
+      }
+      let show = !this.fold
+      if (show) {
+        this.$nextTick(() => {
+          if (!this.scroll) {
+            this.scroll = new BScroll(this.$refs.listContent, {click: true})
+          } else {
+            this.scroll.refresh()
+          }
+        })
+      }
+      return show
     }
   },
   data () {
@@ -88,7 +129,8 @@ export default {
           show: false
         }
       ],
-      dropBalls: []
+      dropBalls: [],
+      fold: true
     }
   },
   methods: {
@@ -131,6 +173,12 @@ export default {
         ball.show = false
         el.style.display = 'none'
       }
+    },
+    toggleShow () {
+      if (!this.totalPrice) {
+        return
+      }
+      this.fold = !this.fold
     }
   }
 }
@@ -145,17 +193,19 @@ export default {
   bottom: 0;
   width: 100%;
   height: 48px;
-  z-index: 5;
+  z-index: 50;
 }
-.left-wrapper {
+.shopCart .left-wrapper {
   flex: 1;
   background: #141c27;
   font-size: 0;
+  z-index: 50;
 }
-.right-wrapper {
+.shopCart .right-wrapper {
   flex: 0 0 105px;
   width: 105px;
   background: #2b343b;
+  z-index: 50;
 }
 .logo-wrapper {
   display: inline-block;
@@ -216,7 +266,7 @@ export default {
   border-right: 1px solid rgba(255,255,255,0.1);
 }
 .left-wrapper .extra-price {
-  margin-left:  12px;
+  margin-left: 12px;
 }
 .left-wrapper .active {
   color: #fff;
@@ -236,6 +286,7 @@ export default {
   position: fixed;
   left: 32px;
   bottom: 22px;
+  z-index: 20;
 }
 .ball {
   display: inline-block;
@@ -249,5 +300,88 @@ export default {
 }
 .drop-enter-active {
   transition: all 0.5s ease;
+}
+.cart-list {
+  position: absolute;
+  left: 0;
+  top: -200px;
+  width: 100%;
+  max-height: 258px;
+  z-index: 40;
+  overflow: hidden;
+}
+.cart-list .list-header {
+  background: #f3f5f7;
+  height: 40px;
+  padding: 0 18px;
+  overflow: hidden;
+  border-bottom: 2px solid rgba(7,17,27,0.1);
+}
+.list-header .head-title {
+  display: inline-block;
+  float: left;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 40px;
+  color: rgb(7,17,27);
+}
+.list-header .head-clear {
+  display: inline-block;
+  float: right;
+  text-align: right;
+  font-size: 12px;
+  line-height: 40px;
+  color: rgb(0,160,200);
+}
+.fold-enter-active,.fold-leave-active {
+  transition: all 0.5s linear;
+  transform: translate3d(0,-100%,0);
+}
+.fold-enter,.fold-leave-to {
+  transform: translate3d(0,0,0);
+}
+.cart-list .list-content {
+  background: #fff;
+  padding: 0 18px;
+  /*overflow: auto;*/
+}
+.list-item {
+  position: relative;
+  height: 48px;
+  line-height: 48px;
+  border-bottom: 1px solid rgba(7,17,27,0.1);
+  z-index: 1;
+  box-sizing: border-box;
+}
+.food-name {
+  float: left;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgb(7,17,27);
+}
+.food-price {
+  display: inline-block;
+  margin: 0 12px 0 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgb(240,20,20);
+  position: absolute;
+  right: 80px;
+}
+.cartControl-wrapper{
+  display: inline-block;
+  font-size: 24px;
+  line-height: 48px;
+  position: absolute;
+  right: 0;
+}
+.cart-background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(7,17,27,0.8);
+  z-index: 30;
 }
 </style>

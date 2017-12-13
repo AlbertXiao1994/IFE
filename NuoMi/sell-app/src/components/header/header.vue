@@ -263,16 +263,6 @@ export default {
   clear: both;
   z-index: 20;
 }
-/*.more-shadow {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: rgba(7,17,27,0.8);
-  filter: blur(10px);
-}*/
 .star-wrapper {
   width: 100%;
   text-align: center;

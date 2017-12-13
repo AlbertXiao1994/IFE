@@ -43,9 +43,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .cartControl {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  display: inline-block;
   font-size: 0;
 }
 .cart-des,.cart-add {

@@ -29,7 +29,7 @@
                   <span class="nowPrice">¥{{ food.price }}</span>
                   <span class="oldPrice" v-if="food.oldPrice">¥{{ food.oldPrice }}<span class="line"></span></span>
                 </div>
-                <cart-control :food="food" @ball-move="_drop"></cart-control>
+                <cart-control :food="food" @ball-move="_drop" class="cart-control"></cart-control>
               </div>
             </li>
           </ul>
@@ -269,5 +269,10 @@ export default {
 }
 .extra .sellCount {
   margin-right: 12px;
+}
+.cart-control {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 </style>
