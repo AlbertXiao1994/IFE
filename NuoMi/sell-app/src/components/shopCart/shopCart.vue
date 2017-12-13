@@ -13,15 +13,15 @@
       <div class="extra-price">另需配送费¥{{ deliveryPrice }}</div>
     </div>
     <div class="right-wrapper" :class="{enough: totalPrice>=minPrice}">{{ payDes }}</div>
-    <transition
-      v-on:before-enter="beforeEnter"
-      v-on:enter="enter"
-      v-on:after-enter="afterEnter"
-    >
-      <div class="ball-wrapper">
-        <div class="ball" v-for="ball in balls" v-show="ball.show"></div>
-      </div>
-  </transition>
+    <div class="ball-wrapper">
+      <transition-group name="drop" tag="div"
+        v-on:before-enter="beforeEnter"
+        v-on:enter="enter"
+        v-on:after-enter="afterEnter"
+      >
+        <span class="ball" v-for="(ball,index) in balls" v-show="ball.show" :key="index"></span>
+      </transition-group>
+    </div>
   </div>
 </template>
 
@@ -129,7 +129,7 @@ export default {
       let ball = this.dropBalls.shift()
       if (ball) {
         ball.show = false
-        el.display.display = 'none'
+        el.style.display = 'none'
       }
     }
   }
@@ -238,9 +238,16 @@ export default {
   bottom: 22px;
 }
 .ball {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 16px;
   height: 16px;
   background: rgb(0,160,220);
   border-radius: 50%;
+}
+.drop-enter-active {
+  transition: all 0.5s ease;
 }
 </style>
