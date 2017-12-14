@@ -35,7 +35,7 @@
               <div class="cartControl-wrapper">
                 <cart-control :food="food"></cart-control>
               </div>
-              <span class="food-price">{{ food.count*food.price }}</span>
+              <span class="food-price">￥{{ food.count*food.price }}</span>
             </li>
           </ul>
         </div>
@@ -185,7 +185,6 @@ export default {
       this.selectedFood.forEach((food) => {
         food.count = 0
       })
-      console.log(this.selectedFood)
     }
   }
 }
@@ -200,7 +199,7 @@ export default {
   bottom: 0;
   width: 100%;
   height: 48px;
-  /*z-index: 50;*/
+  z-index: 50;
 }
 .shopCart .left-wrapper {
   flex: 1;
@@ -293,7 +292,7 @@ export default {
   position: fixed;
   left: 32px;
   bottom: 22px;
-  z-index: 20;
+  z-index: 100;
 }
 .ball {
   display: inline-block;
@@ -304,6 +303,7 @@ export default {
   height: 16px;
   background: rgb(0,160,220);
   border-radius: 50%;
+  z-index: 100;
 }
 .drop-enter-active {
   transition: all 0.5s ease;

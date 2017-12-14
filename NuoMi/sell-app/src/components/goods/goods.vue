@@ -37,7 +37,7 @@
       </ul>
     </div>
     <shop-cart :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice" :selectedFood="selectedFood" ref="shopCart"></shop-cart>
-    <food :food="selectSinfood" ref="foodCpt"></food>
+    <food :food="selectSinfood" ref="foodCpt" @ball-move="_drop"></food>
   </div>
 </template>
 
