@@ -26,7 +26,7 @@
       <div class="cart-list" v-show="listShow">
         <div class="list-header">
           <h1 class="head-title">购物车</h1>
-          <span class="head-clear">清空</span>
+          <span class="head-clear" @click="clearCart">清空</span>
         </div>
         <div class="list-content" ref="listContent">
           <ul draggable>
@@ -41,6 +41,7 @@
         </div>
       </div>
     <!-- </transition> -->
+    <div class="cart-background" v-show="listShow"></div>
   </div>
 </template>
 
@@ -179,6 +180,12 @@ export default {
         return
       }
       this.fold = !this.fold
+    },
+    clearCart () {
+      this.selectedFood.forEach((food) => {
+        food.count = 0
+      })
+      console.log(this.selectedFood)
     }
   }
 }
@@ -193,7 +200,7 @@ export default {
   bottom: 0;
   width: 100%;
   height: 48px;
-  z-index: 50;
+  /*z-index: 50;*/
 }
 .shopCart .left-wrapper {
   flex: 1;
@@ -304,11 +311,10 @@ export default {
 .cart-list {
   position: absolute;
   left: 0;
-  top: -200px;
+  top: -250px;
   width: 100%;
-  max-height: 258px;
-  z-index: 40;
   overflow: hidden;
+  z-index: 40;
 }
 .cart-list .list-header {
   background: #f3f5f7;
@@ -316,6 +322,7 @@ export default {
   padding: 0 18px;
   overflow: hidden;
   border-bottom: 2px solid rgba(7,17,27,0.1);
+  z-index: 40;
 }
 .list-header .head-title {
   display: inline-block;
@@ -343,14 +350,15 @@ export default {
 .cart-list .list-content {
   background: #fff;
   padding: 0 18px;
-  /*overflow: auto;*/
+  max-height: 218px;
+  overflow: hidden;
+  z-index: 40;
 }
 .list-item {
   position: relative;
   height: 48px;
   line-height: 48px;
   border-bottom: 1px solid rgba(7,17,27,0.1);
-  z-index: 1;
   box-sizing: border-box;
 }
 .food-name {

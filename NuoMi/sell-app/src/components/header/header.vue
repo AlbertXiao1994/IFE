@@ -103,6 +103,7 @@ export default {
   position: relative;
   background: rgba(7,17,27,0.5);
   overflow: hidden;
+  z-index: 0;
 }
 .header-wrapper {
   position: relative;

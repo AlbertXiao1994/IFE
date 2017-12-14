@@ -15,7 +15,7 @@
         <li v-for="item in goods" class="food-list food-list-hook">
           <h1 class="header">{{ item.name }}</h1>
           <ul class="food-content">
-            <li v-for="food in item.foods" class="food-item">
+            <li v-for="food in item.foods" class="food-item" @click.stop.prevent="seeDetail(food,$event)">
               <div class="icon">
                 <img :src="food.icon" width="57" height="57">
               </div>
@@ -37,6 +37,7 @@
       </ul>
     </div>
     <shop-cart :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice" :selectedFood="selectedFood" ref="shopCart"></shop-cart>
+    <food :food="selectSinfood" ref="foodCpt"></food>
   </div>
 </template>
 
@@ -45,11 +46,13 @@ import icon from '../icon/icon'
 import BScroll from 'better-scroll'
 import ShopCart from '../shopCart/shopCart'
 import cartControl from '../cartControl/cartControl'
+import food from '../food/food'
 export default {
   components: {
     icon,
     ShopCart,
-    cartControl
+    cartControl,
+    food
   },
   props: {
     seller: {
@@ -60,7 +63,8 @@ export default {
     return {
       goods: [],
       scrollY: 0,
-      listHeight: []
+      listHeight: [],
+      selectSinfood: {}
     }
   },
   computed: {
@@ -131,6 +135,13 @@ export default {
       this.$nextTick(() => {
         this.$refs.shopCart.drop(el)
       })
+    },
+    seeDetail (food, event) {
+      if (!event._constructed) {
+        return
+      }
+      this.selectSinfood = food
+      this.$refs.foodCpt.showFood()
     }
   }
 }
@@ -141,11 +152,10 @@ export default {
 .goods {
   display: flex;
   position: absolute;
-  top: 176px;
+  top: 177px;
   bottom: 46px;
   width: 100%;
   overflow: hidden;
-  z-index: -1;
 }
 .menu-wrapper {
   flex: 0 0 80px;
