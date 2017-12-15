@@ -1,5 +1,4 @@
 export function formateDate (date, fmt) {
-  console.log('ok')
   if (/(y+)/.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
   }
@@ -19,6 +18,5 @@ export function formateDate (date, fmt) {
   function padZero (str) {
     return ('00' + str).substr(str.length)
   }
-  console.log(fmt)
   return fmt
 }

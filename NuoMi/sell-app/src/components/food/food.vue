@@ -58,7 +58,7 @@ import Vue from 'vue'
 import ratingControl from '../ratingControl/ratingControl'
 import cartControl from '../cartControl/cartControl'
 import BScroll from 'better-scroll'
-import {formateDate} from '@/common/js/date'
+import {formateDate} from '@/common/js/date.js'
 export default {
   components: {
     ratingControl,
@@ -75,10 +75,10 @@ export default {
       isShow: false,
       ratingTypes: [
         {
-          name: '满意'
+          name: '推荐'
         },
         {
-          name: '不满意'
+          name: '吐槽'
         }
       ],
       selectedType: '',
@@ -91,7 +91,7 @@ export default {
       this.scroll = new BScroll(this.$refs.foodWrapper, {click: true})
     })
   },
-  filter: {
+  filters: {
     formateTime (time) {
       let date = new Date(time)
       return formateDate(date, 'yyyy-MM-dd hh:mm')
@@ -301,5 +301,6 @@ export default {
 .icon-thumb_down {
   font-size: 12px;
   line-height: 24px;
-  color: rgb(147,153,159);}
+  color: rgb(147,153,159);
+}
 </style>
