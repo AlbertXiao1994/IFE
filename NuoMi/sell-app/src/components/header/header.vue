@@ -3,7 +3,7 @@
     <div class="header-wrapper">
       <!-- 商家头像 -->
       <div class="avatar">
-        <img width='64' height="64" :src="msg.avatar">
+        <img :src="msg.avatar">
       </div>
       <!-- 详细信息 -->
       <div class="detail">
@@ -120,6 +120,8 @@ export default {
 }
 .avatar img {
   display: inline-block;
+  width: 64px;
+  height: 64px;
   border-radius: 4px;
 }
 .detail {

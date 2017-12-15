@@ -30,7 +30,7 @@
         <div class="rating-content">
           <ul>
             <li v-for="rating in food.ratings" class="rating-item" v-show="(allFlag&&(!contentFlag||rating.text))||(rating.rateType==selectedType&&(!contentFlag||rating.text))">
-          <span class="rating-time">{{ rating.rateTime }}</span>
+          <span class="rating-time">{{ rating.rateTime | formateTime }}</span>
           <div class="user">
             <span class="username">{{ rating.username }}</span>
             <div class="avatar">
@@ -58,6 +58,7 @@ import Vue from 'vue'
 import ratingControl from '../ratingControl/ratingControl'
 import cartControl from '../cartControl/cartControl'
 import BScroll from 'better-scroll'
+import {formateDate} from '@/common/js/date'
 export default {
   components: {
     ratingControl,
@@ -89,6 +90,12 @@ export default {
     this.$nextTick(() => {
       this.scroll = new BScroll(this.$refs.foodWrapper, {click: true})
     })
+  },
+  filter: {
+    formateTime (time) {
+      let date = new Date(time)
+      return formateDate(date, 'yyyy-MM-dd hh:mm')
+    }
   },
   methods: {
     showFood () {
