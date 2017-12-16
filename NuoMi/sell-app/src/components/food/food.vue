@@ -34,7 +34,7 @@
           <div class="user">
             <span class="username">{{ rating.username }}</span>
             <div class="avatar">
-              <img :src="rating.avatar"></img>
+              <img :src="rating.avatar">
             </div>
           </div>
           <div class="text-wrapper">
@@ -257,7 +257,7 @@ export default {
 .food-rating .title {
   padding: 18px 18px 0 18px;
 }
-.rating-content {
+.food-rating .rating-content {
   padding: 0 18px;
 }
 .rating-item {

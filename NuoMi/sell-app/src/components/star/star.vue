@@ -43,7 +43,7 @@ export default {
   display: inline-block;
   width: 20px;
   height: 19px;
-  margin-right: 22px;
+  margin-right: 12px;
 }
 .star-item:last-child {
   margin-right: 0;
