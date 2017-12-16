@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="header">
+    <div role="header">
     	<v-header :msg="seller"></v-header>
     </div>
     <div class="tab">

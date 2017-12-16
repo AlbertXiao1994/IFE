@@ -161,6 +161,7 @@ export default {
   flex: 0 0 80px;
   width: 80px;
   background: #f3f5f7;
+  z-index: 1;
 }
 .menu-item {
   position: relative;
@@ -201,6 +202,7 @@ export default {
 .goods-wrapper {
   flex: 1;
   overflow: hidden;
+  z-index: 1;
 }
 .header {
   width: 100%;

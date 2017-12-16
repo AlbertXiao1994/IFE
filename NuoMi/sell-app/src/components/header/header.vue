@@ -29,7 +29,8 @@
       <div class="background">
         <img :src="msg.avatar" width="100%" height="100%">
       </div>
-      <div class="more" v-if="isShow">
+    </div>
+    <div class="more" v-if="isShow">
         <div class="more-wrapper clearfix">
           <div class="more-main">
             <h1 class="name">{{ msg.name }}</h1>
@@ -57,8 +58,6 @@
           </div>
         </div>
         <div class="icon-close" @click="closeMore"></div>
-        <!-- <div class="more-shadow"></div> -->
-      </div>
     </div>
   </div>
 </template>
@@ -103,7 +102,6 @@ export default {
   position: relative;
   background: rgba(7,17,27,0.5);
   overflow: hidden;
-  z-index: 0;
 }
 .header-wrapper {
   position: relative;
@@ -229,14 +227,14 @@ export default {
   z-index: -1;
   filter: blur(10px);
 }
-.more {
+.header .more {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background: rgba(7,17,27,0.8);
-  z-index: 100;
+  z-index: 200;
   overflow: auto;
 }
 .more-wrapper {
@@ -249,6 +247,8 @@ export default {
   padding-bottom: 64px;
   margin-left: 36px;
   margin-right: 36px;
+  z-index: 200;
+  color: #fff;
 }
 .more-main .name {
   font-size: 16px;
@@ -264,7 +264,7 @@ export default {
   color: rgba(255,255,255,0.5);
   margin: -64px auto 0 auto;
   clear: both;
-  z-index: 20;
+  z-index: 100;
 }
 .star-wrapper {
   width: 100%;
@@ -284,6 +284,7 @@ export default {
 }
 .title .text {
   font-size: 14px;
+  color: #fff;
   font-weight: 700;
   line-height: 14px;
   padding: 0 12px;
