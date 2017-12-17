@@ -3,7 +3,7 @@
     <div class="header-wrapper">
       <!-- 商家头像 -->
       <div class="avatar">
-        <img width='64' height="64" :src="msg.avatar">
+        <img :src="msg.avatar">
       </div>
       <!-- 详细信息 -->
       <div class="detail">
@@ -29,7 +29,8 @@
       <div class="background">
         <img :src="msg.avatar" width="100%" height="100%">
       </div>
-      <div class="more" v-if="isShow">
+    </div>
+    <div class="more" v-if="isShow">
         <div class="more-wrapper clearfix">
           <div class="more-main">
             <h1 class="name">{{ msg.name }}</h1>
@@ -57,7 +58,6 @@
           </div>
         </div>
         <div class="icon-close" @click="closeMore"></div>
-      </div>
     </div>
   </div>
 </template>
@@ -101,6 +101,7 @@ export default {
 .header {
   position: relative;
   background: rgba(7,17,27,0.5);
+  overflow: hidden;
 }
 .header-wrapper {
   position: relative;
@@ -117,6 +118,8 @@ export default {
 }
 .avatar img {
   display: inline-block;
+  width: 64px;
+  height: 64px;
   border-radius: 4px;
 }
 .detail {
@@ -187,7 +190,6 @@ export default {
 .bulletin {
   position: relative;
   margin-top: 18px;
-  width: 100%;
   height: 28px;
   padding: 0 22px 0 12px;
   line-height: 28px;
@@ -195,7 +197,6 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   background-color: rgba(7,17,27,0.2);
-
 }
 .bulletin-text {
   font-size: 10px;
@@ -226,25 +227,28 @@ export default {
   z-index: -1;
   filter: blur(10px);
 }
-.more {
+.header .more {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background: rgba(7,17,27,0.8);
-  z-index: 10;
+  z-index: 200;
   overflow: auto;
 }
 .more-wrapper {
   min-height: 100%;
   width: 100%;
+  z-index: 200;
 }
 .more-main {
   margin-top: 64px;
   padding-bottom: 64px;
   margin-left: 36px;
   margin-right: 36px;
+  z-index: 200;
+  color: #fff;
 }
 .more-main .name {
   font-size: 16px;
@@ -260,6 +264,7 @@ export default {
   color: rgba(255,255,255,0.5);
   margin: -64px auto 0 auto;
   clear: both;
+  z-index: 100;
 }
 .star-wrapper {
   width: 100%;
@@ -279,6 +284,7 @@ export default {
 }
 .title .text {
   font-size: 14px;
+  color: #fff;
   font-weight: 700;
   line-height: 14px;
   padding: 0 12px;

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="header">
+    <div role="header">
     	<v-header :msg="seller"></v-header>
     </div>
     <div class="tab">
@@ -9,7 +9,9 @@
       <router-link class="tab-item" :to="{path: '/seller'}" active-class="active">商家</router-link>
     </div>
     <div class="content">
-    	<router-view></router-view>
+      <keep-alive>
+    	 <router-view :seller="seller"></router-view>
+      </keep-alive>
     </div>
   </div>
 </template>
@@ -58,7 +60,7 @@ export default {
   color: rgb(77,85,93);
   text-align: center;
 }
-.active {
+.tab .active {
   color: rgb(240,20,20);
 }
 </style>

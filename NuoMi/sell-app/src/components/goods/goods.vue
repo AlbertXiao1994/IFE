@@ -15,7 +15,7 @@
         <li v-for="item in goods" class="food-list food-list-hook">
           <h1 class="header">{{ item.name }}</h1>
           <ul class="food-content">
-            <li v-for="food in item.foods" class="food-item">
+            <li v-for="food in item.foods" class="food-item" @click.stop.prevent="seeDetail(food,$event)">
               <div class="icon">
                 <img :src="food.icon" width="57" height="57">
               </div>
@@ -29,27 +29,42 @@
                   <span class="nowPrice">¥{{ food.price }}</span>
                   <span class="oldPrice" v-if="food.oldPrice">¥{{ food.oldPrice }}<span class="line"></span></span>
                 </div>
+                <cart-control :food="food" @ball-move="_drop" class="cart-control"></cart-control>
               </div>
             </li>
           </ul>
         </li>
       </ul>
     </div>
+    <shop-cart :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice" :selectedFood="selectedFood" ref="shopCart"></shop-cart>
+    <food :food="selectSinfood" ref="foodCpt" @ball-move="_drop"></food>
   </div>
 </template>
 
 <script>
 import icon from '../icon/icon'
 import BScroll from 'better-scroll'
+import ShopCart from '../shopCart/shopCart'
+import cartControl from '../cartControl/cartControl'
+import food from '../food/food'
 export default {
   components: {
-    icon
+    icon,
+    ShopCart,
+    cartControl,
+    food
+  },
+  props: {
+    seller: {
+      type: Object
+    }
   },
   data () {
     return {
-      goods: {},
+      goods: [],
       scrollY: 0,
-      listHeight: []
+      listHeight: [],
+      selectSinfood: {}
     }
   },
   computed: {
@@ -62,6 +77,17 @@ export default {
         }
       }
       return 0
+    },
+    selectedFood () {
+      let foods = []
+      this.goods.forEach((good) => {
+        good.foods.forEach((food) => {
+          if (food.count) {
+            foods.push(food)
+          }
+        })
+      })
+      return foods
     }
   },
   created () {
@@ -87,7 +113,10 @@ export default {
     },
     _initScroll () {
       this.menuScroll = new BScroll(this.$refs.menuWrapper, {click: true})
-      this.goodsScroll = new BScroll(this.$refs.goodsWrapper, {probeType: 3})
+      this.goodsScroll = new BScroll(this.$refs.goodsWrapper, {
+        click: true,
+        probeType: 3
+      })
       this.goodsScroll.on('scroll', (pos) => {
         this.scrollY = Math.abs(Math.round(pos.y))
       })
@@ -100,6 +129,19 @@ export default {
         height += foodlist[i].clientHeight
         this.listHeight.push(height)
       }
+    },
+    _drop (el) {
+      // 异步执行
+      this.$nextTick(() => {
+        this.$refs.shopCart.drop(el)
+      })
+    },
+    seeDetail (food, event) {
+      if (!event._constructed) {
+        return
+      }
+      this.selectSinfood = food
+      this.$refs.foodCpt.showFood()
     }
   }
 }
@@ -110,7 +152,7 @@ export default {
 .goods {
   display: flex;
   position: absolute;
-  top: 176px;
+  top: 177px;
   bottom: 46px;
   width: 100%;
   overflow: hidden;
@@ -119,6 +161,7 @@ export default {
   flex: 0 0 80px;
   width: 80px;
   background: #f3f5f7;
+  z-index: 1;
 }
 .menu-item {
   position: relative;
@@ -126,6 +169,7 @@ export default {
   width: 100%;
   height: 54px;
   padding: 0 12px;
+  box-sizing: border-box;
 }
 .menu-item .text {
   display: table-cell;
@@ -157,8 +201,8 @@ export default {
 }
 .goods-wrapper {
   flex: 1;
-  width: 100%;
   overflow: hidden;
+  z-index: 1;
 }
 .header {
   width: 100%;
@@ -187,11 +231,11 @@ export default {
   margin-right: 10px;
 }
 .food-item .content {
+  position: relative;
   flex: 1;
   padding-top: 2px;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
 }
 .content .name {
   font-size: 14px;
@@ -237,5 +281,10 @@ export default {
 }
 .extra .sellCount {
   margin-right: 12px;
+}
+.cart-control {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 </style>
