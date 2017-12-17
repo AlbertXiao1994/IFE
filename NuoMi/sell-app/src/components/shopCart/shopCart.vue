@@ -319,9 +319,7 @@ export default {
   z-index: 40;
 }
 .shopCart .fold {
-  position: absolute;
-  left: 0;
-  top: -200%;
+  transform: translate3d(0,-100%,0);
 }
 .cart-list .list-header {
   background: #f3f5f7;
