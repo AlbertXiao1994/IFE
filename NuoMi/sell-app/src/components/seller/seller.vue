@@ -36,7 +36,7 @@
         <div class="bul">{{ seller.bulletin }}</div>
         <ul>
           <li class="act-item" v-for="support in seller.supports">
-            <icon :type="support.type"></icon>
+            <icon :type="support.type" class="icon"></icon>
             <span class="text">{{ support.description }}</span>
           </li>
         </ul>
@@ -44,6 +44,13 @@
       <div class="split"></div>
       <div class="seller-imgs">
         <h1 class="title">商家实景</h1>
+        <div class="pic-wrapper" ref="picWrapper">
+          <ul class="pic-list" ref="picList">
+            <li class="pic-item" v-for="pic in seller.pics">
+              <img :src="pic">
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="split"></div>
       <div class="seller-info">
@@ -78,10 +85,33 @@ export default {
       this.sellerScroll = new BScroll(this.$refs.sellerWrapper, {click: true})
     })
   },
+  watch: {
+    seller () {
+      this._initpicScroll()
+    }
+  },
   data () {
     return {
       seller: {},
       collectFlag: false
+    }
+  },
+  methods: {
+    _initpicScroll () {
+      if (this.seller.pics) {
+        let picWidth = 120
+        let margin = 6
+        let width = (picWidth + margin) * this.seller.pics.length - margin
+        this.$refs.picList.style.width = width + 'px'
+        if (!this.picScroll) {
+          this.picScroll = new BScroll(this.$refs.picWrapper, {
+            scrollX: true,
+            eventPassthrough: 'vertical'
+          })
+        } else {
+          this.picScroll.refresh()
+        }
+      }
     }
   }
 }
@@ -142,6 +172,9 @@ export default {
   top: 18px;
   text-align: center;
 }
+.act-item .icon {
+  vertical-align: top;
+}
 .icon-favorite {
   display: block;
   font-size: 24px;
@@ -158,6 +191,22 @@ export default {
 }
 .des:last-child {
   border: none;
+}
+.des .label {
+  font-size: 10px;
+  color: rgb(147,153,159);
+  line-height: 10px;
+}
+.des .value {
+  font-size: 24px;
+  font-weight: 200;
+  color: rgb(7,17,27);
+  line-height: 24px;
+  margin-top: 4px;
+}
+.value .dimension {
+  font-size: 10px;
+  font-weight: normal;
 }
 .seller-content .bul-act {
   padding: 18px;
@@ -185,6 +234,28 @@ export default {
 }
 .seller-content .seller-imgs,.seller-info {
   padding: 18px;
+}
+.seller-imgs .pic-wrapper {
+  padding-top: 12px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.pic-wrapper .pic-list {
+  font-size: 0;
+}
+.pic-wrapper .pic-item {
+  display: inline-block;
+  width: 120px;
+  height: 90px;
+  margin-right: 6px;
+}
+.pic-item:last-child {
+  margin-right: 0;
+}
+.pic-item img {
+  width: 100%;
+  height: 100%;
 }
 .seller-info .info-item {
   display: block;

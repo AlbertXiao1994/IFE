@@ -22,8 +22,8 @@
         <span class="ball" v-for="(ball,index) in balls" v-show="ball.show" :key="index"></span>
       </transition-group>
     </div>
-    <!-- <transition name="fold"> -->
-      <div class="cart-list" v-show="listShow">
+    <transition name="fold">
+      <div class="cart-list" v-show="listShow" :class="{fold: listShow}">
         <div class="list-header">
           <h1 class="head-title">购物车</h1>
           <span class="head-clear" @click="clearCart">清空</span>
@@ -40,8 +40,10 @@
           </ul>
         </div>
       </div>
-    <!-- </transition> -->
-    <div class="cart-background" v-show="listShow"></div>
+    </transition>
+    <transition name="fade">
+      <div class="cart-background" v-show="listShow"></div>
+    </transition>
   </div>
 </template>
 
@@ -311,10 +313,15 @@ export default {
 .cart-list {
   position: absolute;
   left: 0;
-  top: -250px;
+  top: 0;
   width: 100%;
   overflow: hidden;
   z-index: 40;
+}
+.shopCart .fold {
+  position: absolute;
+  left: 0;
+  top: -200%;
 }
 .cart-list .list-header {
   background: #f3f5f7;
@@ -342,10 +349,22 @@ export default {
 }
 .fold-enter-active,.fold-leave-active {
   transition: all 0.5s linear;
-  transform: translate3d(0,-100%,0);
 }
 .fold-enter,.fold-leave-to {
   transform: translate3d(0,0,0);
+}
+.fold-leave {
+  transform: translate3d(0,-100%,0);
+}
+.fold-enter-to {
+  transform: translate3d(0,-100%,0);
+}
+.fade-enter-active,.fade-leave-active {
+  transition: all 0.5s linear;
+  opacity: 1;
+}
+.fade-enter,.fade-leave-to {
+  opacity: 0;
 }
 .cart-list .list-content {
   background: #fff;
