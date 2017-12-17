@@ -178,7 +178,7 @@ export default {
 .icon-favorite {
   display: block;
   font-size: 24px;
-  color: #87B0F9;
+  color: #D3D4D5;
   line-height: 24px;
 }
 .collect .active {
