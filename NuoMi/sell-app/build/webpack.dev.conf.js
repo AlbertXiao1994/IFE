@@ -78,12 +78,13 @@ apiRouter.route('/:apiName')
 })
 
 apiServer.use('/api', apiRouter);
-apiServer.listen(3000, function (err) {
+let port = process.env.PORT || config.dev.port
+apiServer.listen(port+1, function (err) {
   if (err) {
     console.log(err)
     return
   }
-  console.log('Listening at http://localhost:' + 3000 + '\n')
+  console.log('Listening at http://localhost:' + (port + 1) + '\n')
 })
 
 module.exports = new Promise((resolve, reject) => {
