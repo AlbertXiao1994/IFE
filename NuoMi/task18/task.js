@@ -16,6 +16,7 @@ page.onConsoleMessage = function(msg) {
 };
 
 word = getWord();//关键词
+//访问百度
 page.open("http://baidu.com/", function(status) {
     if (status === "success") {
         page.includeJs("http://libs.baidu.com/jquery/1.9.1/jquery.min.js", function() {
@@ -32,6 +33,7 @@ page.open("http://baidu.com/", function(status) {
     }
 });
 
+// 获取结果
 page.onResourceReceived = function (res) {
     if (res.state === 'end') {
         
