@@ -17,8 +17,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" rel="stylesheet/scss" scoped>
-	@import "common/sass/variable";
-  @import "../../common/sass/mixin";
+	@import "~common/sass/variable";
+  @import "~common/sass/mixin";
 
   .m-header {
     position: relative;

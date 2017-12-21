@@ -1,24 +1,22 @@
 <template>
   <div id="app">
     <m-header></m-header>
-    hello world
+    <tab></tab>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import mHeader from 'components/m-header/m-header'
+import MHeader from 'components/m-header/m-header'
+import Tab from 'components/tab/tab'
 
 export default {
   components: {
-    mHeader
+    MHeader,
+    Tab
   }
 }
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-	@import "common/sass/variable";
-
-	#app {
-		color: $color-theme;
-	}
 </style>
