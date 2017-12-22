@@ -86,12 +86,6 @@
             this._play()
           }
         })
-
-        this.slider.on('beforeScrollStart', () => {
-          if (this.autoPlay) {
-            clearTimeout(this.timer)
-          }
-        })
       },
       _initDots() {
         this.dots = new Array(this.children.length)
@@ -112,7 +106,6 @@
     min-height: 1px;
     position: relative;
     .slider-group {
-      // position: relative;
       overflow: hidden;
       white-space: nowrap;
       .slider-item {
