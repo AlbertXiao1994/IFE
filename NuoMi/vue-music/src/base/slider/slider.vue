@@ -28,6 +28,10 @@
       interval: {
         type: Number,
         default: 4000
+      },
+      click: {
+        type: Boolean,
+        default: true
       }
     },
     data() {
@@ -46,6 +50,14 @@
           this._play()
         }
       }, 20)
+
+      window.addEventListener('resize', () => {
+        if (!this.slider) {
+          return
+        }
+        this._setSliderWidth(true)
+        this.slider.refresh()
+      })
     },
     methods: {
       _setSliderWidth(isResize) {
