@@ -5,7 +5,7 @@
       </slot>
     </div>
     <div class="dots">
-      <span class="dot"></span>
+      <span class="dot" :class="{active: currentPageIndex === index }" v-for="(item, index) in dots"></span>
     </div>
   </div>
 </template>
@@ -15,41 +15,49 @@
   import BScroll from 'better-scroll'
 
   export default {
+    name: 'slider',
     props: {
       loop: {
         type: Boolean,
         default: true
       },
-      autoplay: {
+      autoPlay: {
         type: Boolean,
         default: true
       },
-      internal: {
+      interval: {
         type: Number,
         default: 4000
+      }
+    },
+    data() {
+      return {
+        dots: [],
+        currentPageIndex: 0
       }
     },
     mounted() {
       setTimeout(() => {
         this._setSliderWidth()
+        this._initDots()
         this._initSlider()
       }, 20)
     },
     methods: {
-      _setSliderWidth() {
+      _setSliderWidth(isResize) {
         this.children = this.$refs.sliderGroup.children
 
         let width = 0
         let sliderWidth = this.$refs.slider.clientWidth
         for (let i = 0; i < this.children.length; i++) {
           let child = this.children[i]
-          child.style.width = sliderWidth + 'px'
           addClass(child, 'slider-item')
+
+          child.style.width = sliderWidth + 'px'
           width += sliderWidth
         }
-
-        if (this.loop) {
-          width += sliderWidth * 2
+        if (this.loop && !isResize) {
+          width += 2 * sliderWidth
         }
         this.$refs.sliderGroup.style.width = width + 'px'
       },
@@ -58,11 +66,15 @@
           scrollX: true,
           scrollY: false,
           momentum: false,
-          snap: true,
-          snapLoop: this.loop,
-          snapThreshold: 0.3,
-          snapSpeed: 400
+          snap: {
+            loop: this.loop,
+            threshold: 0.3,
+            speed: 400
+          }
         })
+      },
+      _initDots() {
+        this.dots = new Array(this.children.length)
       }
     }
   }
