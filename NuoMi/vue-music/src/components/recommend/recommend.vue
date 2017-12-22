@@ -45,7 +45,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss" rel="stylesheet/scss">
-  @import "~common/stylus/variable";
+  @import "~common/sass/variable";
 
   .recommend {
     position: fixed;
@@ -96,11 +96,12 @@
           }
         }
       }
-      .loading-container
+      .loading-container {
         position: absolute;
         width: 100%;
         top: 50%;
         transform: translateY(-50%);
+      }
     }
   }
 </style>

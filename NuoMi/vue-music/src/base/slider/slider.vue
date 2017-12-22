@@ -41,6 +41,10 @@
         this._setSliderWidth()
         this._initDots()
         this._initSlider()
+
+        if (this.autoPlay) {
+          this._play()
+        }
       }, 20)
     },
     methods: {
@@ -72,9 +76,30 @@
             speed: 400
           }
         })
+
+        this.slider.on('scrollEnd', () => {
+          let pageIndex = this.slider.getCurrentPage().pageX
+          this.currentPageIndex = pageIndex
+
+          if (this.autoPlay) {
+            clearTimeout(this.timer)
+            this._play()
+          }
+        })
+
+        this.slider.on('beforeScrollStart', () => {
+          if (this.autoPlay) {
+            clearTimeout(this.timer)
+          }
+        })
       },
       _initDots() {
         this.dots = new Array(this.children.length)
+      },
+      _play() {
+        this.timer = setTimeout(() => {
+          this.slider.next(400)
+        }, this.interval)
       }
     }
   }
@@ -85,11 +110,11 @@
 
   .slider {
     min-height: 1px;
+    position: relative;
     .slider-group {
-      position: relative;
+      // position: relative;
       overflow: hidden;
       white-space: nowrap;
-    }
       .slider-item {
         float: left;
         box-sizing: border-box;
@@ -106,6 +131,7 @@
           width: 100%;
         }
       }
+    }
     .dots {
       position: absolute;
       right: 0;
