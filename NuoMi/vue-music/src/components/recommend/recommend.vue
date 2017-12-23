@@ -19,8 +19,8 @@
                 <img width="60" height="60" v-lazy="item.cover_url_small">
               </div>
               <div class="text">
-                <h2 class="name">{{item.creator_info.nick}}</h2>
-                <p class="desc">{{item.title}}</p>
+                <h2 class="title">{{item.title}}</h2>
+                <p class="creator">{{item.creator_info.nick}}</p>
               </div>
             </li>
           </ul>
@@ -128,11 +128,11 @@
             line-height: 20px;
             overflow: hidden;
             font-size: $font-size-medium;
-            .name {
+            .title {
               margin-bottom: 10px;
               color: $color-text;
             }
-            .desc {
+            .creator {
               color: $color-text-d;
             }
           }
