@@ -1,32 +1,59 @@
 <template>
   <div class="recommend">
-    <div class="slider-wrapper" v-if="recommends.length">
-      <slider :click="false">
-        <div v-for="item in recommends">
-          <a :href="item.linkUrl">
-            <img :src="item.picUrl">
-          </a>
+    <scroll class="recommend-content" ref="scroll" :data="playlists">
+      <div>
+        <div class="slider-wrapper" v-if="recommends.length">
+          <slider :click="false">
+            <div v-for="item in recommends">
+              <a :href="item.linkUrl">
+                <img :src="item.picUrl" @load="loadImg" class="needsClick">
+              </a>
+            </div>
+          </slider>
         </div>
-      </slider>
-    </div>
+        <div class="recommend-list">
+          <h1 class="list-title">热门歌单推荐</h1>
+          <ul>
+            <li class="item" v-for="item in playlists">
+              <div class="icon">
+                <img width="60" height="60" v-lazy="item.cover_url_small">
+              </div>
+              <div class="text">
+                <h2 class="name">{{item.creator_info.nick}}</h2>
+                <p class="desc">{{item.title}}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="loading-container">
+        <loading v-if="!playlists.length"></loading>
+      </div>
+    </scroll>
   </div>
 </template>
 
 <script>
-  import {getRecommend} from 'api/recommend'
+  import {getRecommend, getPlayList} from 'api/recommend'
   import {ERR_OK} from 'api/config'
   import Slider from 'base/slider/slider'
+  import Scroll from 'base/scroll/scroll'
+  import Loading from 'base/loading/loading'
 
   export default {
     components: {
-      Slider
+      Slider,
+      Scroll,
+      Loading
     },
     created () {
       this._getRecommend()
+      this._getPlatList()
     },
     data() {
       return {
-        recommends: {}
+        recommends: [],
+        playlists: []
       }
     },
     methods: {
@@ -38,6 +65,21 @@
         }, (err) => {
           console.log(err)
         })
+      },
+      _getPlatList() {
+        getPlayList().then((res) => {
+          if (res.code === ERR_OK) {
+            this.playlists = res.playlist.data.v_playlist
+          }
+        }, (err) => {
+          console.log(err)
+        })
+      },
+      loadImg() {
+        if (!this.checkLoad) {
+          this.$refs.scroll.refresh()
+          this.checkLoad = true
+        }
       }
     }
   }
