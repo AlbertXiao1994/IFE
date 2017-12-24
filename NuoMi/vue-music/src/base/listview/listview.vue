@@ -1,7 +1,9 @@
 <template>
-  <scroll class="listview" :data="data">
+  <scroll class="listview"
+          :data="data"
+          ref="listview">
     <ul>
-      <li class="list-group" v-for="group in data">
+      <li class="list-group" v-for="group in data" ref="listGroup">
         <h2 class="list-group-title">{{group.title}}</h2>
         <uL>
           <li class="list-group-item" v-for="item in group.items">
@@ -11,21 +13,73 @@
         </uL>
       </li>
     </ul>
+    <div class="list-shortcut" @touchstart.stop.prevent="shortcutToggle">
+      <ul>
+        <li v-for="(item, index) in shortcutList" class="item"
+            :class="{'current':currentIndex===index}" :data-index="index">{{item}}
+        </li>
+      </ul>
+    </div>
+    <div class="loading-container">
+      <loading v-if="!data.length"></loading>
+    </div>
   </scroll>
 </template>
 
 <script>
   import Scroll from 'base/scroll/scroll'
+  import Loading from 'base/loading/loading'
+  import {getAttr} from 'common/js/dom'
 
   export default {
+    components: {
+      Scroll,
+      Loading
+    },
     props: {
       data: {
         type: Array,
         default: null
       }
     },
-    components: {
-      Scroll
+    computed: {
+      shortcutList() {
+        return this.data.map((group) => {
+          return group.title.substr(0, 1)
+        })
+      }
+    },
+    created() {
+      this.listHeight = []
+    },
+    data() {
+      return {
+        currentIndex: 0
+      }
+    },
+    watch: {
+      data() {
+        setTimeout(() => {
+          this._calListHeight()
+        }, 20)
+      }
+    },
+    methods: {
+      shortcutToggle(e) {
+        let anchorIndex = getAttr(e.target, 'index')
+        this.currentIndex = parseInt(anchorIndex)
+      },
+      _calListHeight() {
+        this.listHeight = []
+        const list = this.$refs.listGroup
+        let height = 0
+        this.listHeight.push(height)
+        for (let i = 0; i < list.length; i++) {
+          height += list[i].clientHeight
+          this.listHeight.push(height)
+        }
+        console.log(this.listHeight)
+      }
     }
   }
 </script>
