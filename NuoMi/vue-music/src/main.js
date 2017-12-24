@@ -6,6 +6,7 @@ import App from './App'
 import router from './router'
 import fastclick from 'fastclick' // 解决移动端300ms延迟
 import VueLazyLoad from 'vue-lazyload'
+import store from './store'
 
 // 静态资源
 import 'common/sass/index.scss'
@@ -20,6 +21,7 @@ Vue.use(VueLazyLoad, {
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
