@@ -7,10 +7,10 @@
 
 <script>
   import ListView from 'base/listview/listview'
-  import {getSingerList, getSingerDetail} from 'api/singer'
+  import {getSingerList} from 'api/singer'
   import {ERR_OK} from 'api/config'
   import Singer from 'common/js/singer'
-  import {mapMutations} from 'vuesx'
+  import {mapMutations} from 'vuex'
 
   const HOT_NAME = '热门'
   const HOT_LEN = 10
@@ -38,15 +38,6 @@
         getSingerList().then((res) => {
           if (res.code === ERR_OK) {
             this.singers = this._normalizeSinger(res.data.list)
-          }
-        }, (err) => {
-          console.log(err)
-        })
-      },
-      _getSingerDetail(singer) {
-        getSingerDetail(singer.id).then((res) => {
-          if (res.code === ERR_OK) {
-            console.log(res.list)
           }
         }, (err) => {
           console.log(err)

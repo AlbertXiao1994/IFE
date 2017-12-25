@@ -10,7 +10,7 @@
         <h2 class="list-group-title">{{group.title}}</h2>
         <uL>
           <li class="list-group-item" v-for="item in group.items" @click="selectItem(item)">
-            <img class="avatar" v-lazy="item.avatar">
+            <img class="avatar" v-lazy="item.avatar_s">
             <span class="name">{{item.name}}</span>
           </li>
         </uL>
@@ -26,7 +26,7 @@
         </li>
       </ul>
     </div>
-    <div class="list-fixed" ref="topFixed">
+    <div class="list-fixed" ref="topFixed" v-show="scrollY<0">
       <div class="fixed-title">{{fixedTitle}} </div>
     </div>
     <div class="loading-container">

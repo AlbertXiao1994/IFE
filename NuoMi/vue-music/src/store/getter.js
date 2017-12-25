@@ -1,1 +1,0 @@
-const singer = state => state.singer
