@@ -14,6 +14,7 @@
     "axios": "^0.17.1",
     "babel-runtime": "^6.26.0",
     "better-scroll": "^1.6.2",
+    "create-keyframe-animation": "^0.1.0",
     "fastclick": "^1.0.6",
     "jsonp": "^0.2.1",
     "vue": "^2.5.2",

@@ -16,7 +16,7 @@
     <div class="bg-layer" ref="bgLayer"></div>
     <scroll :data="songs" class="list" :probeType="probeType" :listenScroll="listenScroll" @scroll="scroll" ref="list">
       <div class="song-list-wrapper">
-        <song-list :songs="songs"></song-list>
+        <song-list :songs="songs" @select="onSelect"></song-list>
       </div>
       <div class="loading-wrapper">
         <loading></loading>
@@ -29,8 +29,11 @@
   import SongList from 'base/song-list/song-list'
   import Scroll from 'base/scroll/scroll'
   import Loading from 'base/loading/loading'
+  import {mapActions} from 'vuex'
+  import {prefixStyle} from 'common/js/dom'
 
   const RESERVED_HEIGHT = 40
+  const transform = prefixStyle('transform')
 
   export default {
     props: {
@@ -77,21 +80,28 @@
       },
       scroll(pos) {
         this.scrollY = pos.y
-      }
+      },
+      onSelect(song, index) {
+        this.selectPlay({
+          list: this.songs,
+          index
+        })
+      },
+      ...mapActions([
+        'selectPlay'
+      ])
     },
     watch: {
       scrollY(newY) {
         let translateY = Math.max(this.maxTranslateY, newY)
         let scale = 1
         let zIndex = 0
-        this.$refs.bgLayer.style['transform'] = `translate3d(0,${translateY}px,0)`
-        this.$refs.bgLayer.style['webkitTransform'] = `translate3d(0,${translateY}px,0)`
+        this.$refs.bgLayer.style[transform] = `translate3d(0,${translateY}px,0)`
         if (newY > 0) {
           zIndex = 10
           let percent = newY / this.imageHeight
           scale += percent
-          this.$refs.bgImage.style['transform'] = `scale(${scale})`
-          this.$refs.bgImage.style['webkitTransform'] = `scale(${scale})`
+          this.$refs.bgImage.style[transform] = `scale(${scale})`
         }
         if (newY < this.maxTranslateY) {
           zIndex = 10
