@@ -51,13 +51,13 @@
               <i></i>
             </div>
             <div class="icon i-left">
-              <i class="icon-prev"></i>
+              <i class="icon-prev" @click="prev"></i>
             </div>
             <div class="icon i-center">
               <i :class="playIcon" @click="togglePlay"></i>
             </div>
             <div class="icon i-right">
-              <i class="icon-next"></i>
+              <i class="icon-next" @click="next"></i>
             </div>
             <div class="icon i-right">
               <i class="icon"></i>
@@ -69,7 +69,7 @@
     <transition name="mini">
       <div class="mini-player" v-show="!fullScreen" @click="open">
         <div class="icon">
-          <img width="40" height="40" :src="currentSong.image">
+          <img width="40" height="40" :src="currentSong.image" :class="cdClass">
         </div>
         <div class="text">
           <h2 class="name">{{currentSong.name}}</h2>
@@ -77,15 +77,15 @@
         </div>
         <div class="control">
           <progress-circle>
-            <i class="icon-mini" :class="minPlayIcon"></i>
+            <i class="icon-mini" :class="minPlayIcon" @click.stop="togglePlay"></i>
           </progress-circle>
         </div>
         <div class="control">
           <i class="icon-playlist"></i>
         </div>
-      </div>    
+      </div>
     </transition>
-    <audio :src="songUrl" ref="audio"></audio>
+    <audio :src="songUrl" ref="audio" @play="ready" @error="error"></audio>
   </div>
 </template>
 
@@ -113,18 +113,20 @@ export default {
       return this.playing ? 'icon-pause-mini' : 'icon-play-mini'
     },
     cdClass() {
-      return this.playing ? 'play' : 'pause'
+      return this.playing ? 'play' : 'play pause'
     },
     ...mapGetters([
       'fullScreen',
       'playList',
       'currentSong',
-      'playing'
+      'playing',
+      'currentIndex'
     ])
   },
   data () {
     return {
-      songUrl: ''
+      songUrl: '',
+      readyFlag: false
     }
   },
   watch: {
@@ -140,6 +142,18 @@ export default {
         return
       }
       this.getSongURL(this.currentSong.mid)
+    },
+    playing(newVal) {
+      let audio = this.$refs.audio
+      this.$nextTick(() => {
+        if (this.songUrl !== '') {
+          if (this.playing) {
+            audio.play()
+          } else {
+            audio.pause()
+          }
+        }
+      })
     }
   },
   methods: {
@@ -189,14 +203,41 @@ export default {
       this.$refs.cdWrapper.style.transition = ''
       this.$refs.cdWrapper.style[transform] = ''
     },
-    togglePlay() {
-      let audio = this.$refs.audio
-      this.setPlayingState(!this.playing)
-      if (this.playing) {
-        audio.play()
-      } else {
-        audio.pause()
+    next() {
+      if (!this.readyFlag) {
+        return
       }
+      let index = this.currentIndex + 1
+      if (index === this.playList.length) {
+        index = 0
+      }
+      if (!this.playing) {
+        this.togglePlay()
+      }
+      this.setCurrentIndex(index)
+      this.readyFlag = false
+    },
+    prev() {
+      if (!this.readyFlag) {
+        return
+      }
+      let index = this.currentIndex - 1
+      if (index === -1) {
+        index = this.playList.length - 1
+      }
+      if (!this.playing) {
+        this.togglePlay()
+      }
+      this.setCurrentIndex(index)
+      this.readyFlag = false
+    },
+    ready() {
+      this.readyFlag = true
+    },
+    error() {
+    },
+    togglePlay() {
+      this.setPlayingState(!this.playing)
     },
     getSongURL(songmid) {
       let t = (new Date()).getUTCMilliseconds()
@@ -213,7 +254,8 @@ export default {
     },
     ...mapMutations({
       setFullScreen: 'SET_FULL_SCREEN',
-      setPlayingState: 'SET_PLAYING_STATE'
+      setPlayingState: 'SET_PLAYING_STATE',
+      setCurrentIndex: 'SET_CURRENT_INDEX'
     }),
     _getPosAndScale() {
       let targetWidth = 40

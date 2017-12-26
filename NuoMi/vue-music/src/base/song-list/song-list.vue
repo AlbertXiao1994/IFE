@@ -3,7 +3,7 @@
     <ul>
       <li class="item" v-for="(song,index) in songs" @click="selectItem(song,index)">
         <div class="content">
-          <h2 class="name">{{song.name}}</h2>
+          <h2 class="name" :class="{invalid: song.pay > 0}">{{song.name}}</h2>
           <p class="desc">{{song.singer}}·{{song.album}}</p>
         </div>
       </li>
@@ -21,6 +21,9 @@
     },
     methods: {
       selectItem(song, index) {
+        if (song.pay > 0) {
+          return
+        }
         this.$emit('select', song, index)
       }
     }
@@ -70,6 +73,9 @@
         .name {
           @include no-wrap();
           color: $color-text;
+          &.invalid {
+            color: $color-text-d;
+          }
         }
         .desc {
           @include no-wrap();

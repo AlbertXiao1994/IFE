@@ -1,5 +1,5 @@
 export default class Song {
-  constructor({id, mid, singer, name, album, duration, image}) {
+  constructor({id, mid, singer, name, album, duration, image, pay}) {
     this.id = id
     this.mid = mid
     this.singer = singer
@@ -7,7 +7,7 @@ export default class Song {
     this.album = album
     this.duration = duration
     this.image = image
-    // this.url = url
+    this.pay = pay
   }
 }
 
@@ -19,8 +19,8 @@ export function createSong(musicData) {
     name: musicData.songname,
     album: musicData.albumname,
     duration: musicData.interval,
-    image: `https://y.gtimg.cn/music/photo_new/T002R300x300M000${musicData.albummid}.jpg?max_age=2592000`
-    // url: getSongURL(musicData.songmid)
+    image: `https://y.gtimg.cn/music/photo_new/T002R300x300M000${musicData.albummid}.jpg?max_age=2592000`,
+    pay: musicData.pay.payplay
   })
 }
 
