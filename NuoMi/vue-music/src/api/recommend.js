@@ -1,5 +1,6 @@
 import jsonp from 'common/js/jsonp'
 import {commonParams, options} from 'api/config'
+import axios from 'axios'
 
 export function getRecommend() {
   const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
@@ -12,18 +13,27 @@ export function getRecommend() {
   return jsonp(url, data, options)
 }
 
-export function getPlayList() {
-  const url = 'https://u.y.qq.com/cgi-bin/musicu.fcg'
+export function getDiscList() {
+  const url = '/api/getDiscList'
 
   const data = Object.assign({}, commonParams, {
+    picmid: 1,
+    rnd: Math.random(),
+    g_tk: 189803645,
+    jsonpCallback: 'getPlaylist',
     loginUin: 0,
     hostUin: 0,
+    sortId: 5,
+    sin: 0,
+    ein: 29,
     platform: 'yqq',
     needNewCode: 0,
-    data: '{"playlist":{"method":"get_playlist_by_category","param":{"id":1,"curPage":1,"size":30,"order":5,"titleid":1},"module":"playlist.PlayListPlazaServer"}}'
+    categoryId: 10000000
   })
-  let option = {
-    param: 'callback'
-  }
-  return jsonp(url, data, option)
+
+  return axios.get(url, {
+    params: data
+  }).then((res) => {
+    return Promise.resolve(res.data)
+  })
 }
