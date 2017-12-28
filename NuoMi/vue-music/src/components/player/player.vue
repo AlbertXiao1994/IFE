@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="playing-lyric-wrapper">
-              <div class="playing-lyric"></div>
+              <div class="playing-lyric">{{playingLyric}}</div>
             </div>
           </div>
           <scroll class="middle-r" :data="currentLyric && currentLyric.lines" ref="lyricList">
@@ -154,16 +154,24 @@ export default {
       radius: 32,
       currentLyric: null,
       currentLineNum: 0,
-      currentShow: 'cd'
+      currentShow: 'cd',
+      playingLyric: ''
     }
   },
   watch: {
     songUrl(newVal) {
       if (newVal !== '') {
-        this.$nextTick(() => {
+        if (this.currentLyric) {
+          this.currentLyric.stop()
+          this.currentTime = 0
+          this.playingLyric = ''
+          this.currentLineNum = 0
+        }
+        clearTimeout(this.timer)
+        this.timer = setTimeout(() => {
           this.$refs.audio.play()
           this.getLyric()
-        })
+        }, 1000)
       }
     },
     currentSong(newSong, oldSong) {
@@ -242,28 +250,36 @@ export default {
       if (!this.readyFlag) {
         return
       }
-      let index = this.currentIndex + 1
-      if (index === this.playList.length) {
-        index = 0
+      if (this.playList.length === 1) {
+        this.loop()
+      } else {
+        let index = this.currentIndex + 1
+        if (index === this.playList.length) {
+          index = 0
+        }
+        if (!this.playing) {
+          this.togglePlay()
+        }
+        this.setCurrentIndex(index)
       }
-      if (!this.playing) {
-        this.togglePlay()
-      }
-      this.setCurrentIndex(index)
       this.readyFlag = false
     },
     prev() {
       if (!this.readyFlag) {
         return
       }
-      let index = this.currentIndex - 1
-      if (index === -1) {
-        index = this.playList.length - 1
+      if (this.playList.length === 1) {
+        this.loop()
+      } else {
+        let index = this.currentIndex - 1
+        if (index === -1) {
+          index = this.playList.length - 1
+        }
+        if (!this.playing) {
+          this.togglePlay()
+        }
+        this.setCurrentIndex(index)
       }
-      if (!this.playing) {
-        this.togglePlay()
-      }
-      this.setCurrentIndex(index)
       this.readyFlag = false
     },
     ready() {
@@ -275,17 +291,28 @@ export default {
     end() {
       if (this.mode === playMode.loop) {
         this.loop()
+      } else {
+        this.next()
       }
     },
     loop() {
       this.$refs.audio.currentTime = 0
       this.$refs.audio.play()
+      if (this.currentLyric) {
+        this.currentLyric.seek(0)
+      }
     },
     updateTime(e) {
       this.currentTime = e.target.currentTime
     },
     togglePlay() {
+      if (!this.readyFlag) {
+        return
+      }
       this.setPlayingState(!this.playing)
+      if (this.currentLyric) {
+        this.currentLyric.togglePlay()
+      }
     },
     toggleMode() {
       let mode = (this.mode + 1) % 3
@@ -324,6 +351,7 @@ export default {
       if (!this.playing) {
         this.togglePlay()
       }
+      this.currentLyric.seek(currentTime * 1000)
     },
     resetCurrentIndex(list) {
       let index = list.findIndex((item) => {
@@ -337,6 +365,11 @@ export default {
         if (this.playing) {
           this.currentLyric.play()
         }
+      }).catch(() => {
+        this.currentLyric = null
+        this.currentTime = 0
+        this.currentLineNum = 0
+        this.playingLyric = ''
       })
     },
     handleLyric({lineNum, txt}) {
@@ -347,6 +380,7 @@ export default {
       } else {
         this.$refs.lyricList.scrollTo(0, 0, 1000)
       }
+      this.playingLyric = txt
     },
     middleTouchStart(e) {
       this.touch.initiated = true

@@ -83,9 +83,17 @@
       },
       onSelect(song, index) {
         this.selectPlay({
-          list: this.songs,
+          list: this._filterSongs(this.songs),
           index
         })
+      },
+      _filterSongs(list) {
+        let ret = []
+        ret = list.filter((song) => {
+          // 免费播放
+          return song.pay === 0
+        })
+        return ret
       },
       ...mapActions([
         'selectPlay'
