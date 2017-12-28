@@ -16,7 +16,7 @@
     <div class="bg-layer" ref="bgLayer"></div>
     <scroll :data="songs" class="list" :probeType="probeType" :listenScroll="listenScroll" @scroll="scroll" ref="list">
       <div class="song-list-wrapper">
-        <song-list :songs="songs" @select="onSelect"></song-list>
+        <song-list :songs="songs" @select="onSelect" :rank="rank"></song-list>
       </div>
       <div class="loading-wrapper">
         <loading></loading>
@@ -50,6 +50,10 @@
       songs: {
         type: Array,
         default: []
+      },
+      rank: {
+        type: Boolean,
+        default: false
       }
     },
     components: {
