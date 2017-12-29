@@ -21,7 +21,7 @@
     },
     methods: {
       selectItem(item) {
-        this.$emit('selct', item)
+        this.$emit('select', item)
       },
       deleteItem(item) {
         this.$emit('delete', item)
