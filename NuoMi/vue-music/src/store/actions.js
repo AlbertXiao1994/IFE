@@ -1,6 +1,7 @@
 import * as types from './mutation-types'
 import {playMode} from 'common/js/config'
 import {shuffle} from 'common/js/util'
+import {saveSearch, clearSearch, deleteSearch} from 'common/js/cache'
 
 export const selectPlay = function({commit, state}, {list, index}) {
   commit(types.SET_SEQUENCE_LIST, list)
@@ -30,4 +31,68 @@ function findIndex(list, song) {
   return list.findIndex((item) => {
     return item.id === song.id
   })
+}
+
+export const insertSong = function({commit, state}, song) {
+  // 当前播放信息
+  let playList = state.playList.slice()
+  let sequenceList = state.sequenceList.slice()
+  let currentIndex = state.currentIndex
+  let currentSong = playList[currentIndex]
+
+  // 查找插入歌曲在播放列表中的索引
+  let fpIndex = findIndex(playList, song)
+
+  // 插入歌曲，插入到下一首播放
+  currentIndex++
+  playList.splice(currentIndex, 0, song)
+
+  // 如果播放列表包含这首歌
+  if (fpIndex > -1) {
+    // 如果原歌曲在插入位置之前
+    if (fpIndex < currentIndex) {
+      playList.splice(fpIndex, 1)
+      // 原歌曲删除，索引减1
+      currentIndex--
+    } else {
+      playList.splice(fpIndex + 1, 1)
+    }
+  }
+
+  // 处理顺序列表
+  let currentSIndex = findIndex(sequenceList, currentSong)
+  currentSIndex++
+  // 查找插入歌曲在顺序列表中的索引
+  let fsIndex = findIndex(sequenceList, song)
+  // 插入歌曲
+  sequenceList.splice(currentSIndex, 0, song)
+
+  // 如果顺序列表包含这首歌
+  if (fsIndex > -1) {
+    // 如果原歌曲在插入位置之前
+    if (fsIndex < currentSIndex) {
+      sequenceList.splice(fpIndex, 1)
+      // 原歌曲删除，索引减1
+    } else {
+      sequenceList.splice(fpIndex + 1, 1)
+    }
+  }
+
+  commit(types.SET_SEQUENCE_LIST, sequenceList)
+  commit(types.SET_PLAYLIST, playList)
+  commit(types.SET_PLAYING_STATE, true)
+  commit(types.SET_FULL_SCREEN, false)
+  commit(types.SET_CURRENT_INDEX, currentIndex)
+}
+
+export const saveSearchHistory = function({commit, state}, query) {
+  commit(types.SET_SEARCH_HISTORY, saveSearch(query))
+}
+
+export const clearSearchHistory = function({commit, state}) {
+  commit(types.SET_SEARCH_HISTORY, clearSearch())
+}
+
+export const deleteSearchHistory = function({commit, state}, query) {
+  commit(types.SET_SEARCH_HISTORY, deleteSearch(query))
 }

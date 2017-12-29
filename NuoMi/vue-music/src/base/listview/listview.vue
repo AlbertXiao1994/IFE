@@ -11,7 +11,7 @@
         <uL>
           <li class="list-group-item" v-for="item in group.items" @click="selectItem(item)">
             <img class="avatar" v-lazy="item.avatar_s">
-            <span class="name">{{item.name}}</span>
+            <span class="name" v-html="item.name"></span>
           </li>
         </uL>
       </li>
