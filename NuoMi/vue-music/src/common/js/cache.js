@@ -2,8 +2,10 @@ import storage from 'good-storage'
 
 const SEARCH_KEY = '__search__'
 const SEARCH_MAX_LEN = 15
+const PLAY_KEY = '__play__'
+const PLAY_MAX_LEN = 200
 
-function insertToStorage(arr, query, compare, maxLen) {
+function insertToStorage(arr, val, compare, maxLen) {
   const index = arr.findIndex(compare)
   if (index === 0) {
     return
@@ -11,7 +13,7 @@ function insertToStorage(arr, query, compare, maxLen) {
   if (index > 0) {
     arr.splice(index, 1)
   }
-  arr.unshift(query)
+  arr.unshift(val)
   if (arr.length > maxLen) {
     arr.pop()
   }
@@ -26,7 +28,7 @@ export function saveSearch(query) {
   return searches
 }
 
-export function loadHistory() {
+export function loadSearchHistory() {
   return storage.get(SEARCH_KEY, [])
 }
 
@@ -49,4 +51,17 @@ function deleteElement(arr, query, compare) {
   if (index > -1) {
     arr.splice(index, 1)
   }
+}
+
+export function loadPlayHistory() {
+  return storage.get(PLAY_KEY, [])
+}
+
+export function savePlay(song) {
+  let songs = storage.get(PLAY_KEY, [])
+  insertToStorage(songs, song, (item) => {
+    return item.id === song.id
+  }, PLAY_MAX_LEN)
+  storage.set(PLAY_KEY, songs)
+  return songs
 }

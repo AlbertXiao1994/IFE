@@ -3,7 +3,7 @@ import {ERR_OK} from 'api/config'
 import {Base64} from 'js-base64'
 
 export default class Song {
-  constructor({id, mid, singer, name, album, duration, image, pay}) {
+  constructor({id, mid, singer, name, album, duration, image, payplay}) {
     this.id = id
     this.mid = mid
     this.singer = singer
@@ -11,7 +11,7 @@ export default class Song {
     this.album = album
     this.duration = duration
     this.image = image
-    this.pay = pay
+    this.payplay = payplay
   }
 
   getLyric() {
@@ -40,7 +40,7 @@ export function createSong(musicData) {
     album: musicData.albumname,
     duration: musicData.interval,
     image: `https://y.gtimg.cn/music/photo_new/T002R300x300M000${musicData.albummid}.jpg?max_age=2592000`,
-    pay: musicData.pay.payplay
+    payplay: musicData.pay.payplay
   })
 }
 

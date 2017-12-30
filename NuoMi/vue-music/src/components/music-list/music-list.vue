@@ -107,7 +107,7 @@
         let ret = []
         ret = list.filter((song) => {
           // 免费播放
-          return song.pay === 0
+          return song.payplay === 0
         })
         return ret
       },

@@ -86,17 +86,18 @@
             <i class="icon-mini" :class="minPlayIcon" @click.stop="togglePlay"></i>
           </progress-circle>
         </div>
-        <div class="control">
+        <div class="control" @click.stop="openPlayList">
           <i class="icon-playlist"></i>
         </div>
       </div>
     </transition>
+    <play-list ref="playList"></play-list>
     <audio :src="songUrl" ref="audio" @play="ready" @error="error" @timeupdate="updateTime" @ended="end"></audio>
   </div>
 </template>
 
 <script>
-import {mapGetters, mapMutations} from 'vuex'
+import {mapGetters, mapMutations, mapActions} from 'vuex'
 import Scroll from 'base/scroll/scroll'
 import {prefixStyle} from 'common/js/dom'
 import animations from 'create-keyframe-animation'
@@ -104,18 +105,21 @@ import {getVkey} from 'api/getVkey'
 import {ERR_OK} from 'api/config'
 import ProgressCircle from 'base/progress-circle/progress-circle'
 import ProgressBar from 'base/progress-bar/progress-bar'
-import {playMode} from 'common/js/config'
-import {shuffle} from 'common/js/util'
 import Lyric from 'lyric-parser'
+import PlayList from 'components/playlist/playlist'
+import {playMode} from 'common/js/config'
+import {playModeMixin} from 'common/js/mixin'
 
 const transform = prefixStyle('transform')
 const transitionDuration = prefixStyle('transformDuration')
 
 export default {
+  mixins: [playModeMixin],
   components: {
     Scroll,
     ProgressCircle,
-    ProgressBar
+    ProgressBar,
+    PlayList
   },
   computed: {
     playIcon() {
@@ -123,9 +127,6 @@ export default {
     },
     minPlayIcon() {
       return this.playing ? 'icon-pause-mini' : 'icon-play-mini'
-    },
-    modeIcon() {
-      return this.mode === playMode.sequence ? 'icon-sequence' : this.mode === playMode.random ? 'icon-random' : 'icon-loop'
     },
     cdClass() {
       return this.playing ? 'play' : 'play pause'
@@ -138,12 +139,10 @@ export default {
     },
     ...mapGetters([
       'fullScreen',
-      'playList',
-      'currentSong',
       'playing',
       'currentIndex',
-      'mode',
-      'sequenceList'
+      'playList',
+      'currentSong'
     ])
   },
   data () {
@@ -181,7 +180,7 @@ export default {
       if (newSong.id === oldSong.id) {
         return
       }
-      this.getSongURL(newSong.mid)
+      this.getSongURL(newSong)
     },
     playing(newVal) {
       let audio = this.$refs.audio
@@ -284,6 +283,7 @@ export default {
     },
     ready() {
       this.readyFlag = true
+      this.savePlayHistory(this.currentSong)
     },
     error() {
       this.readyFlag = true
@@ -314,22 +314,10 @@ export default {
         this.currentLyric.togglePlay()
       }
     },
-    toggleMode() {
-      let mode = (this.mode + 1) % 3
-      this.setPlayMode(mode)
-      let list = null
-      if (mode === playMode.random) {
-        list = shuffle(this.sequenceList)
-      } else {
-        list = this.sequenceList
-      }
-      this.resetCurrentIndex(list)
-      this.setPlayList(list)
-    },
-    getSongURL(songmid) {
+    getSongURL(song) {
       let t = (new Date()).getUTCMilliseconds()
       let guid = Math.round(2147483647 * Math.random()) * t % 1e10
-      getVkey(songmid, guid).then((res) => {
+      getVkey(song, guid).then((res) => {
         if (res.code === ERR_OK) {
           let info = res.data.items[0]
           let url = `http://dl.stream.qqmusic.qq.com/${info.filename}?vkey=${info.vkey}&guid=${guid}&uin=0&fromtag=66`
@@ -352,12 +340,6 @@ export default {
         this.togglePlay()
       }
       this.currentLyric.seek(currentTime * 1000)
-    },
-    resetCurrentIndex(list) {
-      let index = list.findIndex((item) => {
-        return this.currentSong.id === item.id
-      })
-      this.setCurrentIndex(index)
     },
     getLyric() {
       this.currentSong.getLyric().then((lyric) => {
@@ -443,6 +425,9 @@ export default {
       this.$refs.middleL.style[transitionDuration] = `${time}ms`
       this.touch.initiated = false
     },
+    openPlayList() {
+      this.$refs.playList.show()
+    },
     _pad(num, n = 2) {
       let len = num.toString().length
       while (len < n) {
@@ -452,12 +437,11 @@ export default {
       return num
     },
     ...mapMutations({
-      setFullScreen: 'SET_FULL_SCREEN',
-      setPlayingState: 'SET_PLAYING_STATE',
-      setCurrentIndex: 'SET_CURRENT_INDEX',
-      setPlayMode: 'SET_PLAY_MODE',
-      setPlayList: 'SET_PLAYLIST'
+      setFullScreen: 'SET_FULL_SCREEN'
     }),
+    ...mapActions([
+      'savePlayHistory'
+    ]),
     _getPosAndScale() {
       let targetWidth = 40
       let paddingLeft = 40

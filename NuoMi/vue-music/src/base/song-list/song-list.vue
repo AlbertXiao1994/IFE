@@ -6,7 +6,7 @@
           <span :class="getRankCls(index)" v-text="getRankText(index)"></span>
         </div>
         <div class="content">
-          <h2 class="name" :class="{invalid: song.pay > 0}">{{song.name}}</h2>
+          <h2 class="name" :class="{invalid: song.payplay===1}">{{song.name}}</h2>
           <p class="desc">{{song.singer}}·{{song.album}}</p>
         </div>
       </li>
@@ -28,7 +28,7 @@
     },
     methods: {
       selectItem(song, index) {
-        if (song.pay > 0) {
+        if (song.payplay === 1) {
           return
         }
         this.$emit('select', song, index)
