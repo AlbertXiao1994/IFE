@@ -66,7 +66,7 @@
               <i class="icon-next" @click="next"></i>
             </div>
             <div class="icon i-right">
-              <i class="icon"></i>
+              <i class="icon" :class="getFavoriteIcon(currentSong)" @click="toggleFavorite(currentSong)"></i>
             </div>
           </div>
         </div>
@@ -108,13 +108,13 @@ import ProgressBar from 'base/progress-bar/progress-bar'
 import Lyric from 'lyric-parser'
 import PlayList from 'components/playlist/playlist'
 import {playMode} from 'common/js/config'
-import {playModeMixin} from 'common/js/mixin'
+import {playModeMixin, favoriteMixin} from 'common/js/mixin'
 
 const transform = prefixStyle('transform')
 const transitionDuration = prefixStyle('transformDuration')
 
 export default {
-  mixins: [playModeMixin],
+  mixins: [playModeMixin, favoriteMixin],
   components: {
     Scroll,
     ProgressCircle,
@@ -251,6 +251,7 @@ export default {
       }
       if (this.playList.length === 1) {
         this.loop()
+        return
       } else {
         let index = this.currentIndex + 1
         if (index === this.playList.length) {
@@ -269,6 +270,7 @@ export default {
       }
       if (this.playList.length === 1) {
         this.loop()
+        return
       } else {
         let index = this.currentIndex - 1
         if (index === -1) {
@@ -343,6 +345,9 @@ export default {
     },
     getLyric() {
       this.currentSong.getLyric().then((lyric) => {
+        if (this.currentSong.lyric !== lyric) {
+          return
+        }
         this.currentLyric = new Lyric(lyric, this.handleLyric)
         if (this.playing) {
           this.currentLyric.play()

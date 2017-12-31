@@ -1,5 +1,5 @@
 import {playMode} from 'common/js/config'
-import {loadSearchHistory, loadPlayHistory} from 'common/js/cache'
+import {loadSearchHistory, loadPlayHistory, loadFavorite} from 'common/js/cache'
 
 const state = {
   singer: {},
@@ -12,7 +12,8 @@ const state = {
   disc: {},
   topList: {},
   searchHistory: loadSearchHistory(),
-  playHistory: loadPlayHistory()
+  playHistory: loadPlayHistory(),
+  favoriteList: loadFavorite()
 }
 
 export default state

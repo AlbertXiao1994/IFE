@@ -14,8 +14,8 @@
             <li :key="song.id" class="item" v-for="(song,index) in sequenceList" @click="selectItem(song, index)">
               <i class="current" :class="getCurrentPlay(song)"></i>
               <span class="text" v-html="song.name"></span>
-              <span class="like">
-                <i></i>
+              <span class="like" @click.stop="toggleFavorite(song)">
+                <i :class="getFavoriteIcon(song)"></i>
               </span>
               <span class="delete" @click.stop="deleteOne(song)">
                 <i class="icon-delete"></i>
@@ -44,11 +44,11 @@
   import {mapGetters, mapActions} from 'vuex'
   import Confirm from 'base/confirm/confirm'
   import {playMode} from 'common/js/config'
-  import {playModeMixin} from 'common/js/mixin'
+  import {playModeMixin, favoriteMixin} from 'common/js/mixin'
   import AddSong from 'components/add-song/add-song'
 
   export default {
-    mixins: [playModeMixin],
+    mixins: [playModeMixin, favoriteMixin],
     components: {
       Scroll,
       Confirm,

@@ -1,9 +1,16 @@
 import storage from 'good-storage'
 
+// 搜索
 const SEARCH_KEY = '__search__'
 const SEARCH_MAX_LEN = 15
+
+// 播放历史
 const PLAY_KEY = '__play__'
 const PLAY_MAX_LEN = 200
+
+// 收藏列表
+const FAVORITE_KEY = '__like__'
+const FAVORITE_MAX_LEN = 200
 
 function insertToStorage(arr, val, compare, maxLen) {
   const index = arr.findIndex(compare)
@@ -64,4 +71,26 @@ export function savePlay(song) {
   }, PLAY_MAX_LEN)
   storage.set(PLAY_KEY, songs)
   return songs
+}
+
+export function loadFavorite() {
+  return storage.get(FAVORITE_KEY, [])
+}
+
+export function saveFavorite(song) {
+  let favorites = storage.get(FAVORITE_KEY, [])
+  insertToStorage(favorites, song, (item) => {
+    return item.id === song.id
+  }, FAVORITE_MAX_LEN)
+  storage.set(FAVORITE_KEY, favorites)
+  return favorites
+}
+
+export function deleteFavorite(song) {
+  let favorites = storage.get(FAVORITE_KEY, [])
+  deleteElement(favorites, song, (item) => {
+    return item.id === song.id
+  })
+  storage.set(FAVORITE_KEY, favorites)
+  return favorites
 }

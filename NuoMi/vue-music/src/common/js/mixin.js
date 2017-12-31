@@ -1,6 +1,7 @@
 import {mapGetters, mapMutations, mapActions} from 'vuex'
 import {playMode} from 'common/js/config'
 import {shuffle} from 'common/js/util'
+import Song from 'common/js/song'
 
 export const playListMixin = {
   computed: {
@@ -90,6 +91,44 @@ export const searchMixin = {
       'saveSearchHistory',
       'clearSearchHistory',
       'deleteSearchHistory'
+    ])
+  }
+}
+
+export const favoriteMixin = {
+  computed: {
+    ...mapGetters([
+      'favoriteList'
+    ])
+  },
+  methods: {
+    getFavoriteIcon(song) {
+      if (this.isFavorite(song)) {
+        return 'icon-favorite'
+      } else {
+        return 'icon-not-favorite'
+      }
+    },
+    toggleFavorite(song) {
+      if (this.isFavorite(song)) {
+        this.deleteFavoriteList(song)
+      } else {
+        this.saveFavoriteList(new Song(song))
+      }
+    },
+    isFavorite(song) {
+      let index = this.favoriteList.findIndex((item) => {
+        return item.id === song.id
+      })
+      if (index > -1) {
+        return true
+      } else {
+        return false
+      }
+    },
+    ...mapActions([
+      'saveFavoriteList',
+      'deleteFavoriteList'
     ])
   }
 }
