@@ -86,7 +86,7 @@
           } else {
             this.$refs.searchList.refresh()
           }
-        })
+        }, 20)
       },
       hide() {
         this.showFlag = false

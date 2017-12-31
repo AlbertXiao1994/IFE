@@ -17,7 +17,7 @@
               <span class="like">
                 <i></i>
               </span>
-              <span class="delete" @click="deleteOne(song)">
+              <span class="delete" @click.stop="deleteOne(song)">
                 <i class="icon-delete"></i>
               </span>
             </li>
