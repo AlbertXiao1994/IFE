@@ -50,3 +50,8 @@ IFE
 ### 综合交互
 * 单个表单项的检验：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task1/task1.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task1)
 * 多个表单项的动态检验：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task2/task2.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task2)
+* 表单联动：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task3/task3.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task3)
+* 听指令的小方块（一）：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task4/task4.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task4)
+* 听指令的小方块（二）：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task5/task5.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task5)
+* UI组件之浮出层：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task6/task6.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task6)
+* UI组件之排序表格：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task7/task7.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task7)
