@@ -56,7 +56,7 @@ IFE
 * UI组件之浮出层：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task6/task6.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task6)
 * UI组件之排序表格：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task7/task7.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task7)
 ### css3组件、Boostrap、Vue初探、数据抓取
-* 有趣的鼠标悬浮模糊效果：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task1/task1.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task1)
+* 有趣的鼠标悬浮模糊效果：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task1/task.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task1)
 * 自定义checkbox、radiobox样式：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task8/task8.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task8)
 * 自定义网页右键菜单：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task9/task9.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task9)
 * 使用CSS实现折叠面板：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task10/task10.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task10)
