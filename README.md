@@ -26,7 +26,24 @@ IFE
 * 可视化树的遍历：[demo](https://albertxiao1994.github.io/IFE/binbin/task7/task7.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task7)
 * 可视化树的遍历、查询：[demo](https://albertxiao1994.github.io/IFE/binbin/task8/task8.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task8)
 * 可视化树的遍历、查询、增删：[demo](https://albertxiao1994.github.io/IFE/binbin/task9/task9.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task9)
-
-
-
-
+* 点击事件：[demo](https://albertxiao1994.github.io/IFE/binbin/test13-1/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task13-1)
+* 数字时钟：[demo](https://albertxiao1994.github.io/IFE/binbin/test13-2/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task13-2)
+* JS震动、淡出动画：[demo](https://albertxiao1994.github.io/IFE/binbin/test16-3/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task16-3)
+* 拖动文档元素：[demo](https://albertxiao1994.github.io/IFE/binbin/test17-2/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task17-2)
+* 处理鼠标滚动事件：[demo](https://albertxiao1994.github.io/IFE/binbin/test17-3/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task17-3)
+* 自定义拖放源：[demo](https://albertxiao1994.github.io/IFE/binbin/test17-4/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task17-4)
+* 作为拖放目标和拖放源的列表：[demo](https://albertxiao1994.github.io/IFE/binbin/test17-5/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task17-5)
+* 过滤用户输入：[demo](https://albertxiao1994.github.io/IFE/binbin/test17-6/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task17-6)
+* 强制输入大写字母：[demo](https://albertxiao1994.github.io/IFE/binbin/test17-7/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task17-7)
+* 优雅的图片翻转：[demo](https://albertxiao1994.github.io/IFE/binbin/test21-1/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task21-1)
+* 显示简单的svg图形：[demo](https://albertxiao1994.github.io/IFE/binbin/test21-1-1/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task21-1-1)
+* svg饼状图：[demo](https://albertxiao1994.github.io/IFE/binbin/test21-2/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task21-2)
+* svg时钟：[demo](https://albertxiao1994.github.io/IFE/binbin/test21-3/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task21-3)
+* canvas科勒雪花：[demo](https://albertxiao1994.github.io/IFE/binbin/test21-6/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task21-6)
+* canvas绘制曲线：[demo](https://albertxiao1994.github.io/IFE/binbin/test21-7/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task21-7)
+* canvas裁剪：[demo](https://albertxiao1994.github.io/IFE/binbin/test21-9/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task21-9)
+* canvas阴影：[demo](https://albertxiao1994.github.io/IFE/binbin/test21-10/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task21-10)
+* canvas使用DrawImage()方法将像素放大：[demo](https://albertxiao1994.github.io/IFE/binbin/test21-11/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task21-11)
+* canvas使用ImageData实现动态模糊：[demo](https://albertxiao1994.github.io/IFE/binbin/test21-12/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task21-12)
+* canvas绘制迷你图：[demo](https://albertxiao1994.github.io/IFE/binbin/test21-13/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task21-13)
+* 猜数字游戏：[demo](https://albertxiao1994.github.io/IFE/binbin/test22-3/test.htmll)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task22-3)
