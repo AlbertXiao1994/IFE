@@ -4,6 +4,11 @@ IFE
 到后来，索性把啃《js权威指南》时书上的例子、学jquery+bootsrap、VUe时的实战练习项目也搬到这个库<br>
 ### HTML+CSS
 * 纯HTML页面：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task1/task1.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task1)
-* html+css排版: [demo](https://albertxiao1994.github.io/IFE/XiaoWei/task2/task2.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task2)
+* html+css排版：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task2/task2.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task2)
+* 三栏式布局：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task3/task3.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task3)
+* 定位和居中：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task4/task4.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task4)
+* 主栏和侧栏：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task5/task5.html)  [代码](https://albertxiao1994.github.io/IFE/XiaoWei/task5/Advanced-Task5.html)
+* 模拟报纸排版：[demo]https://albertxiao1994.github.io/IFE/XiaoWei/task6/task6.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task6)
+* 模拟报纸排版：[demo]https://albertxiao1994.github.io/IFE/XiaoWei/task6/task6.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task6)
 
 
