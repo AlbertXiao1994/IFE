@@ -72,3 +72,10 @@ IFE
 * 网页数据抓取：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task18/task.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task18)
 * Bootsrap实现后台管理系统：[demo](https://albertxiao1994.github.io/IFE/NuoMi/Bootstrap-Project/index.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/Bootstrap-Project)
 * 某网站首页：[demo](https://albertxiao1994.github.io/IFE/NuoMi/YJJS/main.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/YJJS)
+* markdown编辑器：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task12/task12.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task12)
+### 实战项目
+* Jquery+Bootstrap仿豆瓣网页版音乐播放器：[demo](https://albertxiao1994.github.io/IFE/NuoMi/music-player/index.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/music-player)
+* Vue购物车：[代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/shoppingCart)
+* Vue电商售卖平台PC端：[代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/sell-platform)
+* Vue移动端仿饿了么webApp：[代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/sell-app)
+* Vue移动端音乐webApp：[代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/vue-music)
