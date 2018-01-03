@@ -1,6 +1,6 @@
 IFE
 ===
-自学阶段所有的demo，从年初开始，陆续完成IFE（百度前端技术学院）上的任务，从最基础的纯html+css静态页面，js操作dom完成简单的页面逻辑、综合性的交互、小游戏，到后来的原生实现自定义组件、vue数据双向绑定初探、正则、Phantomn.js数据抓取以及综合性的简易markdown编辑器、仿豆瓣音乐播放器。整个前端基础知识体系的训练完备，收获颇多。<br>
+自学阶段所有的demo，从年初开始，陆续完成IFE（百度前端技术学院）上的任务，从最基础的纯html+css静态页面，js操作dom完成简单的页面逻辑、综合性的交互、小游戏，到后来的原生实现自定义组件、vue数据双向绑定初探、正则、Phantomn.js数据抓取以及综合性的简易markdown编辑器、仿豆瓣音乐播放器。把整个前端基础知识体系差不多过了一遍，收获颇多。<br>
 到后来，索性把啃《js权威指南》时书上的例子、学jquery+bootsrap、VUe时的实战练习项目也搬到这个库<br>
 ### HTML+CSS
 * 纯HTML页面：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task1/task1.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task1)
@@ -55,3 +55,18 @@ IFE
 * 听指令的小方块（二）：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task5/task5.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task5)
 * UI组件之浮出层：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task6/task6.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task6)
 * UI组件之排序表格：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task7/task7.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task7)
+### css3组件、Boostrap、Vue初探、数据抓取
+* 有趣的鼠标悬浮模糊效果：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task1/task1.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task1)
+* 自定义checkbox、radiobox样式：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task8/task8.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task8)
+* 自定义网页右键菜单：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task9/task9.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task9)
+* 使用CSS实现折叠面板：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task10/task10.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task10)
+* CSS3饼状loading效果：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task13/task13.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task13)
+* 3D轮播图：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task14/task14.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task14)
+* 树形组件：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task16/task16.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task16)
+* 动态数据绑定（一）：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task3/task3.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task3)
+* 动态数据绑定（二）：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task4/task4.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task4)
+* 动态数据绑定（三）：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task5/task5.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task5)
+* 动态数据绑定（四）：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task6/task6.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task6)
+* 动态数据绑定（五）：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task7/task7.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task7)
+* 正则表达式小试：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task11/task11.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task11)
+* 网页数据抓取：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task18/task.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task18)
