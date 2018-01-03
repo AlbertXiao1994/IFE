@@ -15,6 +15,7 @@ IFE
 * Flexbox 布局：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task10/task10.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task10)
 * 移动Web页面：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task11/task11.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task11)
 * CSS3新特性：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task12/task12.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task12)
+* 样式化表单：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task13/task13.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task13)
 ### JS
 * 输入空气质量指数：[demo](https://albertxiao1994.github.io/IFE/binbin/task1/task1.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task1)
 * 城市空气质量指数排名：[demo](https://albertxiao1994.github.io/IFE/binbin/task2/task2.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task2)
