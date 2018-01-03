@@ -17,6 +17,16 @@ IFE
 * CSS3新特性：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task12/task12.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task12)
 ### JS
 * 输入空气质量指数：[demo](https://albertxiao1994.github.io/IFE/binbin/task1/task1.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task1)
+* 城市空气质量指数排名：[demo](https://albertxiao1994.github.io/IFE/binbin/task2/task2.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task2)
+* 城市空气质量指数排序：[demo](https://albertxiao1994.github.io/IFE/binbin/task3/task3.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task3)
+* 队列增删：[demo](https://albertxiao1994.github.io/IFE/binbin/task4/task4.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task4)
+* 队列排序：[demo](https://albertxiao1994.github.io/IFE/binbin/task5/task5.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task5)
+* 队列查询：[demo](https://albertxiao1994.github.io/IFE/binbin/task6/task6.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task6)
+* 可视化二叉树遍历：[demo](https://albertxiao1994.github.io/IFE/binbin/task7/task7.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task7)
+* 可视化树的遍历：[demo](https://albertxiao1994.github.io/IFE/binbin/task7/task7.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task7)
+* 可视化树的遍历、查询：[demo](https://albertxiao1994.github.io/IFE/binbin/task8/task8.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task8)
+* 可视化树的遍历、查询、增删：[demo](https://albertxiao1994.github.io/IFE/binbin/task9/task9.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/binbin/task9)
+
 
 
 
