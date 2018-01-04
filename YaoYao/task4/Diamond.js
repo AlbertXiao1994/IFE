@@ -8,7 +8,7 @@ window.onload=function() {
 	//名称获得焦点事件处理程序
 	input.onfocus=function() {
 		var p=document.getElementById("p_order");
-		p.style.color="#CACACA";
+		p.style.color="#646262";
 		p.innerHTML="GO:向前，TUN LEF:向左转，TUN RIG：向右转，TUN BAC：向后转";
 	}
 
