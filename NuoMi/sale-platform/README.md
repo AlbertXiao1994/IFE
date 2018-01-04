@@ -1,21 +1,3 @@
-# sale-platform
+# Vue PC端电商售卖平台
+第一次使用vue-cli开发项目，对规范的项目目录、模块化、数据mock、路由、npm、webpack、node都有了初步的了解
 
-> a demo about sale platform
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
