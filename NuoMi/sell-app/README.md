@@ -4,10 +4,10 @@
 * 首页<br>
 ![首页](https://github.com/AlbertXiao1994/IFE/blob/master/NuoMi/sell-app/resource/screenshot/home.png)
 * 评价页<br>
-![评价页](https://github.com/AlbertXiao1994/IFE/blob/master/NuoMi/sell-app/resource/screenshot/rating.png)
+![评价页](https://github.com/AlbertXiao1994/IFE/blob/master/NuoMi/sell-app/resource/screenshot/rating.PNG)
 * 商家详情页<br>
 ![商家](https://github.com/AlbertXiao1994/IFE/blob/master/NuoMi/sell-app/resource/screenshot/seller.png)
 * 优惠详情页<br>
-![优惠](https://github.com/AlbertXiao1994/IFE/blob/master/NuoMi/sell-app/resource/screenshot/support.png)
+![优惠](https://github.com/AlbertXiao1994/IFE/blob/master/NuoMi/sell-app/resource/screenshot/support.PNG)
 * 购物车详情页<br>
 ![购物车](https://github.com/AlbertXiao1994/IFE/blob/master/NuoMi/sell-app/resource/screenshot/cart.png)
