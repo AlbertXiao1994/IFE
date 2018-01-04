@@ -17,7 +17,7 @@ var cutSongMode=0;//0:顺序播放，1:随机播放
 
 //初始化
 $(function() {
-	$.ajaxSetup({async:false});//设置为同步
+	$.ajaxSetup({async:true});//设置为异步
 	//获取歌曲信息
 	$.getJSON("./data/music.json",function(data) {
 		songs=data;
