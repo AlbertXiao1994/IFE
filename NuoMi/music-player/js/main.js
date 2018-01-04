@@ -6,7 +6,7 @@ var currentSong={
     "musician": "燕池",
     "album": "燕歌行",
     "img": "images/1.jpg",
-    "url": "music/renhai.mp3"
+    "url": "music/0.mp3"
 };
 //播放/暂停标志
 var playFlag=false;//ture:播放，false:暂停
