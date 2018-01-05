@@ -56,6 +56,7 @@ IFE
 * 听指令的小方块（二）：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task5/task5.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task5)
 * UI组件之浮出层：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task6/task6.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task6)
 * UI组件之排序表格：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task7/task7.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task7)
+* 标签云：[demo](https://albertxiao1994.github.io/IFE/business-platfom/labelCloud/task.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master//business-platfom/labelCloud)
 ### css3组件、Boostrap、Vue初探、数据抓取
 * 有趣的鼠标悬浮模糊效果：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task1/task.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task1)
 * 自定义checkbox、radiobox样式：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task8/task8.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task8)
