@@ -1,7 +1,7 @@
 IFE
 ===
-自学阶段所有的demo，从年初开始，陆续完成IFE（百度前端技术学院）上的任务，从最基础的纯html+css静态页面，js操作dom完成简单的页面逻辑、综合性的交互、小游戏，到后来的原生实现自定义组件、vue数据双向绑定初探、正则、Phantomn.js数据抓取以及综合性的简易markdown编辑器、仿豆瓣音乐播放器。把整个前端基础知识体系差不多过了一遍，收获颇多。<br>
-到后来，索性把啃《js权威指南》时书上的例子、学jquery+bootsrap、VUe时的实战练习项目也搬到这个库<br>
+自学初期所有的demo，从2017年初开始，陆续完成[IFE](http://ife.baidu.com/)（百度前端技术学院）上的任务，从最基础的纯html+css静态页面，js操作dom完成简单的页面逻辑、综合性的交互、小游戏，到后来的原生实现自定义组件、vue数据双向绑定初探、正则、Phantomn.js数据抓取以及综合性的简易markdown编辑器、仿豆瓣音乐播放器。把整个前端基础知识体系差不多过了一遍，收获颇多。<br>
+到后来，索性把啃《js权威指南》时书上的例子、学jQuery+bootsrap、Vue时的实战练习项目也搬到这个库<br>
 ### HTML+CSS
 * 纯HTML页面：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task1/task1.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task1)
 * html+css排版：[demo](https://albertxiao1994.github.io/IFE/XiaoWei/task2/task2.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/XiaoWei/task2)
@@ -56,6 +56,7 @@ IFE
 * 听指令的小方块（二）：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task5/task5.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task5)
 * UI组件之浮出层：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task6/task6.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task6)
 * UI组件之排序表格：[demo](https://albertxiao1994.github.io/IFE/YaoYao/task7/task7.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/YaoYao/task7)
+* 标签云：[demo](https://albertxiao1994.github.io/IFE/business-platfom/labelCloud/task.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master//business-platfom/labelCloud)
 ### css3组件、Boostrap、Vue初探、数据抓取
 * 有趣的鼠标悬浮模糊效果：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task1/task.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task1)
 * 自定义checkbox、radiobox样式：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task8/task8.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task8)
@@ -75,7 +76,7 @@ IFE
 * 某网站首页：[demo](https://albertxiao1994.github.io/IFE/NuoMi/YJJS/main.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/YJJS)
 * markdown编辑器：[demo](https://albertxiao1994.github.io/IFE/NuoMi/task12/task12.html)  [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/task12)
 ### 实战项目
-* Jquery+Bootstrap仿豆瓣网页版音乐播放器：[代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/music-player)
+* jQuery+Bootstrap仿豆瓣网页版音乐播放器：[代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/music-player)
 * Vue购物车：[demo](https://albertxiao1994.github.io/IFE/NuoMi/shoppingCart/cart.html) [代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/shoppingCart)
 * Vue电商售卖平台PC端：[代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/sale-platform)
 * Vue移动端仿饿了么webApp：[代码](https://github.com/AlbertXiao1994/IFE/tree/master/NuoMi/sell-app)
